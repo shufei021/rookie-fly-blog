@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest  #指定服务器的运行环境：最新版本ubuntu
     permissions:
       contents: write
-      pages: write
-      id-token: write
     
     steps:
       # 使用actions/checkout@v4 库拉取代码到 ubuntu 上

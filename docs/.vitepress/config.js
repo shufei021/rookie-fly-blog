@@ -14,7 +14,6 @@ export default {
   outDir: "../dist",
   /** 打包项目的根目录 */
   base: "/rookie-blog/",
-  assetsDir: 'assets',     // 资源目录名
   head: [
     // 添加图标
     ["link", { rel: "icon", href: "/favicon.ico" }],

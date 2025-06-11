@@ -1,7 +1,5 @@
 /*
  * @Description: VitePress配置文件
- * @Author: laoyuan
- * @Date: 2023-10-10 15:06:13
  */
 
 // 头部导航

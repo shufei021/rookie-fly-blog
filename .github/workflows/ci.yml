@@ -1,9 +1,8 @@
 name: GitHub Actions Build and Deploy
  
 on:
-  # 手动运行工作流程（workflow_dispatch 事件触发器配置后可以在actions下手动运行工作流）workflow_dispatch:
-  push:
-    branches: [deploy-pages]
+  # 手动运行工作流程（workflow_dispatch 事件触发器配置后可以在actions下手动运行工作流）
+  workflow_dispatch:
  
 jobs:
   build-and-deploy:

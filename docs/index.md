@@ -12,7 +12,7 @@
       text: 立即开始
       link: /guide/start
     - theme: alt
-      text: 前端
+      text: 前端1
       link: https://github.com/shufei021/rookie-fly-blog/
 ---
 <Home />

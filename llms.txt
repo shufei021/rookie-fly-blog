@@ -1,8 +1,8 @@
-# blog
+# 极简博客
 
 > 关注web前端开发为主的博客
 
-前端相关的技术网站，包括Vue、React等技术资料的生态网站，方便快速访问。
+个人技术笔记前端相关的技术网站，包括Vue、React等技术资料的生态网站，方便快速访问。
 
 ## Table of Contents
 
@@ -26,4 +26,6 @@
 - [Untitled](/site/html-css.md)
 - [Untitled](/site/page.md)
 - [Vue学习笔记-调试测试](/note/vue.md)
-- [开始访问官网-测试内容](/guide/start.md)
+- [前端前沿](/guide/start.md)
+- [工具库 rutilsjs](/frontend/library.md)
+- [插件库](/frontend/plugin.md)

@@ -2,7 +2,7 @@
 import { h } from "vue";
 import { useData } from "vitepress";
 import siteList from "./components/siteList.vue";
-import siteFooter from "./components/siteFooter.vue";
+// import siteFooter from "./components/siteFooter.vue";
 import home from "./components/home.vue";
 import backTop from "./components/backTop.vue";
 import NotFound from "./components/404.vue";
@@ -41,7 +41,7 @@ export default {
     }
     return h(DefaultTheme.Layout, props, {
       // 自定义文档底部
-      "doc-after": () => h(siteFooter),
+      // "doc-after": () => h(siteFooter),
       "not-found": () => h(NotFound),
     });
   },

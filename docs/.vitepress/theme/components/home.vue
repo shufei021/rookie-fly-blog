@@ -3,27 +3,80 @@
 -->
 <template>
   <div class="ui-home">
-    <div class="ui-title">前端开源项目推荐</div>
-    <ul class="ui-project">
-      <li class="item" v-for="v in siteData" :key="v.name">
-        <a class="link" :href="v.link" target="_blank">
-          <h3 :class="['title', v.className]">{{ v.name }}</h3>
-          <p class="desc">{{ v.desc }}</p>
-        </a>
-      </li>
-    </ul>
+    <template v-for="v in siteData" :key="v.name">
+      <div class="ui-title">{{v.title}}</div>
+      <ul class="ui-project">
+        <li class="item" v-for="(v,idx) in v.list" :key="v.name">
+          <a class="link" :href="v.link" target="_blank">
+            <h3 :class="['title', 'color-' + classNames[idx]]">{{ v.name }}</h3>
+            <p class="desc" v-highlight="'yellow'">{{ v.desc }}</p>
+            <div class="tags">
+              <el-tag
+                v-for="(tag,idx) in v.tags"
+                :key="idx"
+                :type="types[idx]"
+                size="small"
+                effect="dark"
+              >
+                {{ tag }}
+              </el-tag>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </template>
   </div>
   <BackTop></BackTop>
 </template>
 <script setup>
 import { siteData } from '../model/siteData.js'
-
+import { ref } from 'vue'
+const classNames = ref(["red","orange","yellow", "green","cyan","blue","purple","pink","blue-light","blue-deep","black","pink-light","yellow-light","yellow-light1","pink-deep","soil"])
+const types = ref(['primary','success','info','warning','danger'])
+const isEllipsis = function (el) {
+  el = typeof el === 'string' ? document.querySelector(el):el
+  return el && (el.scrollHeight !== el.offsetHeight || el.scrollWidth !== el.offsetWidth);
+};
+// 定义局部指令
+const vHighlight = {
+  mounted(el) {
+    if(isEllipsis(el)){
+      el.title = el.innerText;
+    }
+  },
+  updated(el) {
+    if(isEllipsis(el)){
+      el.title = el.innerText;
+    }
+  },
+};
 </script>
 <style lang="scss">
-.color-pink1 {background: #90f;}
-.color-red {background: #b91d47;}
-.color-blue-deep4 {background: #3360a3;}
-.color-blue-light6 {background: #2db7f5;}
+$colors: (
+  "red": #da201a,
+  "orange": #e9792f,
+  "yellow": #f39c12, 
+  "green": #2AC864,
+  "cyan": #2ecc71,
+  "blue": #3498db,
+  "purple": #90f,
+  "pink": #FF6699,
+  "blue-light":#2db7f5,
+  "blue-deep":#3360a3,
+  "black":#111827,
+  "pink-light":#f8a5c2,
+  "yellow-light":#e77f67,
+  "yellow-light1":#f5cd79,
+  "pink-deep":#c96d9b,
+  "soil":#1c3356,
+
+);
+@each $name, $color in $colors {
+  .color-#{$name} {
+    background: $color;
+  }
+}
+
 .color-green-gradient1{
 	background: -webkit-linear-gradient(120deg, #86b91a 30%, #edd532);
 	background: linear-gradient(120deg, #86b91a 30%, #edd532);
@@ -44,7 +97,7 @@ import { siteData } from '../model/siteData.js'
 
 /**首页网址推荐**/
 .ui-home {
-  width: 1152px;
+  width: 320px;
   margin: 0 auto 20px;
   .ui-title {
     display: flex;
@@ -62,12 +115,14 @@ import { siteData } from '../model/siteData.js'
 	margin-top: 20px;
   .item,
   .link {
-    height: 220px;
+    height: 230px;
   }
   .item {
   	 margin-top: 0;
-    .link {
-      display: block;
+     .link {
+      display: flex;
+      flex-direction: column;
+      // display: block;
       color: #333;
       background: #fff;
       border: 1px solid #f1f1f1;
@@ -89,16 +144,47 @@ import { siteData } from '../model/siteData.js'
 	  margin: 0;
     }
     .desc {
+      height: 84px;
       line-height: 2;
       padding: 0 12px;
-      margin-top: 14px;
       font-size: 14px;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      margin-bottom: 0;
+      margin-top: 16px;
     }
+    .tags{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      gap: 5px;
+      flex-wrap: wrap;
+      align-content: flex-end;
+    }
+  }
+}
+
+/* 中等宽度设备 - 平板等 (768px 到 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ui-home {
+    width: 600px;
+  }
+}
+
+/* 大宽度设备 - 桌面电脑等 (1024px 到 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .ui-home {
+    width: 888px;
+  }
+}
+/* 超大宽度设备 - 大屏幕桌面 (1280px 及以上) */
+@media (min-width: 1280px) {
+  .ui-home {
+    width: 1152px;
   }
 }
 </style>

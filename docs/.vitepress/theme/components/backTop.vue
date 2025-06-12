@@ -41,8 +41,8 @@
 }
 .back-top {
   position: fixed;
-  bottom: 200px;
-  right: 30px;
+  bottom: -10px;
+  right: -5px;
   z-index: var(--back-to-top-z-index);
   transform: scale(0);
   opacity: 0;

@@ -54,7 +54,7 @@ li {
     }
   }
   .logo {
-    height: 40px;
+    height: 100%;
   }
 }
 
@@ -95,6 +95,12 @@ li {
     .tagline {
       font-size: 20px;
       line-height: 30px;
+    }
+    .image-container{
+      .VPImage {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

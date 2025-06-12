@@ -38,14 +38,14 @@ export default {
     // 右侧边栏配置，默认值是"In hac pagina"
     outlineTitle: "本页目录",
     // 编辑链接
-    editLink: {
-      pattern: "https://github.com/shufei021/rookie-fly-blog",
-      text: "在 github 上编辑此页",
-    },
+    // editLink: {
+    //   pattern: "https://github.com/shufei021/rookie-fly-blog",
+    //   text: "在 github 上编辑此页",
+    // },
     // 站点页脚配置
     footer: {
       // message: "Released under the MIT License",
-      copyright: "Copyright © 2025-present Shu fei",
+      copyright: "Copyright © 2025-rookie",
     },
     // 社交和项目链接地址配置
     socialLinks: [
@@ -59,10 +59,11 @@ export default {
       // },
     ],
     // 搜索
-    algolia: {
-      apiKey: "your_api_key",
-      indexName: "index_name",
-    },
+    // algolia: {
+    //   apiKey: "your_api_key",
+    //   indexName: "index_name",
+    // },
+    
     //本地搜索
     search: {
       provider: "local",

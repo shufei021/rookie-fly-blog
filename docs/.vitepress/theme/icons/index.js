@@ -35,7 +35,7 @@ export function registerIcons() {
 
   // 将 sprite 插入到 body 中
   const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0;left: -999px;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0;left: -999px;visibility: hidden;">
       ${sprite}
     </svg>
   `

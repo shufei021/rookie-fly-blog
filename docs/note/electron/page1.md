@@ -18,9 +18,9 @@
 
 ## 流程示意图
 
-![流程](../../.vitepress/theme/icons/svg/deepseekMermaid.svg)
+![流程](../../assets/mermaid.png)
 
- 
+
  ### 跨平台串口通信库
 
  ```bash

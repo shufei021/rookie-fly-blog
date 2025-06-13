@@ -8,7 +8,7 @@ import { vitePressNote } from "./sideBar/vitePressBar";
 import llmstxt from "vitepress-plugin-llms";
 import svgLoader from 'vite-svg-loader'
 export default {
-  title: "随记博客",
+  title: "极简博客",
   description: "关注web前端开发为主的博客网站和前端网址大全",
   // 打包目录
   outDir: "../dist",

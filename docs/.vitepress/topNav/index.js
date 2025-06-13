@@ -10,11 +10,15 @@ export default [
   },
   {
     text: "我的开源",
-    link: "/guide/start1",
+    link: "/openSource/open-source",
   },
   {
     text: "我的笔记",
-    link: "/guide/start2",
+    items: [
+      // { text: "VitePress", link: "/note/vitePress/page1" },
+      { text: "CSS", link: "/note/css/css" },
+      // { text: "React", link: "/note/react" },
+    ],
   },
   // {
   //   text: "前端",

@@ -114,3 +114,14 @@ li {
     border-bottom: 1px solid #000;
   }
 }
+/* 确保 SVG 图标可以正确缩放 */
+.svg-icon {
+  shape-rendering: geometricPrecision;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 移除可能的冲突样式 */
+svg:not(:root) {
+  overflow: visible;
+}

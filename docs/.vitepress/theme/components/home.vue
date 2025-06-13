@@ -51,7 +51,7 @@ const vHighlight = {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 $colors: (
   "red": #da201a,
   "orange": #e9792f,

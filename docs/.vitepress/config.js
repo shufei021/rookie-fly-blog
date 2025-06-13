@@ -6,7 +6,7 @@
 import topNav from "./topNav";
 import { vitePressNote } from "./sideBar/vitePressBar";
 import llmstxt from "vitepress-plugin-llms";
-
+import svgLoader from 'vite-svg-loader'
 export default {
   title: "随记博客",
   description: "关注web前端开发为主的博客网站和前端网址大全",
@@ -21,7 +21,7 @@ export default {
   // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
   lastUpdated: true, // string | boolean
   vite: {
-    plugins: [llmstxt()],
+    plugins: [llmstxt(),svgLoader()],
   },
   // 主题配置
   themeConfig: {
@@ -32,9 +32,9 @@ export default {
     // 导航栏配置
     nav: topNav,
     // 左侧导航栏
-    sidebar: {
-      "/note/vitePress": vitePressNote,
-    },
+    // sidebar: {
+    //   "/note/vitePress": vitePressNote,
+    // },
     // 右侧边栏配置，默认值是"In hac pagina"
     outlineTitle: "本页目录",
     // 编辑链接

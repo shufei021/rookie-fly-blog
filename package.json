@@ -4,7 +4,12 @@
   "description": "关注web前端开发为主的博客网站",
   "main": "index.js",
   "type": "module",
-  "keywords": ["vitepress", "vue3", "docs", "mdit-vue"],
+  "keywords": [
+    "vitepress",
+    "vue3",
+    "docs",
+    "mdit-vue"
+  ],
   "author": "shufei",
   "license": "MIT",
   "scripts": {
@@ -16,6 +21,8 @@
     "@mdit-vue/shared": "^1.0.0",
     "prettier": "^3.0.3",
     "sass": "^1.89.0",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-svg-loader": "^5.1.0",
     "vitepress": "1.6.3",
     "vitepress-plugin-llms": "^1.3.4",
     "vue": "^3.5.15"

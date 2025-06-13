@@ -1,0 +1,100 @@
+<template>
+    <div class="open-source">
+        <el-card class="card-wrap" v-for="(item,idx) in openSourceData" :key="idx" @click="itemClick(item)">
+            <template #header>
+            <div class="card-header">
+                <span>{{ item.title }}</span>
+                <SvgIcon :name="item.icon.name" :width="item.icon.width" :height="item.icon.height"/>
+            </div>
+            </template>
+            <div class="desc">
+                {{ item.desc }}
+            </div>
+            <template #footer>
+                <div class="footer">
+                    <el-tag
+                        v-for="(tag,idx) in item.tags"
+                        :key="idx"
+                        :type="types[idx]"
+                        size="small"
+                        effect="dark"
+                    >
+                        {{ tag }}
+                    </el-tag>
+                </div>
+            </template>
+        </el-card>
+    </div>
+  </template>
+  <script setup>
+  import { openSourceData } from '../model/openSourceData.js'
+  import { ref } from 'vue'
+  const props = defineProps({
+    data: {
+      type: Array,
+      default: [],
+    },
+  });
+  const types = ref(['primary','success','info','warning','danger'])
+
+  function itemClick(item){
+    window.open(item.docLink, '_blank')
+  }
+  </script>
+<style lang="scss">
+$colors: (
+  "red": #da201a,
+  "orange": #e9792f,
+  "yellow": #f39c12, 
+  "green": #2AC864,
+  "cyan": #2ecc71,
+  "blue": #3498db,
+  "purple": #90f,
+  "pink": #FF6699,
+  "blue-light":#2db7f5,
+  "blue-deep":#3360a3,
+  "black":#111827,
+  "pink-light":#f8a5c2,
+  "yellow-light":#e77f67,
+  "yellow-light1":#f5cd79,
+  "pink-deep":#c96d9b,
+  "soil":#1c3356,
+
+);
+@each $name, $color in $colors {
+  .color-#{$name} {
+    background: $color;
+  }
+}
+
+.open-source{
+    width: 1037px;
+    margin-top: 50px;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    z-index: 1000;
+    .card-header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .el-card__footer{
+        background-color: #f0f0f0;
+        color: #000;
+    }
+    .card-wrap{
+        max-width: 339px;
+        .desc{
+            height: 96px;
+        }
+    }
+    .footer{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+        align-content: flex-end;
+    }
+
+}
+</style>

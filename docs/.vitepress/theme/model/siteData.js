@@ -75,6 +75,28 @@ const assistSite = {
         '在线沙箱',
         '调式',
       ]
+    },
+    {
+      name: "cursor",
+      desc: "AI 代码编辑器,旨在让你获得超凡的生产力， Cursor 是使用 AI 编写代码的最佳方式。",
+      link: "https://www.cursor.com/cn",
+      className: "color-green-gradient1",
+      tags:[
+        '桌面应用程序',
+        'AI',
+        'IDE',
+      ]
+    },
+    {
+      name: "trae",
+      desc: "Trae，致力于成为真正的 AI 工程师（The Real AI Engineer）。Trae 旗下的 AI IDE 产品，以智能生产力为核心，无缝融入你的开发流程，与你默契配合，更高质量、高效率完成每一个任务。",
+      link: "https://www.trae.com.cn/",
+      className: "color-green-gradient1",
+      tags:[
+        '桌面应用程序',
+        'AI',
+        'IDE',
+      ]
     }
   ]
 }

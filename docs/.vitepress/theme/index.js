@@ -6,6 +6,7 @@ import siteList from "./components/siteList.vue";
 import home from "./components/home.vue";
 import backTop from "./components/backTop.vue";
 import NotFound from "./components/404.vue";
+import OpenSource from "./components/OpenSource.vue";
 
 import DefaultTheme from "vitepress/theme";
 import "./styles/custom.scss";
@@ -14,7 +15,8 @@ import "./styles/rainbow.css";
 
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-
+import SvgIcon from './components/SvgIcon.vue'
+import { registerIcons } from './icons'
 export default {
   ...DefaultTheme,
   // NotFound: () => h(NotFound), // <- this is a Vue 3 functional component
@@ -23,11 +25,17 @@ export default {
     // router is VitePress' custom router (see `lib/app/router.js`)
     // siteData is a ref of current site-level metadata.
     app.use(ElementPlus);
+    app.component('SvgIcon', SvgIcon)
     // 注册全局组件
     app.component("SiteList", siteList);
     app.component("Home", home);
     app.component("BackTop", backTop);
+    app.component("OpenSource", OpenSource);
     // router.addRoute({ path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound });
+    // 注册所有图标
+    if (typeof window !== 'undefined') {
+      registerIcons()
+    }
   },
   // 自定义布局配置
   Layout: () => {

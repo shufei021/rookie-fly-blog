@@ -4,7 +4,7 @@
 
 // 头部导航
 import topNav from "./topNav";
-import { vitePressNote } from "./sideBar/vitePressBar";
+// import { vitePressNote } from "./sideBar/vitePressBar";
 import llmstxt from "vitepress-plugin-llms";
 import svgLoader from 'vite-svg-loader'
 export default {
@@ -16,7 +16,7 @@ export default {
   base: "/rookie-fly-blog/",
   head: [
     // 添加图标
-    ["link", { rel: "icon", href: "/favicon.ico" }],
+    ["link", { rel: "icon", href: "/rookie-fly-blog/favicon.ico" }],
   ],
   // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
   lastUpdated: true, // string | boolean

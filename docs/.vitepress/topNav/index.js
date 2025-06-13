@@ -16,7 +16,8 @@ export default [
     text: "我的笔记",
     items: [
       // { text: "VitePress", link: "/note/vitePress/page1" },
-      { text: "CSS", link: "/note/css/css" },
+      // { text: "CSS", link: "/note/css/css" },
+      { text: "Electron", link: "/note/electron/page1" },
       // { text: "React", link: "/note/react" },
     ],
   },

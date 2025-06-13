@@ -71,6 +71,7 @@ $colors: (
     width: 1037px;
     margin-top: 50px;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     position: relative;
     z-index: 1000;
@@ -96,5 +97,24 @@ $colors: (
         align-content: flex-end;
     }
 
+}
+/* 中等宽度设备 - 平板等 (768px 到 1023px) */
+@media (min-width: 350px) and (max-width: 689px) {
+    .open-source {
+    width: 350px;
+  }
+}
+
+/* 大宽度设备 - 桌面电脑等 (1024px 到 1279px) */
+@media (min-width: 690px) and (max-width: 1279px) {
+    .open-source {
+    width: 690px;
+  }
+}
+/* 超大宽度设备 - 大屏幕桌面 (1280px 及以上) */
+@media (min-width: 1280px) {
+    .open-source {
+    width: 1037px;
+  }
 }
 </style>

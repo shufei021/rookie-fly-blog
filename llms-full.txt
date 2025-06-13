@@ -230,7 +230,22 @@ url: /about/page.md
 ---
 ## 关于我
 
-随记博客是一个专注web前端开发技术内容为主的博客网站和前端网址导航，收集有一大批前端相关的技术资料网站，包括Vue.js、React、Node.js、CSS3、HTML5、JavaScript教程网站、热门JS框架、icon素材图库、交互设计、开发工具等网站，提供了便捷的资料入口。
+**技术栈**
+
+|                                |  Stack              |
+| ---------------------------------- | :----------------- |
+| Language             |                    |
+| FrontEnd   |                        |
+| CI/CD   |                |
+
+**能做什么？**
+
+|         端                       |  技术栈              |
+| ---------------------------------- | :----------------- |
+| PC端 | vue2/vue3 |
+| H5端 | vue2/vue3 |
+| 微信小程序 |uniapp |
+| 桌面应用程序 |uniapp |
 
 ---
 
@@ -299,6 +314,79 @@ render(VNode)
 ---
 
 ---
+url: /note/css/css.md
+---
+# 列表布局
+
+> 在微信小程序 或是 移动端上，有时候会出现神秘的1px差异，如果你是商品列表 三个 一行，那么第一行的第三个将会挤到第二行去，从而导致样式错乱，以下布局可以解决以上问题
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* 商品之间的间距 */
+}
+
+.product-item {
+  flex: 0 0 calc((100% - 2 * 8px) / 3); /* 计算出正确的宽度，减去左右边距影响 */
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  padding: 16px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .product-item {
+    flex: 0 0 calc((100% - 1 * 8px) / 2);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+    flex: 0 0 100%;
+  }
+}  
+</style>
+
+<body>
+  <div class="product-list">
+    <div class="product-item">商品 1</div>
+    <div class="product-item">商品 2</div>
+    <div class="product-item">商品 3</div>
+    <div class="product-item">商品 4</div>
+    <div class="product-item">商品 5</div>
+    <div class="product-item">商品 6</div>
+    <div class="product-item">商品 7</div>
+    <div class="product-item">商品 8</div>
+    <div class="product-item">商品 9</div>
+    <div class="product-item">商品 10</div>
+    <div class="product-item">商品 11</div>
+    <div class="product-item">商品 12</div>
+    <div class="product-item">商品 13</div>
+    <div class="product-item">商品 14</div>
+    <div class="product-item">商品 15</div>
+    <div class="product-item">商品 16</div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+---
 url: /guide/start.md
 ---
 # 前端前沿
@@ -319,6 +407,43 @@ url: /frontend/library.md
 ```bash
 npm i rutilsjs
 ```
+
+---
+
+---
+url: /openSource/open-source.md
+---
+# 我的开源项目
+
+> 我的开源项目应用到项目中的目前有这三个，都有对应的文档 或 示例，还有其他开源项目后续补充
+
+**技术社区**
+
+[掘金社区](https://juejin.cn/user/4212984287071710)
+
+**使用热区图片插件**
+
+```bash
+npm i img-hotspot
+```
+
+[去看示例](https://codesandbox.io/p/sandbox/image-hotspot-tu-pian-re-qu-lkczjc) [去看文档](https://www.npmjs.com/package/img-hotspot)
+
+**使用常用工具函数库**
+
+```bash
+npm i rutilsjs
+```
+
+[去看文档](https://shufei021.github.io/rutils/)
+
+**使用日期工具函数库**
+
+```bash
+npm i rdatejs
+```
+
+[去看文档](https://shufei021.github.io/rdate/)
 
 ---
 

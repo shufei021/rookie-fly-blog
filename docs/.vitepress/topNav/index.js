@@ -12,21 +12,29 @@ export default [
     text: "我的开源",
     link: "/openSource/open-source",
   },
-  {
-    text: "我的笔记",
-    items: [
-      // { text: "VitePress", link: "/note/vitePress/page1" },
-      // { text: "CSS", link: "/note/css/css" },
-      { text: "Electron", link: "/note/electron/page1" },
-      // { text: "React", link: "/note/react" },
-    ],
-  },
   // {
-  //   text: "前端",
+  //   text: "我的笔记",
   //   items: [
-  //     { text: "工具库", link: "/frontend/library" },
-  //     { text: "组件库", link: "/site/html-css" },
-  //     { text: "插件库", link: "/frontend/plugin" },
+  //     // { text: "VitePress", link: "/note/vitePress/page1" },
+  //     // { text: "CSS", link: "/note/css/css" },
+  //     { text: "Electron", link: "/note/electron/page1" },
+  //     // { text: "React", link: "/note/react" },
+  //   ],
+  // },
+  // {
+  //   text: "和孩子一起学习",
+  //   link: "/learn/math/skill",
+  // },
+  // {
+  //   text: "面试题",
+  //   items: [
+  //     { text: "HTML", link: "/Interview/html/page" },
+  //     { text: "CSS", link: "/Interview/css/page" },
+  //     { text: "JAVASCRIPT", link: "/Interview/js/page" },
+  //     { text: "Vue", link: "/Interview/vue/page" },
+  //     { text: "React", link: "/Interview/react/page" },
+  //     { text: "PC端", link: "/Interview/pc/page" },
+  //     { text: "H5端", link: "/Interview/h5/page" },
   //   ],
   // },
   // {

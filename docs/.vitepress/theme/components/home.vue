@@ -119,6 +119,7 @@ $colors: (
   }
   .item {
   	 margin-top: 0;
+     list-style: none;
      .link {
       display: flex;
       flex-direction: column;

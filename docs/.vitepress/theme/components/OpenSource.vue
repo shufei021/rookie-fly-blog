@@ -7,7 +7,7 @@
                 <SvgIcon :name="item.icon.name" :width="item.icon.width" :height="item.icon.height"/>
             </div>
             </template>
-            <div class="desc">
+            <div class="desc" v-highlight>
                 {{ item.desc }}
             </div>
             <template #footer>
@@ -40,6 +40,23 @@
   function itemClick(item){
     window.open(item.docLink, '_blank')
   }
+  const isEllipsis = function (el) {
+    el = typeof el === 'string' ? document.querySelector(el):el
+    return el && (el.scrollHeight !== el.offsetHeight || el.scrollWidth !== el.offsetWidth);
+  };
+  // 定义局部指令
+  const vHighlight = {
+    mounted(el) {
+      if(isEllipsis(el)){
+        el.title = el.innerText;
+      }
+    },
+    updated(el) {
+      if(isEllipsis(el)){
+        el.title = el.innerText;
+      }
+    },
+  };
   </script>
 <style lang="scss">
 $colors: (
@@ -87,6 +104,11 @@ $colors: (
         max-width: 339px;
         .desc{
             height: 96px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
         }
     }
     .footer{

@@ -4,7 +4,7 @@
 
 // 头部导航
 import topNav from "./topNav";
-// import { vitePressNote } from "./sideBar/vitePressBar";
+import { vitePressNote,InterviewHmtl,InterviewCss,InterviewJs,InterviewVue,InterviewReact,InterviewPc,InterviewH5 } from "./sideBar/vitePressBar";
 import llmstxt from "vitepress-plugin-llms";
 import svgLoader from 'vite-svg-loader'
 export default {
@@ -32,9 +32,16 @@ export default {
     // 导航栏配置
     nav: topNav,
     // 左侧导航栏
-    // sidebar: {
-    //   "/note/vitePress": vitePressNote,
-    // },
+    sidebar: {
+      "/learn/math/skill": vitePressNote,
+      "/Interview/html/page": InterviewHmtl,
+      "/Interview/css/page": InterviewCss,
+      "/Interview/js/page": InterviewJs,
+      "/Interview/vue/page": InterviewVue,
+      "/Interview/react/page": InterviewReact,
+      "/Interview/pc/page": InterviewPc,
+      "/Interview/h5/page": InterviewH5,
+    },
     // 右侧边栏配置，默认值是"In hac pagina"
     outlineTitle: "本页目录",
     // 编辑链接
@@ -59,10 +66,10 @@ export default {
       // },
     ],
     // 搜索
-    // algolia: {
-    //   apiKey: "your_api_key",
-    //   indexName: "index_name",
-    // },
+    algolia: {
+      apiKey: "your_api_key",
+      indexName: "index_name",
+    },
     
     //本地搜索
     search: {
@@ -75,5 +82,12 @@ export default {
       prev: "上一篇",
       next: "下一篇",
     },
+    mermaid: {
+      enable: true, // 启用 Mermaid
+      // 可选：配置主题或语法
+      options: { 
+        theme: 'default' 
+      }
+    }
   },
 };

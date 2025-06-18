@@ -36,5 +36,18 @@ export const openSourceData = [
       width:60,
       height: 24
     }
+  },
+  {
+    title: 'vue-popup-layer',
+    desc:'这是基于Vue2.0的物理返回组件。在移动终端上编写H5页面时，您通常只想在当前页面上打开一个弹出层。如果不想操作，请单击左上角的物理返回按钮返回当前页面。始终在当前页面上，这样做的好处是保持数据状态不变',
+    link:'https://www.npmjs.com/package/img-hotspot',
+    docLink:'https://www.npmjs.com/package/vue-popup-layer', // 文档
+    demoLink:'https://codesandbox.io/p/sandbox/blissful-microservice-0q3mo', // 示例
+    tags:['vue2','插件','H5','无限弹出层'],
+    icon: {
+      name:'npm',
+      width:60,
+      height: 24
+    }
   }
 ];

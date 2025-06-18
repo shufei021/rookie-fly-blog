@@ -6,6 +6,8 @@
 
 ## Table of Contents
 
+### 从零开始用VitePress搭建个人博客的教程笔记
+
 - [1.从零用VitePress搭建个人轻型博客的正确姿势(1)](/note/vitePress/page1.md)
 - [2.VitePress默认首页和头部导航配置](/note/vitePress/page2.md)
 - [3.VitePress默认主题相关细节配置](/note/vitePress/page3.md)
@@ -14,16 +16,81 @@
 - [6.如何用Github Actions自动化部署到Github Pages？](/note/vitePress/page6.md)
 - [7. vitePress如何非自动化部署到Github Pages？](/note/vitePress/page7.md)
 - [8. vitePress部署到Github Pages后发现样式错乱怎么办？](/note/vitePress/page8.md)
+
+### html
+
+- [1.从零用VitePress搭建个人轻型博客的正确姿势(1)](/note/vitePress/page1.md)
+
+### css
+
+- [flex](/Interview/css/pages/page1.md)
+
+### javascript
+
+- [前端内存泄漏有哪些情况](/Interview/js/pages/page1.md)
+- [延迟加载js的方法](/Interview/js/pages/page2.md)
+
+### vue
+
+- [vue的生命周期有哪些及每个生命周期做了什么](/Interview/vue/pages/page1.md)
+- [vue响应式原理是什么？vue3的响应式有何不同](/Interview/vue/pages/page2.md)
+- [vue3和vue2的区别](/Interview/vue/pages/page3.md)
+- [谈一谈对 MVVM 的理解？](/Interview/vue/pages/page4.md)
+- [在 Vue2.x 中如何检测数组的变化](/Interview/vue/pages/page5.md)
+- [v-model 双向绑定的原理是什么](/Interview/vue/pages/page6.md)
+- [vue2.x 和 vuex3.x 渲染器的 diff 算法分别说一下](/Interview/vue/pages/page7.md)
+- [vue组件通信方式有哪些及原理](/Interview/vue/pages/page8.md)
+- [Vue的路由实现, hash路由和history路由实现原理说一下](/Interview/vue/pages/page9.md)
+- [v-if 与 v-show 的区别](/Interview/vue/pages/page10.md)
+- [keep-alive的常用属性有哪些及实现原理](/Interview/vue/pages/page11.md)
+- [nextTick 的作用是什么？他的实现原理是什么](/Interview/vue/pages/page12.md)
+- [说一下 Vue SSR 的实现原理](/Interview/vue/pages/page13.md)
+- [Vue 组件的 data 为什么必须是函数](/Interview/vue/pages/page14.md)
+- [Vue 的 computed 的实现原理](/Interview/vue/pages/page15.md)
+- [Vue complier 的实现原理是什么样](/Interview/vue/pages/page16.md)
+- [Vue 与 React 的区别是什么？](/Interview/vue/pages/page17.md)
+- [watch 与 computed 的区别是什么以及他们的使用场景分别是什么](/Interview/vue/pages/page18.md)
+- [vue 修饰符](/Interview/vue/pages/page19.md)
+- [如何实现 vue 项目中的性能优化](/Interview/vue/pages/page20.md)
+- [vue 中的 spa 应用如何优化首屏加载速度](/Interview/vue/pages/page21.md)
+- [Vue 中的 Key 的作用是什么](/Interview/vue/pages/page22.md)
+- [组件中写 name 选项有哪些好处](/Interview/vue/pages/page23.md)
+- [ref 的作用是什么](/Interview/vue/pages/page24.md)
+- [你的接口请求一般放在哪个生命周期中？为什么要这样做？](/Interview/vue/pages/page25.md)
+
+### React
+
+- [1.从零用VitePress搭建个人轻型博客的正确姿势(1)](/note/vitePress/page1.md)
+
+### PC
+
+- [大屏自适应](/Interview/pc/pages/page1.md)
+
+### H5
+
+- [1.从零用VitePress搭建个人轻型博客的正确姿势(1)](/note/vitePress/page1.md)
+
+### Other
+
 - [Button 按钮](/examples/button.md)
 - [Electron+Vue3 硬件交互篇](/note/electron/page1.md)
+- [JavaScript](/Interview/js/page.md)
+- [PC端](/Interview/pc/page.md)
+- [react 高频面试题](/Interview/react/page.md)
+- [Untitled](/Interview/css/page.md)
+- [Untitled](/Interview/h5/page.md)
+- [Untitled](/Interview/html/page.md)
 - [Untitled](/about/page.md)
 - [Untitled](/note/react.md)
 - [Untitled](/site/framework.md)
 - [Untitled](/site/html-css.md)
 - [Untitled](/site/page.md)
+- [vue 高频面试题](/Interview/vue/page.md)
 - [Vue学习笔记-调试测试](/note/vue.md)
 - [列表布局](/note/css/css.md)
 - [前端前沿](/guide/start.md)
 - [工具库 rutilsjs](/frontend/library.md)
 - [我的开源项目](/openSource/open-source.md)
 - [插件库](/frontend/plugin.md)
+- [数学](/learn/math/skill.md)
+- [语文](/learn/chinese/skill.md)

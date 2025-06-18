@@ -1,0 +1,16 @@
+---
+url: /Interview/vue/pages/page2.md
+---
+# vue响应式原理是什么？vue3的响应式有何不同
+
+Vue在初始化数据时，会使用Object.defineProperty重新定义data中的所有属性，当页面使用对应属性时，首先会进行依赖收集(收集当前组件的watcher)如果属性发生变化会通知相关依赖进行更新操作(发布订阅)。
+
+Vue3.x改用Proxy替代Object.defineProperty。因为Proxy可以直接监听对象和数组的变化，并且有多达13种拦截方法。并且作为新标准将受到浏览器厂商重点持续的性能优化。
+
+Proxy只会代理对象的第一层，那么Vue3又是怎样处理这个问题的呢？
+
+判断当前Reflect.get的返回值是否为Object，如果是则再通过reactive方法做代理， 这样就实现了深度观测。
+
+监测数组的时候可能触发多次get/set，那么如何防止触发多次呢？
+
+我们可以判断key是否为当前被代理对象target自身属性，也可以判断旧值与新值是否相等，只有满足以上两个条件之一时，才有可能执行trigger。

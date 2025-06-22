@@ -358,43 +358,38 @@ onMounted(() => {
 ---
 url: /Interview/css/pages/page1.md
 ---
-\[\[toc]]
-
 # flex
 
 > `Flex` 是 `Flexible Box` 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为 `Flex` 布局。行内元素也可以使用 `Flex` 布局。`display: inline-flex;`
 
 ## 容器属性
 
+### flex-direction 主轴方向
+
 * `flex-direction：`属性决定主轴的方向（即项目的排列方向）
   ::: tip flex-direction属性的4个值
-
 * row（默认值）：主轴为水平方向，起点在左端。
-
 * row-reverse：主轴为水平方向，起点在右端。
-
 * column：主轴为垂直方向，起点在上沿。
-
 * column-reverse：主轴为垂直方向，起点在下沿。
   :::
+
+### flex-wrap 如何换行
 
 * `flex-wrap：`默认情况下，项目都排在一条线（又称"轴线"）上。`flex-wrap`属性定义，如果一条轴线排不下，如何换行
 
 ::: tip flex-wrap属性的3个值
 
 * nowrap （默认值）：不换行。
-
 * wrap：换行，第一行在上方。
-
 * wrap-reverse：换行，第一行在下方。
   :::
 
+### flex-flow 前两个简写
+
 * `flex-flow：` `flex-direction`属性和`flex-wrap`属性的简写形式，默认值为`row nowrap`
-
 * `justify-content：`项目在主轴上的对齐方式
-
 * `align-items：`项目在交叉轴上如何对齐
-
 * `align-content：`多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用
 
 ## 项目属性
@@ -405,6 +400,170 @@ url: /Interview/css/pages/page1.md
 * `flex-basis：`在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
 * `flex：` `flex-grow`, `flex-shrink` 和 `flex-basis`的简写，默认值为0 1 auto。后两个属性可选
 * `align-self：`允许单个项目有与其他项目不一样的对齐方式，可覆盖`align-items`属性。默认值为`auto`，表示继承父元素的`align-items`属性，如果没有父元素，则等同于`stretch`
+
+---
+
+---
+url: /Interview/h5/page.md
+---
+# H5
+
+## 移动端适配
+
+* `rem` + 动态html的font-size
+
+* 问题一：针对不同的屏幕，设置html不同的font-size
+
+* 问题二：将原来要设置的尺寸，转化成rem单位
+
+```bash
+npm i lib-flexible
+```
+
+```js
+// main.js
+import 'lib-flexible'
+```
+
+```bash
+postcss-px-to-rem -D
+```
+
+````
+
+安装 `postcss-pxtorem` 插件
+
+```bash
+npm i postcss-pxtorem
+````
+
+项目文件配置
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    'postcss-pxtorem': {
+      rootValue: 37.5,
+      propList: ['*']
+      // selectorBlackList: ['van-'] // rem 只转换业务的 不转换vant ui的样式
+    }
+  }
+}
+```
+
+::: details {open}
+
+```js
+{
+    rootValue: 37.5, // (数字 | 函数) 表示根元素字体大小或根据input参数返回根元素字体大小
+    unitPrecision: 5, // （数字）允许 REM 单位增长的十进制数。
+    propList: ['font', 'font-size', 'line-height', 'letter-spacing'], // （数组）可以从 px 变为 rem 的属性。
+    selectorBlackList: [], // （数组）要忽略并保留为 px 的选择器。
+    replace: true, // （布尔值）替换包含 rems 的规则而不是添加后备。
+    mediaQuery: false, // （布尔值）允许在媒体查询中转换 px。
+    minPixelValue: 0, // （数字）设置要替换的最小像素值。
+    exclude: /node_modules/i // （字符串、正则表达式、函数）忽略并保留为 px 的文件路径。
+}
+```
+
+```js
+module.exports = {
+  plugins: {
+    'postcss-px-to-viewport': {
+      viewportWidth: 375,  // 视口的宽度，对应的是我们设计稿的宽度
+      viewportHeight: 667, // 视口的高度，对应的是我们设计稿的高度 (可选)
+      unitPrecision: 5,    // 指定`px`转换为视窗单位值的小数位数
+                           //（很多时候无法整除）
+      viewportUnit: 'vw',  // 指定需要转换成的视窗单位，建议使用vw
+      selectorBlackList: ['.ignore', '.hairlines'], // 指定不转换为视窗单位的类，
+                           // 可以自定义，可以无限添加，建议定义一至两个通用的类名
+      minPixelValue: 1,    // 小于或等于`1px`不转换为视窗单位
+      mediaQuery: false    // 允许在媒体查询中转换`px`
+    }
+  }
+}
+```
+
+:::
+
+根节点 的字体大小来适配
+
+```js
+// screenRatioByDesign 设计图 rem16 / 9
+(function init(screenRatioByDesign = 16 / 9) {
+    // 文档的根元素
+  let docEle = document.documentElement
+  function setHtmlFontSize() {
+    // 1. 计算当前屏幕宽高比
+    var screenRatio = docEle.clientWidth / docEle.clientHeight;
+    // 2. 动态计算字体大小
+    var fontSize = (
+        screenRatio > screenRatioByDesign
+        ? (screenRatioByDesign / screenRatio) // 宽屏场景：按比例缩小
+        : 1 // 窄屏场景：不缩放
+    ) * docEle.clientWidth / 10; // 基准值 = 屏幕宽度的1/10
+    // 3. 设置根元素字体大小
+    docEle.style.fontSize = fontSize.toFixed(3) + "px";
+  }
+  setHtmlFontSize()
+  window.addEventListener('resize', setHtmlFontSize)
+})()
+```
+
+---
+
+---
+url: /Interview/js/pages/page5.md
+---
+# HTTP1 和 HTTP2 的区别
+
+## 🌟 前言
+
+> “HTTP/2 是对 HTTP/1.x 协议的重大升级，主要目标是提升网页加载速度、减少延迟、提高安全性。它基于 Google 的 SPDY 协议发展而来。”
+
+## 📊 分点对比：清晰易懂
+
+|特性|	HTTP/1.1|	HTTP/2|
+|--------:|--------:|--------:|
+|传输格式	|明文（文本）|	二进制|
+|多路复用|	不支持，需多个连接|	支持，单连接并发请求|
+|头部压缩|	无压缩|	使用 HPACK 压缩|
+|服务器推送	|不支持	|支持 Server Push|
+|请求优先级|	不支持|	支持设置优先级|
+|必须加密|	否	|推荐使用 TLS（通常加密）|
+
+## 🔍 深入讲解每个关键点
+
+**1. 二进制分帧层（Binary Framing Layer）**
+
+* HTTP/1.1 是基于文本解析的，效率低。
+* HTTP/2 将所有通信数据划分为更小的帧（frame），并封装成流（stream），实现高效的数据交换。
+
+**2. 多路复用（Multiplexing）**
+
+* HTTP/1.1 每个请求/响应需要单独的 TCP 连接或阻塞式串行传输。
+* HTTP/2 可以在一个连接中发送多个请求和响应，避免“队头阻塞”，显著降低延迟。
+
+**3. 头部压缩（HPACK）**
+
+* HTTP/1.1 每次请求都重复发送大量相同的头部信息（如 Cookie、User-Agent）。
+* HTTP/2 使用 HPACK 算法压缩头部，减少冗余数据传输。
+
+**4. 服务器推送（Server Push）**
+
+* HTTP/2 允许服务器主动将资源推送给客户端，提前缓存，加快页面渲染速度。
+
+**5. 请求优先级（Stream Prioritization）**
+
+* 客户端可以指定哪些请求更重要，服务器据此调整响应顺序，优化用户体验
+
+## 💡 结合实际场景举例说明优势
+
+**比如打开一个包含多个图片、CSS、JS 文件的网页：**
+
+* HTTP/1.1 需要建立多个连接或排队请求，容易造成延迟；
+* HTTP/2 可以在一个连接中同时加载所有资源，并通过服务器推送预加载关键资源，使页面加载更快。
 
 ---
 
@@ -589,6 +748,52 @@ async 和 defer 属性（推荐）
 |IntersectionObserver|	❌ 非阻塞|	可控	图片/组件懒加载|
 |import()|	❌ 非阻塞|	✅ 顺序|	现代框架路由懒加载（React/Vue）|
 
+## 12. ES6 的箭头函数 (=>) 和 ES5 的普通函数 (function) 区别
+
+|特性|	箭头函数 (=>)|	ES5 普通函数 (function)|
+|:-----------------|:-----------------|:-----------------|
+|语法|	更简洁（可省略 return、{}、()）|	标准语法 (function() {})|
+|this 绑定	|继承自外层作用域（词法作用域）|	动态绑定（取决于调用方式）|
+|构造函数	|❌ 不可用作构造函数（new 会报错）|	✅ 可用作构造函数|
+|arguments 对象|	❌ 不存在|	✅ 存在|
+|prototype 属性|	❌ 不存在|	✅ 存在|
+|方法定义|	适合无独立 this 需求的场景|	适合需要动态 this 的方法|
+
+## 13.前端性能优化
+
+* 路由懒加载
+
+> SPA 项目，一个路由对应一个页面，如果不做处理，项目打包后，会把所有页面打包成一个文件，当用户打开首页时，会一次性加载所有的资源，造成首页加载很慢，降低用户体验
+
+* 组件懒加载
+* 骨架屏
+* 长列表虚拟滚动
+* 图片优化
+  * 图片懒加载
+  * 字体图标
+  * 转base64
+
+## 14.前端资源加载方式
+
+> async、defer 是 script 标签的专属属性，对于网页中的其他资源，可以通过 link 的 preload、prefetch 属性来预加载
+> 如今现代框架已经将 preload、prefetch 添加到打包流程中了，通过灵活的配置，去使用这些预加载功能，同时我们也可以审时度势地向 script 标签添加 async、defer 属性去处理资源，这样可以显著提升性能
+
+---
+
+---
+url: /Interview/js/pages/page9.md
+---
+# js宏任务和微任务
+
+* js是单线程的语言
+
+* js代码执行流程是：同步执行完了，才会走到事件轮询，进入到事件轮询：请求、事件、宏任务
+
+* 事件轮询中包含：宏任务、微任务
+
+**宏任务**： script （主代码块）、setTimeout 、setInterval 、setImmediate 、I/O 、UI rendering
+**微任务**：process.nextTick（Nodejs） 、Promise 、Object.observe 、MutationObserver
+
 ---
 
 ---
@@ -656,13 +861,6 @@ ref 的作用是被用来给元素或子组件注册引用信息。引用信息�
 
 ---
 url: /Interview/css/page.md
----
-
-
----
-
----
-url: /Interview/h5/page.md
 ---
 
 
@@ -953,34 +1151,39 @@ url: /Interview/vue/pages/page3.md
 ---
 # vue3和vue2的区别
 
-* 双向绑定的方法不一样： Vue3 使用了new Proxy，Vue2 使用了Object.defineProperty
+## 双向绑定
 
-* $set 在Vue3中没有，因为 `new Proxy` 不需要
-
-- Vue2 是选项式 API，Vue3 向下兼容，可以是 选项式 也可以 是组合式，语法糖 setup
-
-- Vue2 v-for 优先级大于 v-if，Vue3 是 v-if 大于 v-for
-
-- 源码组织方式变化：使用 TS 重写
-
-- 支持 Composition API：基于函数的API，更加灵活组织组件逻辑（vue2用的是options api）
+* `双向绑定的方法不一样`： Vue3 使用了new Proxy，Vue2 使用了Object.defineProperty
 
 - `响应式系统提升`：Vue3中响应式数据原理改成proxy，可监听动态新增删除属性，以及数组变化
 
-- 编译优化：vue2通过标记静态根节点优化diff，Vue3 标记和提升所有静态根节点，diff的时候只需要对比动态节点内容
+## 代码组织
 
-- 打包体积优化：移除了一些不常用的api（inline-template、filter）
+* `Vue2` 是选项式 API，Vue3 向下兼容，可以是 选项式 也可以 是组合式，语法糖 setup
 
-- 生命周期的变化：使用setup代替了之前的beforeCreate和created
+## 编译优化
 
-- Vue3 的 template 模板支持多个根标签
+* `编译优化`：vue2通过标记静态根节点优化diff，Vue3 标记和提升所有静态根节点，diff的时候只需要对比动态节点内容
 
+## 打包体积优化
+
+* `打包体积优化`：移除了一些不常用的api（inline-template、filter）
+
+## 生命周期的变化
+
+* beforeDestroy -> beforeUnmount,destroyed -> unmounted
+* beforeCreate 和 created 被 setup() 函数本身替代
+
+## 其它
+
+* `$set` 在Vue3中没有，因为 `new Proxy` 不需要
+
+- `Vue2` v-for 优先级大于 v-if，Vue3 是 v-if 大于 v-for
+- `源码组织方式变化`：使用 TS 重写
+- `Vue3` 的 template 模板支持多个根标签
 - Vuex状态管理：创建实例的方式改变,Vue2为new Store , Vue3为createStore
-
 - Route 获取页面实例与路由信息：vue2通过this获取router实例，vue3通过使用 getCurrentInstance/ userRoute和userRouter方法获取当前组件实例
-
 - Props 的使用变化：vue2 通过 this 获取 props 里面的内容，vue3 直接通过 props
-
 - 父子组件传值：vue3 在向父组件传回数据时，如使用的自定义名称，如 backData，则需要在 emits 中定义一下
 
 ---
@@ -1136,6 +1339,123 @@ vue 初次运行会对 computed 属性做初始化处理（initComputed），初
 ---
 
 ---
+url: /Interview/js/pages/page11.md
+---
+# 事件轮询（Event Loop）
+
+## 🧠 简要定义
+
+> JavaScript 是一门单线程语言，为了不阻塞主线程，它采用了一种叫做事件轮询（Event Loop）的机制来处理异步操作。简单来说，`事件轮询就是 JavaScript 引擎中用来协调代码执行、处理事件和回调函数的一种机制`。
+
+> js代码执行流程是：同步执行完了，才会走到事件轮询，进入到事件轮询：请求、事件、宏任务
+> 事件轮询中包含：宏任务、微任务
+
+## 🧱 基本组成与流程
+
+我们可以将 Event Loop 拆解为几个核心部分来理解：
+
+**1. 调用栈（Call Stack）**
+
+* JavaScript 主线程中的一个数据结构，用于记录当前正在执行的函数。
+* 后进先出（LIFO）结构。
+
+**2. 堆（Heap）**
+存放对象等动态数据的地方。
+
+**3. 队列（Callback Queue）**
+
+* 包括：
+  * 宏任务队列（Macro Task Queue）如 setTimeout, setInterval, I/O 等。
+  * 微任务队列（Micro Task Queue）如 Promise.then, MutationObserver, queueMicrotask 等。
+
+::: details {open}
+
+* 宏任务： script （主代码块）、setTimeout 、setInterval 、setImmediate 、I/O 、UI rendering
+* 微任务：process.nextTick（Nodejs） 、Promise 、Object.observe 、MutationObserver
+  :::
+  **4. 事件循环本身（Event Loop）**
+
+负责监听调用栈是否为空，一旦为空就从队列中取出任务放入调用栈执行。
+
+## 🔁 事件轮询的工作流程
+
+* 所有同步代码首先在调用栈中执行完毕。
+* 遇到异步操作（如 setTimeout, fetch, DOM 事件），交给浏览器其他线程处理。
+* 当这些异步任务完成时，它们的回调会被放入相应的任务队列中：
+  * 宏任务 → 宏任务队列
+  * 微任务 → 微任务队列
+* 当调用栈清空后，事件循环会：
+  * 先检查微任务队列，全部执行完；
+  * 然后从宏任务队列中取出一个任务执行；
+  * 重复这个过程。
+
+## ⚠️ 关键点：微任务优先于宏任务
+
+举个例子说明一下：
+
+```js
+console.log('Start');
+
+setTimeout(() => {
+  console.log('Timeout');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('Promise');
+});
+
+console.log('End');
+```
+
+输出顺序是：
+
+```js
+Start
+End
+Promise
+Timeout
+```
+
+解释：
+
+```js
+Promise.then 是微任务，会在本轮事件循环结束前执行；
+setTimeout 是宏任务，会在下一轮事件循环中执行。
+
+```
+
+## ✅ 总结
+
+> 事件轮询是 JavaScript 实现异步非阻塞编程的核心机制。理解宏任务与微任务的区别，以及它们的执行顺序，对于写出高性能、无阻塞的应用至关重要。
+
+---
+
+---
+url: /Interview/js/pages/page7.md
+---
+# 事件轮询（Event Loop）
+
+事件触发线程管理的任务队列是如何产生的呢？事实上这些任务就是从JS引擎线程本身产生的，主线程在运行时会产生执行栈，栈中的代码调用某些异步API时会在任务队列中添加事件，栈中的代码执行完毕后，就会读取任务队列中的事件，去执行事件对应的回调函数，如此循环往复，形成事件循环机制。JS中有两种任务类型：微任务（microtask）和宏任务（macrotask），在ES6中，microtask称为 jobs，macrotask称为 task：
+
+* **宏任务**： script （主代码块）、setTimeout 、setInterval 、setImmediate 、I/O 、UI rendering
+* **微任务**：process.nextTick（Nodejs） 、Promise 、Object.observe 、MutationObserver
+
+Node.js中Event Loop和浏览器中Event Loop有什么区别？
+
+Node.js中宏任务分成了几种类型，并且放在了不同的task queue里。不同的task queue在执行顺序上也有区别，微任务放在了每个task queue的末尾：
+
+* setTimeout/setInterval 属于 timers 类型；
+* setImmediate 属于 check 类型；
+* socket 的 close 事件属于 close callbacks 类型；
+* 其他 MacroTask 都属于 poll 类型。
+* process.nextTick 本质上属于 MicroTask，但是它先于所有其他 MicroTask 执行；
+* 所有 MicroTask 的执行时机在不同类型的 MacroTask 切换后。
+* idle/prepare 仅供内部调用，我们可以忽略。
+* pending callbacks 不太常见，我们也可以忽略。
+
+---
+
+---
 url: /Interview/vue/pages/page25.md
 ---
 # 你的接口请求一般放在哪个生命周期中？为什么要这样做？
@@ -1148,6 +1468,93 @@ url: /Interview/vue/pages/page25.md
 SSR 不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于代码的一致性
 
 created 是在模板渲染成 html 前调用，即通常初始化某些属性值，然后再渲染成视图。如果在 mounted 钩子函数中请求数据可能导致页面闪屏问题
+
+---
+
+---
+url: /Interview/js/pages/page6.md
+---
+# 你知道null和undefined有什么区别么
+
+作者在哦设计js 的时候先都是先设计的 null（为什么设计了null：最初设计js 的时候借鉴了 Java）
+
+null会被隐式的转换成 0，很不容易发现错误
+
+先有null 后有 undefined，出来 undefined  是为了填补之前的坑
+
+具体区别是：
+
+JavaScript的最初被是这样区分的：null是一个表示 “无”的对象（空对象指针），转为数值时为 0，undefined 是表示 一个“无”的原始值，转为数值时为 NaN
+
+---
+
+---
+url: /Interview/js/pages/page4.md
+---
+# 你能说说缓存吗
+
+## 一、从缓存的概念谈起（建立基础）
+
+> 缓存是一种将数据临时存储再更快访问位置的技术，目的是为了提高系统的响应速度和性能。在前端开发中，缓存主要分为客户端缓存（浏览器缓存）和服务端缓存，其中客户端缓存是我们更常接触的部分。
+
+## 二、重点讲浏览器缓存（体现专业性）
+
+**继续深入：**
+
+> “浏览器缓存主要分为两大类：强缓存和协商缓存。”
+
+**1. 强缓存（不请求服务器）**
+
+* 使用 HTTP 头字段 Expires 和 Cache-Control
+* Cache-Control: max-age=3600 表示资源可以在本地缓存一个小时，期间不会发起任何请求
+* 优点是速度快，完全不需要网络请求
+
+**2. 协商缓存（需要请求服务器，但可能返回 304）**
+
+* 使用 Last-Modified / If-Modified-Since 或 ETag / If-None-Match
+* 浏览器会向服务器发送请求，服务器根据资源是否变化决定是否返回新内容
+* 如果没有变化，返回状态码 304 Not Modified
+
+> 我还会结合项目经验举例说明如何设置合适的缓存策略，比如静态资源（如 JS/CSS/图片）设置较长的强缓存时间，而 HTML 文件通常使用协商缓存，以确保用户能获取最新的页面入口。
+
+## 三、谈谈 CDN 缓存（体现架构思维）
+
+**继续扩展：**
+
+> “除了浏览器缓存之外，CDN 缓存也是前端优化的重要手段。通过将资源部署到离用户更近的边缘节点，CDN 可以大幅减少加载延迟，并利用其全局缓存能力提升访问效率。”
+
+## 四、再说本地存储相关的缓存技术（体现多方面理解）
+
+“此外，我们还可以利用浏览器提供的本地存储机制来实现缓存功能，例如：”
+
+* LocalStorage / SessionStorage：适合缓存一些用户数据或接口结果，提升用户体验
+* Service Worker + Cache API：实现离线缓存和 PWA 应用的关键技术
+* IndexedDB：用于缓存大量结构化数据，适合复杂应用的数据持久化
+
+> 我会在实际项目中使用这些技术来减少重复请求，提升首屏加载速度，同时处理好版本更新和缓存失效的问题。
+
+## 五、最后总结缓存的价值与注意事项（体现全面思考）
+
+“总的来说，合理使用缓存可以显著提升网页性能、降低服务器压力、改善用户体验。但在使用过程中也要注意以下几点：”
+
+* 缓存更新策略（比如上线新版本时如何让旧缓存失效）
+* 不同类型资源的缓存策略差异（HTML、JS、CSS、图片等）
+* 用户隐私与安全问题（避免敏感信息被缓存）
+* 缓存穿透、缓存雪崩等问题的预防措施（虽然更多属于后端范畴，但前端也应有基本认知）
+
+> 在我之前参与的某个项目中，我们通过合理设置 Cache-Control 和 ETag，使首页加载速度提升了 40%，同时也减少了服务器带宽消耗。
+
+## 总结
+
+> 所以我认为，缓存不仅是性能优化的核心手段之一，更是构建高质量 Web 应用不可或缺的一部分。
+
+✅ 推荐组合方案（优雅又实用）
+| 资源类型	|策略|
+|--------:|--------:|
+|HTML 页面|	设置 Cache-Control: no-cache|
+|JS/CSS/图片|	使用 \[name].\[contenthash].ext 命名|
+|版本控制|	客户端配合 localStorage 标记|
+|CDN 加速|	启用缓存，但基于文件名 hash 控制更新|
 
 ---
 
@@ -1327,6 +1734,82 @@ url: /guide/start.md
 ---
 
 ---
+url: /Interview/js/pages/page8.md
+---
+# 回流和重绘
+
+回流必将引起重绘，重绘不一定会引起回流
+
+## 回流 (Reflow)
+
+> 当Render Tree中部分或全部元素的尺寸、结构、或某些属性发生改变时，浏览器重新渲染部分或全部文档的过程称为回流。
+
+**会导致回流的操作：**
+
+* 页面首次渲染
+* 浏览器窗口大小发生改变
+* 元素尺寸或位置发生改变
+* 元素内容变化（文字数量或图片大小等等）
+* 元素字体大小变化
+* 添加或者删除可见的DOM元素
+* 激活CSS伪类（例如：:hover）
+* 查询某些属性或调用某些方法
+
+**一些常用且会导致回流的属性和方法：**
+
+* clientWidth、clientHeight、clientTop、clientLeft
+* offsetWidth、offsetHeight、offsetTop、offsetLeft
+* scrollWidth、scrollHeight、scrollTop、scrollLeft
+* scrollIntoView()、scrollIntoViewIfNeeded()
+* getComputedStyle()
+* getBoundingClientRect()
+* scrollTo()
+
+## 重绘 (Repaint)
+
+当页面中元素样式的改变并不影响它在文档流中的位置时（例如：color、background-color、visibility等），浏览器会将新样式赋予给元素并重新绘制它，这个过程称为重绘。
+
+## 性能影响
+
+**回流比重绘的代价要更高。**
+
+有时即使仅仅回流一个单一的元素，它的父元素以及任何跟随它的元素也会产生回流。
+现代浏览器会对频繁的回流或重绘操作进行优化：
+
+浏览器会维护一个队列，把所有引起回流和重绘的操作放入队列中，如果队列中的任务数量或者时间间隔达到一个阈值的，浏览器就会将队列清空，进行一次批处理，这样可以把多次回流和重绘变成一次。
+
+当你访问以下属性或方法时，浏览器会立刻清空队列：
+
+* clientWidth、clientHeight、clientTop、clientLeft
+* offsetWidth、offsetHeight、offsetTop、offsetLeft
+* scrollWidth、scrollHeight、scrollTop、scrollLeft
+* width、height
+* getComputedStyle()
+* getBoundingClientRect()
+
+因为队列中可能会有影响到这些属性或方法返回值的操作，即使你希望获取的信息与队列中操作引发的改变无关，浏览器也会强行清空队列，确保你拿到的值是最精确的。
+
+## 如何避免
+
+### CSS
+
+* 避免使用table布局。
+* 尽可能在DOM树的最末端改变class。
+* 避免设置多层内联样式。
+* 将动画效果应用到position属性为absolute或fixed的元素上。
+* 避免使用CSS表达式（例如：calc()）。
+
+### JavaScript
+
+* 避免频繁操作样式，最好一次性重写style属性，或者将样式列表定义为class并一次性更改class属性。
+* 避免频繁操作DOM，创建一个documentFragment，在它上面应用所有DOM操作，最后再把它添加到文档中。
+* 也可以先为元素设置display: none，操作结束后再把它显示出来。因为在display属性为none的元素上进行的DOM操作不会引发回流和重绘。
+* 避免频繁读取会引发回流/重绘的属性，如果确实需要多次使用，就用一个变量缓存起来。
+  对具有复杂动画的元素使用绝对定位，使它脱离文档流，否则会引起父元素及后续元素频繁回流。
+
+---
+
+---
 url: /Interview/vue/pages/page5.md
 ---
 # 在 Vue2.x 中如何检测数组的变化
@@ -1400,7 +1883,7 @@ npm i rutilsjs
 ---
 
 ---
-url: /Interview/js/pages/page2.md
+url: /Interview/js/pages/page10.md
 ---
 # 延迟加载js的方法
 
@@ -1528,6 +2011,95 @@ gantt
 ---
 
 ---
+url: /Interview/js/pages/page2.md
+---
+# 浏览器输入URL到页面加载的过程
+
+## 一、用户输入 URL
+
+例如：https://www.example.com/index.html
+
+## 二、浏览器解析 URL
+
+浏览器首先会解析 URL，提取出协议（如 HTTPS）、域名（如 www.example.com）、端口号（默认为 443 或 80）和路径（如 /index.html）等信息。
+
+## 三、DNS 解析（域名解析）
+
+* 检查本地缓存：浏览器是否有该域名的缓存记录。
+* 系统缓存：操作系统中是否缓存了这个域名对应的 IP 地址。
+* 路由器缓存：如果前面没找到，可能会查询路由器的 DNS 缓存。
+* 运营商 DNS 服务器：最终向 ISP 提供的 DNS 服务器发起查询。
+* 递归/迭代查询：DNS 服务器可能需要通过根域名服务器、顶级域名服务器、权威域名服务器来获取最终 IP。
+
+**目标：将 www.example.com 转换为一个 IP 地址，比如 93.184.216.34。**
+
+## 四、建立 TCP 连接（三次握手）
+
+浏览器与目标服务器建立 TCP 连接：
+
+* 客户端发送 SYN（同步）报文；
+* 服务端响应 SYN-ACK（同步-确认）；
+* 客户端再发 ACK（确认）报文。
+
+**如果是 HTTPS，还会进行 TLS 握手加密通信。**
+
+## 五、发送 HTTP(S) 请求
+
+浏览器发送一个 HTTP 请求，例如：
+
+```bash
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: ...
+Accept: text/html,...
+```
+
+## 六、服务器接收请求并处理
+
+* 服务器收到请求后，根据路径 /index.html 查找资源；
+* 如果是静态资源，直接返回；
+* 如果是动态内容（如 PHP、Node.js），服务器执行脚本生成 HTML 响应内容；
+* 服务器构建 HTTP 响应，包括状态码（如 200 OK）、响应头和响应体。
+
+## 七、浏览器接收响应并解析渲染页面
+
+* 解析 HTML：构建 DOM 树；
+* 解析 CSS：构建 CSSOM 树；
+* 合并生成 Render Tree：决定哪些节点可见及其样式；
+* 布局（Layout）：计算每个元素在页面上的位置；
+* 绘制（Paint）：将像素绘制到屏幕上；
+
+## 八、加载子资源（JS、CSS、图片等）
+
+* 页面中的 < script>、< link>、< img> 等标签会触发额外的 HTTP 请求；
+* JavaScript 可能会修改 DOM/CSSOM，导致重新渲染；
+* 异步请求（AJAX）也可能在此阶段发起，用于局部更新或数据加载。
+
+## 九、页面加载完成
+
+* 所有资源加载完毕；
+* window.onload 事件被触发；
+* 用户可以开始与页面交互。
+
+## 十、断开连接（四次挥手）
+
+TCP 连接在一定时间内没有数据传输后，双方协商关闭连接。
+
+## 拓展知识点（加分项）
+
+* CDN 加速：资源可能从 CDN 获取，提高访问速度；
+* HTTP/2 & HTTP/3：使用更高效的协议减少延迟；
+* 预加载策略：如 DNS Prefetch、Preconnect、Prefetch、Prerender；
+* Service Worker & PWA：离线缓存和增强用户体验；
+* 安全相关：如 CSP、SameSite Cookie 属性、HTTPS 的作用等。
+
+## 总结
+
+> 当我在浏览器中输入一个 URL 后，整个过程涉及到了 DNS 解析、TCP 建立连接、发送 HTTP 请求、服务器处理请求并返回响应、浏览器解析 HTML 和渲染页面等多个步骤。同时，现代浏览器还优化了加载性能，比如异步加载资源、使用缓存、利用 CDN 等技术手段。整个过程背后体现了客户端与服务器端的协作，也涉及到网络、操作系统、前端渲染等多个层面的知识。
+
+---
+
+---
 url: /Interview/vue/pages/page23.md
 ---
 # 组件中写 name 选项有哪些好处
@@ -1563,3 +2135,66 @@ url: /Interview/vue/pages/page4.md
 # 谈一谈对 MVVM 的理解？
 
 MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。
+
+---
+
+---
+url: /Interview/js/pages/page3.md
+---
+# 首屏优化如何去做
+
+## 🎯 一、理解问题背景
+
+首屏优化的核心目标是`提升用户感知加载速度`，`减少白屏时间`，`让用户尽快看到内容`，从而提升用户体验和转化率。
+
+## 🧱 二、从整体流程出发，分阶段优化
+
+* `压缩资源`：使用 Gzip / Brotli 压缩 JS/CSS/HTML。
+* `图片懒加载`：非首屏图片延迟加载，使用 loading="lazy" 或 Intersection Observer。
+* `CDN 加速`：静态资源部署到 CDN，缩短请求路径。
+* `字体优化`：只加载必要的字体子集，避免阻塞渲染。
+* `关键资源优先级`：通过 rel="preload" 预加载关键 CSS、JS、字体。
+
+2\. 代码分割与打包优化（Build）
+
+* `按需加载（Code Splitting）`：使用动态 import() 拆分非首屏模块。
+* `Tree Shaking`：移除未使用的代码，减小包体积。
+* `SplitChunks`：将第三方库和业务代码分离，利用缓存。
+
+3\. 服务端配合（Server）
+
+* `服务端渲染（SSR）或预渲染（Prerendering）`：提前返回 HTML 内容，加快首屏显示。
+* `HTTP/2 / HTTP/3 协议`：多路复用，减少请求耗时。
+* `服务端缓存策略`：合理设置缓存头（Cache-Control、ETag），减少重复请求。
+
+4\. 浏览器渲染优化（Render）
+
+* `Critical Rendering Path（CRP）优化`：
+  * 减少关键请求链长度。
+  * 减少关键资源大小。
+* `内联关键 CSS（Critical CSS）`：提前注入首屏需要的样式，避免 FOUC。
+* `避免阻塞渲染的脚本`：不将 JS 放在 < head> 中同步加载，使用 async 或 defer。
+
+5\. 监控与持续优化
+
+* 使用 `Lighthouse`、`PageSpeed Insights`、`Web Vitals` 等工具评估性能指标。
+* 关注核心指标如：
+  * FCP（First Contentful Paint）
+  * LCP（Largest Contentful Paint）
+  * FID（First Input Delay）
+  * CLS（Cumulative Layout Shift）
+
+## 💡 三、结合项目经验举例说明
+
+> 示例：在我上一个项目中，我们通过 `SSR` + `骨架屏` + `Critical CSS` 的方式，将 FCP 从 4s 缩短到 1.5s。同时，通过 `Webpack` 的 `Code Splitting` 和`懒加载`，将首页 JS `包体积`从 3MB 减少到 600KB，显著提升了加载速度。
+
+## 📈 四、总结与价值输出
+
+> “前端性能优化不仅关乎技术实现，更是产品体验的重要保障。作为开发者，我们需要从用户视角出发，持续关注性能指标，并通过工程化手段保持长期优化。”
+
+## ✅ 加分项
+
+* 能区分客户端渲染（CSR）和服务器端渲染（SSR）下的不同优化策略。
+* 对现代构建工具（Webpack/Vite）有深入理解。
+* 能说出具体的性能指标及其优化方法。
+* 能结合具体项目谈经验，体现落地能力。

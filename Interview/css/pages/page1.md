@@ -1,43 +1,38 @@
 ---
 url: /Interview/css/pages/page1.md
 ---
-\[\[toc]]
-
 # flex
 
 > `Flex` 是 `Flexible Box` 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为 `Flex` 布局。行内元素也可以使用 `Flex` 布局。`display: inline-flex;`
 
 ## 容器属性
 
+### flex-direction 主轴方向
+
 * `flex-direction：`属性决定主轴的方向（即项目的排列方向）
   ::: tip flex-direction属性的4个值
-
 * row（默认值）：主轴为水平方向，起点在左端。
-
 * row-reverse：主轴为水平方向，起点在右端。
-
 * column：主轴为垂直方向，起点在上沿。
-
 * column-reverse：主轴为垂直方向，起点在下沿。
   :::
+
+### flex-wrap 如何换行
 
 * `flex-wrap：`默认情况下，项目都排在一条线（又称"轴线"）上。`flex-wrap`属性定义，如果一条轴线排不下，如何换行
 
 ::: tip flex-wrap属性的3个值
 
 * nowrap （默认值）：不换行。
-
 * wrap：换行，第一行在上方。
-
 * wrap-reverse：换行，第一行在下方。
   :::
 
+### flex-flow 前两个简写
+
 * `flex-flow：` `flex-direction`属性和`flex-wrap`属性的简写形式，默认值为`row nowrap`
-
 * `justify-content：`项目在主轴上的对齐方式
-
 * `align-items：`项目在交叉轴上如何对齐
-
 * `align-content：`多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用
 
 ## 项目属性

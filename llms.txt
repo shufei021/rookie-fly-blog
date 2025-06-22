@@ -28,7 +28,16 @@
 ### javascript
 
 - [前端内存泄漏有哪些情况](/Interview/js/pages/page1.md)
-- [延迟加载js的方法](/Interview/js/pages/page2.md)
+- [浏览器输入URL到页面加载的过程](/Interview/js/pages/page2.md)
+- [首屏优化如何去做](/Interview/js/pages/page3.md)
+- [你能说说缓存吗](/Interview/js/pages/page4.md)
+- [HTTP1 和 HTTP2 的区别](/Interview/js/pages/page5.md)
+- [你知道null和undefined有什么区别么](/Interview/js/pages/page6.md)
+- [事件轮询（Event Loop）](/Interview/js/pages/page7.md)
+- [回流和重绘](/Interview/js/pages/page8.md)
+- [js宏任务和微任务](/Interview/js/pages/page9.md)
+- [延迟加载js的方法](/Interview/js/pages/page10.md)
+- [事件轮询（Event Loop）](/Interview/js/pages/page11.md)
 
 ### vue
 
@@ -74,11 +83,11 @@
 
 - [Button 按钮](/examples/button.md)
 - [Electron+Vue3 硬件交互篇](/note/electron/page1.md)
+- [H5](/Interview/h5/page.md)
 - [JavaScript](/Interview/js/page.md)
 - [PC端](/Interview/pc/page.md)
 - [react 高频面试题](/Interview/react/page.md)
 - [Untitled](/Interview/css/page.md)
-- [Untitled](/Interview/h5/page.md)
 - [Untitled](/Interview/html/page.md)
 - [Untitled](/about/page.md)
 - [Untitled](/note/react.md)

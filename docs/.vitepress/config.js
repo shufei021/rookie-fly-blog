@@ -66,10 +66,10 @@ export default {
       // },
     ],
     // 搜索
-    algolia: {
-      apiKey: "your_api_key",
-      indexName: "index_name",
-    },
+    // algolia: {
+    //   apiKey: "your_api_key",
+    //   indexName: "index_name",
+    // },
     
     //本地搜索
     search: {

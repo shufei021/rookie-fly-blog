@@ -25,18 +25,18 @@ export default [
   //   text: "和孩子一起学习",
   //   link: "/learn/math/skill",
   // },
-  // {
-  //   text: "面试题",
-  //   items: [
-  //     { text: "HTML", link: "/Interview/html/page" },
-  //     { text: "CSS", link: "/Interview/css/page" },
-  //     { text: "JAVASCRIPT", link: "/Interview/js/page" },
-  //     { text: "Vue", link: "/Interview/vue/page" },
-  //     { text: "React", link: "/Interview/react/page" },
-  //     { text: "PC端", link: "/Interview/pc/page" },
-  //     { text: "H5端", link: "/Interview/h5/page" },
-  //   ],
-  // },
+  {
+    text: "温故而知新",
+    items: [
+      { text: "HTML", link: "/Interview/html/page" },
+      { text: "CSS", link: "/Interview/css/page" },
+      { text: "JavaScript", link: "/Interview/js/page" },
+      { text: "Vue", link: "/Interview/vue/page" },
+      { text: "React", link: "/Interview/react/page" },
+      { text: "PC端", link: "/Interview/pc/page" },
+      { text: "H5端", link: "/Interview/h5/page" },
+    ],
+  },
   // {
   //   text: "前端技术",
   //   items: [

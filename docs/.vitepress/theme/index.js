@@ -16,7 +16,9 @@ import "./styles/rainbow.css";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import SvgIcon from './components/SvgIcon.vue'
+import VStyle from './components/VStyle.vue'
 import { registerIcons } from './icons'
+
 export default {
   ...DefaultTheme,
   // NotFound: () => h(NotFound), // <- this is a Vue 3 functional component
@@ -26,6 +28,7 @@ export default {
     // siteData is a ref of current site-level metadata.
     app.use(ElementPlus);
     app.component('SvgIcon', SvgIcon)
+    app.component('VStyle', VStyle)
     // 注册全局组件
     app.component("SiteList", siteList);
     app.component("Home", home);

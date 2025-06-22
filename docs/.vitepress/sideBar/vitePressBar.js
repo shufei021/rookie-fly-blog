@@ -50,6 +50,7 @@ export const InterviewHmtl = [
     ]
   }
 ];
+
 export const InterviewCss = [
   {
     text: "css",
@@ -61,21 +62,59 @@ export const InterviewCss = [
     ]
   }
 ];
+
 export const InterviewJs = [
   {
     text: "javascript",
     items: [
       {
-        text: "1. 前端内存泄漏有哪些情况",
+        text: "前端内存泄漏",
         link: "/Interview/js/pages/page1",
       },
       {
-        text: "2. 延迟加载js的方法",
+        text: "浏览器输入URL到页面加载过程",
         link: "/Interview/js/pages/page2",
+      },
+      {
+        text: "首屏优化如何去做",
+        link: "/Interview/js/pages/page3",
+      },
+      {
+        text: "缓存",
+        link: "/Interview/js/pages/page4",
+      },
+      {
+        text: "HTTP1 和 HTTP2 的区别",
+        link: "/Interview/js/pages/page5",
+      },
+      {
+        text: "null和undefined的区别",
+        link: "/Interview/js/pages/page6",
+      },
+      {
+        text: "事件轮询（Event Loop）",
+        link: "/Interview/js/pages/page7",
+      },
+      {
+        text: "回流和重绘",
+        link: "/Interview/js/pages/page8",
+      },
+      {
+        text: "js宏任务和微任务",
+        link: "/Interview/js/pages/page9",
+      },
+      {
+        text: "延迟加载js的方法",
+        link: "/Interview/js/pages/page10",
+      },
+      {
+        text: "事件轮询（Event Loop）",
+        link: "/Interview/js/pages/page11",
       }
     ]
   }
 ];
+
 export const InterviewVue = [
   {
     text: "vue",
@@ -183,6 +222,7 @@ export const InterviewVue = [
     ]
   }
 ];
+
 export const InterviewReact= [
   {
     text: "React",
@@ -206,6 +246,7 @@ export const InterviewPc= [
     ]
   }
 ];
+
 export const InterviewH5= [
   {
     text: "H5",

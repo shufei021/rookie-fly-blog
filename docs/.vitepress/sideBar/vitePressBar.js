@@ -39,6 +39,7 @@ export const vitePressNote = [
   },
 ];
 
+// 面试题 - HTML
 export const InterviewHmtl = [
   {
     text: "html",
@@ -51,6 +52,7 @@ export const InterviewHmtl = [
   }
 ];
 
+// 面试题 - CSS
 export const InterviewCss = [
   {
     text: "css",
@@ -63,6 +65,7 @@ export const InterviewCss = [
   }
 ];
 
+// 面试题 - JS
 export const InterviewJs = [
   {
     text: "javascript",
@@ -115,6 +118,7 @@ export const InterviewJs = [
   }
 ];
 
+// 面试题 - Vue
 export const InterviewVue = [
   {
     text: "vue",
@@ -223,6 +227,7 @@ export const InterviewVue = [
   }
 ];
 
+// 面试题 - React
 export const InterviewReact= [
   {
     text: "React",
@@ -235,6 +240,7 @@ export const InterviewReact= [
   }
 ];
 
+// 面试题 - PC
 export const InterviewPc= [
   {
     text: "PC",
@@ -247,6 +253,7 @@ export const InterviewPc= [
   }
 ];
 
+// 面试题 - H5
 export const InterviewH5= [
   {
     text: "H5",

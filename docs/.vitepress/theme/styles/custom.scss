@@ -29,8 +29,15 @@ a:active {
 .VPNavBarMenuLink.active {
   color: var(--vp-c-brand) !important;
 }
-
-/* 左侧目录激活的文本颜色修改 */
+.VPDocAsideOutline .root{
+  >li>a.outline-link{
+    color: #f44336;/* 设置你想要的颜色 */
+  }
+  .VPDocOutlineItem .outline-link {
+    color: #2196f3;/* 设置你想要的颜色 */
+  }
+}
+/* 左侧目录激活的文本颜色修改 #00bcd4 */
 .outline-link.active {
   --vp-c-text-1: var(--vp-c-brand-1);
 }

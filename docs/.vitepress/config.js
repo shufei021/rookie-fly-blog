@@ -44,6 +44,10 @@ export default {
     },
     // 右侧边栏配置，默认值是"In hac pagina"
     outlineTitle: "本页目录",
+    outline: {
+      level: [2, 3], // 仅显示 H2 标题
+      label: "目录" // 可选：自定义标题名称
+    },
     // 编辑链接
     // editLink: {
     //   pattern: "https://github.com/shufei021/rookie-fly-blog",

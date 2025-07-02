@@ -7,7 +7,7 @@ url: /Interview.md
 
 ### 原型和原型链
 
-JavaScript 是基于原型的语言。每个对象都有一个内部属性 `[[Prototype]]`（可通过 `__proto__` 访问），指向其构造函数的 `prototype` 对象。多个对象通过原型层层连接形成“原型链”，用于实现继承与共享方法。
+JavaScript 是基于原型的语言。每个对象（除了null）都有一个内部属性 `[[Prototype]]`（可通过 `__proto__` 访问），指向其构造函数的 `prototype` 对象。多个对象通过原型层层连接形成“原型链”，用于实现继承与共享方法。
 
 ```js
 function Person() {}
@@ -168,37 +168,53 @@ function deepClone(obj, hash = new WeakMap()) {
 ```js
 class MyPromise {
   constructor(executor) {
+    // 初始化状态为 pending
     this.state = "pending";
+    // 保存成功值
     this.value = undefined;
+    // 保存失败原因
     this.reason = undefined;
+    // 存储成功回调队列
     this.onFulfilledCallbacks = [];
+    // 存储失败回调队列
     this.onRejectedCallbacks = [];
 
+    // 定义 resolve 函数
     const resolve = (value) => {
       if (this.state === "pending") {
-        this.state = "fulfilled";
-        this.value = value;
+        this.state = "fulfilled"; // 更新状态为 fulfilled
+        this.value = value; // 保存成功值
+        // 异步执行所有成功回调
         this.onFulfilledCallbacks.forEach((fn) => fn());
       }
     };
 
+    // 定义 reject 函数
     const reject = (reason) => {
       if (this.state === "pending") {
-        this.state = "rejected";
-        this.reason = reason;
+        this.state = "rejected"; // 更新状态为 rejected
+        this.reason = reason; // 保存失败原因
+        // 异步执行所有失败回调
         this.onRejectedCallbacks.forEach((fn) => fn());
       }
     };
 
     try {
+      // 立即执行 executor，并传入 resolve 和 reject
       executor(resolve, reject);
     } catch (e) {
+      // 如果 executor 同步抛出异常，直接 reject
       reject(e);
     }
   }
 
   then(onFulfilled, onRejected) {
-    onFulfilled = typeof onFulfilled === "function" ? onFulfilled : (v) => v;
+    // 默认值处理：onFulfilled 不存在时返回 identity 函数
+    onFulfilled =
+      typeof onFulfilled === "function"
+        ? onFulfilled
+        : (v) => v;
+    // 默认值处理：onRejected 不存在时抛出异常
     onRejected =
       typeof onRejected === "function"
         ? onRejected
@@ -206,30 +222,34 @@ class MyPromise {
             throw e;
           };
 
+    // 创建新 Promise 支持链式调用
     const promise2 = new MyPromise((resolve, reject) => {
       if (this.state === "fulfilled") {
+        // 如果当前 Promise 已 fulfilled，异步执行 onFulfilled
         setTimeout(() => {
           try {
             const x = onFulfilled(this.value);
-            resolve(x);
+            resolve(x); // 将结果传递给新 Promise
           } catch (e) {
-            reject(e);
+            reject(e); // 如果 onFulfilled 抛出异常，新 Promise 被 reject
           }
         }, 0);
       }
 
       if (this.state === "rejected") {
+        // 如果当前 Promise 已 rejected，异步执行 onRejected
         setTimeout(() => {
           try {
             const x = onRejected(this.reason);
-            resolve(x);
+            resolve(x); // 将结果传递给新 Promise
           } catch (e) {
-            reject(e);
+            reject(e); // 如果 onRejected 抛出异常，新 Promise 被 reject
           }
         }, 0);
       }
 
       if (this.state === "pending") {
+        // 如果当前 Promise 仍 pending，先将回调加入队列
         this.onFulfilledCallbacks.push(() => {
           setTimeout(() => {
             try {
@@ -275,6 +295,18 @@ function myNew(constructor, ...args) {
 
 ### this指向问题
 
+**this 的指向取决于调用方式，而不是定义方式。**
+
+| 调用方式                | `this` 指向                              |
+|-------------------------|------------------------------------------|
+| 普通函数调用            | 全局对象（非严格模式）或 `undefined`（严格模式） |
+| 对象方法调用            | 调用该方法的对象                         |
+| 箭头函数                | 定义时外层作用域的 `this`                |
+| 构造函数（`new`）       | 新创建的实例对象                         |
+| `call`/`apply`/`bind`   | 显式传入的对象                           |
+| 事件监听器（普通函数）  | 触发事件的 DOM 元素                      |
+| 事件监听器（箭头函数）  | 外层作用域的 `this`                      |
+
 ```js
 const obj = {
   name: "Alice",
@@ -302,6 +334,183 @@ boundSay(); // Bob
 ***
 
 ### 大文件上传怎么做
+
+#### 一、实现思路
+
+大文件上传的核心思想是**分片上传**（Chunked Upload）：
+
+1. **文件切片**：将大文件按固定大小（如5MB）拆分成多个小块
+2. **并行上传**：逐个或并发上传这些分片
+3. **服务端合并**：所有分片上传完成后，由服务端合并成完整文件
+4. **断点续传**：通过记录已上传分片，支持中断后继续上传
+
+***
+
+#### 二、代码实现与注释
+
+```javascript
+/**
+ * 大文件上传主函数
+ * @param {File} file - 浏览器File对象
+ */
+async function uploadLargeFile(file) {
+  // 1. 设置分片大小（5MB）
+  const chunkSize = 5 * 1024 * 1024; // 5MB
+  // 2. 计算总分片数（向上取整）
+  const totalChunks = Math.ceil(file.size / chunkSize);
+  // 3. 创建分片数组
+  const chunks = [];
+
+  // 4. 文件切片处理
+  for (let i = 0; i < totalChunks; i++) {
+    const start = i * chunkSize; // 当前分片起始位置
+    const end = Math.min(start + chunkSize, file.size); // 当前分片结束位置
+    // 使用File.slice()方法切割分片（兼容性：File API标准）
+    chunks.push(file.slice(start, end));
+  }
+
+  // 5. 顺序上传分片（可改为并发上传优化速度）
+  for (let i = 0; i < chunks.length; i++) {
+    await uploadChunk(chunks[i], i, totalChunks); // 等待每个分片上传完成
+  }
+}
+
+/**
+ * 单个分片上传函数
+ * @param {Blob} chunk - 分片内容
+ * @param {number} index - 分片序号（从0开始）
+ * @param {number} total - 总分片数
+ */
+async function uploadChunk(chunk, index, total) {
+  // 6. 创建FormData对象用于上传
+  const formData = new FormData();
+  // 7. 添加分片文件（名称需与服务端接收参数一致）
+  formData.append("file", chunk);
+  // 8. 添加分片元数据
+  formData.append("index", index);  // 当前分片序号
+  formData.append("total", total);  // 总分片数
+
+  // 9. 发送POST请求上传分片
+  await fetch("/upload", {
+    method: "POST",
+    body: formData,
+    // 可选：添加进度监听
+    // onUploadProgress: (progressEvent) => {
+    //   console.log(`上传进度: ${Math.round(
+    //     (progressEvent.loaded * 100) / progressEvent.total
+    //   )}%`);
+    // }
+  });
+}
+```
+
+***
+
+#### 三、关键实现点说明
+
+##### 1. **分片大小选择**
+
+* 5MB 是常见选择（HTTP请求最大推荐大小）
+* 根据网络带宽和服务器配置可调整（建议2-10MB）
+
+##### 2. **文件切片技术**
+
+* 使用 `File.slice()` 方法（浏览器原生API）
+* 兼容性：现代浏览器均支持（IE10+）
+
+##### 3. **上传策略**
+
+* **顺序上传**：当前实现保证分片顺序，但较慢
+* **并发上传**：可用 `Promise.all()` 并发处理
+* **断点续传**：需服务端记录已上传分片
+
+##### 4. **服务端要求**
+
+* 需支持接收分片并记录分片信息
+* 最终需提供合并接口（如 `/merge`）
+* 示例响应格式：
+  ```json
+  {
+    "status": "success",
+    "chunkIndex": 3,
+    "totalChunks": 20
+  }
+  ```
+
+***
+
+#### 四、优化建议
+
+##### 1. **并发上传优化**
+
+```javascript
+// 替换顺序上传为并发上传
+await Promise.all(chunks.map((chunk, i) => 
+  uploadChunk(chunk, i, totalChunks)
+));
+```
+
+##### 2. **断点续传实现**
+
+1. 首次上传前请求 `/check-chunks`
+2. 服务端返回已存在的分片索引
+3. 客户端跳过已存在的分片
+
+##### 3. **上传进度追踪**
+
+```javascript
+// 在fetch中添加进度监听
+const controller = new AbortController();
+const upload = fetch("/upload", {
+  signal: controller.signal,
+  //...
+});
+
+// 监听进度
+upload.then(() => {
+  console.log(`分片 ${index} 上传完成`);
+});
+```
+
+#### 4. **错误重试机制**
+
+```javascript
+// 添加重试逻辑
+async function uploadChunkWithRetry(...args) {
+  const MAX_RETRIES = 3;
+  for (let i = 0; i < MAX_RETRIES; i++) {
+    try {
+      return await uploadChunk(...args);
+    } catch (error) {
+      if (i === MAX_RETRIES - 1) throw error;
+      console.log(`重试第 ${i + 1} 次...`);
+    }
+  }
+}
+```
+
+***
+
+#### 五、完整工作流程
+
+```
+[客户端]          [服务端]
+1. 文件切片        ← 接收分片请求
+2. 顺序/并发上传    → 接收分片并存储
+3. 收到全部分片    ← 请求合并分片
+4. 调用 /merge 接口 → 合并文件
+5. 返回最终文件URL
+```
+
+***
+
+#### 六、注意事项
+
+1. **CORS配置**：确保服务端允许跨域上传
+2. **文件类型校验**：上传前应验证MIME类型
+3. **文件大小限制**：服务端需设置合理的上传大小限制
+4. **安全性**：建议添加上传凭证（token）和签名验证
+5. **清理机制**：未完成的分片需要定时清理
 
 ```js
 async function uploadLargeFile(file) {
@@ -349,6 +558,8 @@ async function uploadChunk(chunk, index, total) {
 ***
 
 ### 浏览器输入 URL 到渲染过程
+
+[PDF查看详细流程](../.vitepress/theme/pdf/1.pdf)
 
 1. 输入 URL，解析协议、域名、路径；
 2. DNS 解析，获取 IP 地址；
@@ -569,6 +780,173 @@ export default service;
 3. **网络优化**：启用 HTTP/2、开启 Gzip、合理使用缓存；
 4. **代码优化**：Tree Shaking、代码拆分、避免内存泄漏；
 5. **第三方库优化**：按需引入、封装通用组件。
+
+#### **一、加载优化**
+
+1. **懒加载（Lazy Load）**
+   * **原理**：延迟加载非关键资源（如图片、视频、长列表），直到用户需要时才加载。
+   * **实现方式**：
+     * 使用 `Intersection Observer API` 监听元素是否进入视口（如图片加载）。
+     * 原生 HTML 属性：`<img loading="lazy">` 自动实现图片懒加载。
+   * **适用场景**：电商页面的商品图片、长列表数据、非首屏内容。
+   * **效果**：减少首屏资源体积，提升 FCP（首次内容绘制）和 LCP（最大内容绘制）指标。
+
+2. **预加载（Preload）**
+   * **原理**：在浏览器空闲时提前加载关键资源（如字体、CSS、JS），减少后续请求延迟。
+   * **实现方式**：
+     * HTML 标签：`<link rel="preload" href="..." as="style/script/image">`。
+     * JavaScript 动态加载：`new Image().src = "..."` 预加载图片。
+   * **适用场景**：首屏依赖的 CSS/JS 文件、即将跳转的页面资源。
+   * **效果**：缩短 TTI（可交互时间），提升用户感知速度。
+
+3. **CDN 加速**
+   * **原理**：通过全球分布的 CDN 节点缓存静态资源，就近响应用户请求。
+   * **实现方式**：
+     * 将静态资源（图片、CSS、JS）部署到 CDN 服务（如讯维中国 CDN）。
+     * 配置 CDN 的缓存策略（TTL、ETag）。
+   * **效果**：减少跨区域网络延迟，提升全球用户的访问速度，降低源站负载。
+
+4. **资源压缩**
+   * **代码压缩**：
+     * 使用工具（如 UglifyJS、Terser）压缩 JS/HTML/CSS，移除空格、注释，缩短变量名。
+   * **图片优化**：
+     * 使用 WebP/AVIF 格式替代 JPEG/PNG，减小体积（如 TinyPNG 工具）。
+     * 设置图片响应式（`srcset`）适配不同设备分辨率。
+   * **效果**：减少传输体积，提升 TTFB（首字节时间）和 LCP 指标。
+
+5. **资源合并**
+   * **原理**：将多个小文件合并为一个文件，减少 HTTP 请求次数。
+   * **实现方式**：
+     * 合并 CSS/JS 文件（如 Webpack 的 `ConcatenateModules`）。
+     * 使用雪碧图（Sprite）合并小图标。
+   * **注意事项**：避免过度合并导致单个文件过大，需平衡请求次数和资源体积。
+   * **效果**：减少 DNS 解析和 TCP 握手时间，提升首屏加载速度。
+
+***
+
+#### **二、渲染优化**
+
+1. **虚拟滚动（Virtual Scroll）**
+   * **原理**：仅渲染当前视口内的数据项，动态更新可视区域内容。
+   * **实现方式**：
+     * Vue/React 示例：通过 `transform: translateY(...)` 定位可见项，监听滚动事件更新数据。
+     * 第三方库：`vue-virtual-scroll-list` 或 `react-window`。
+   * **效果**：减少 DOM 节点数量，避免内存溢出，提升长列表渲染性能。
+
+2. **骨架屏（Skeleton Screen）**
+   * **原理**：用灰色占位符模拟页面结构，等待实际内容加载后替换。
+   * **实现方式**：
+     * CSS 动画：`@keyframes` 实现渐变效果。
+     * 框架组件：Vue/React 条件渲染（如 `v-if` 判断数据是否加载）。
+   * **效果**：减少用户感知空白时间，提升 CLS（累积布局偏移）指标。
+
+3. **减少重绘与回流（Reflow/Repaint）**
+   * **原理**：避免频繁修改 DOM 属性，减少浏览器重新计算布局和绘制。
+   * **优化策略**：
+     * 使用 `transform` 和 `opacity` 替代 `top/left` 实现动画。
+     * 批量修改 DOM（如 `DocumentFragment` 或 `requestAnimationFrame`）。
+     * 避免频繁读取 `offsetHeight` 等触发回流的属性。
+   * **效果**：降低主线程阻塞时间（TBT），提升 FID（首次输入延迟）。
+
+4. **防抖与节流（Debounce/Throttle）**
+   * **防抖（Debounce）**：在事件被触发后等待一段时间再执行（如搜索输入框）。
+   * **节流（Throttle）**：限制事件触发频率（如滚动事件）。
+   * **实现方式**：
+     ```javascript
+     // 防抖示例
+     function debounce(fn, delay) {
+       let timer;
+       return (...args) => {
+         clearTimeout(timer);
+         timer = setTimeout(() => fn(...args), delay);
+       };
+     }
+
+     // 节流示例
+     function throttle(fn, delay) {
+       let lastCall = 0;
+       return (...args) => {
+         const now = Date.now();
+         if (now - lastCall >= delay) {
+           lastCall = now;
+           fn(...args);
+         }
+       };
+     }
+     ```
+   * **效果**：减少不必要的事件触发，优化性能。
+
+***
+
+#### **三、网络优化**
+
+1. **启用 HTTP/2**
+   * **原理**：支持多路复用、头部压缩和服务器推送，减少连接开销。
+   * **实现方式**：
+     * 服务器配置（如 Nginx 的 `listen 443 ssl http2;`）。
+     * 合理分离资源（不再强制合并 CSS/JS）。
+   * **效果**：提升资源加载并行度，减少 TTFB。
+
+2. **开启 Gzip/Brotli 压缩**
+   * **原理**：压缩文本资源（HTML、CSS、JS）减少传输体积。
+   * **实现方式**：
+     * 服务器配置 Gzip（如 Nginx 的 `gzip on;`）。
+     * 使用 Brotli 压缩替代 Gzip（更高压缩率）。
+   * **效果**：显著减少传输数据量，提升加载速度。
+
+3. **合理使用缓存**
+   * **缓存策略**：
+     * 强缓存：`Cache-Control: max-age=31536000`（长期缓存静态资源）。
+     * 协商缓存：`ETag` 和 `Last-Modified` 验证资源是否更新。
+   * **Service Workers**：
+     * 拦截请求并返回缓存资源（离线访问）。
+     * 预缓存关键资源（如 PWA 应用）。
+   * **效果**：减少重复请求，提升二次访问速度。
+
+***
+
+#### **四、代码优化**
+
+1. **Tree Shaking**
+   * **原理**：移除未使用的代码（ES6 模块支持）。
+   * **实现方式**：
+     * Webpack 配置：`optimization.usedExports: true`。
+     * 构建工具自动分析依赖树并删除冗余代码。
+   * **效果**：减小打包体积，提升加载性能。
+
+2. **代码拆分（Code Splitting）**
+   * **原理**：按需加载代码（如路由懒加载、动态导入）。
+   * **实现方式**：
+     * React：`React.lazy + Suspense`。
+     * Webpack：`splitChunks` 分离公共代码。
+   * **效果**：减少首屏加载资源，提升 TTI。
+
+3. **避免内存泄漏**
+   * **常见原因**：
+     * 未清理的事件监听器（如 `resize`、`scroll`）。
+     * 闭包中引用 DOM 元素导致无法回收。
+   * **优化策略**：
+     * 在组件卸载时移除监听器（如 `componentWillUnmount`）。
+     * 使用弱引用（WeakMap）或 WeakSet 存储非关键数据。
+   * **效果**：降低内存占用，避免页面崩溃。
+
+***
+
+#### **五、第三方库优化**
+
+1. **按需引入**
+   * **原理**：只加载需要的功能模块，避免引入完整库。
+   * **实现方式**：
+     * Lodash：`import { debounce } from 'lodash'` 而非 `import _ from 'lodash'`。
+     * UI 框架：按需加载组件（如 Element Plus 的 `use` 方法）。
+   * **效果**：减少打包体积，提升加载速度。
+
+2. **封装通用组件**
+   * **原理**：将重复功能抽象为可复用组件，减少冗余代码。
+   * **实现方式**：
+     * 封装按钮、模态框、表单验证等通用组件。
+     * 使用设计系统（Design System）统一风格和交互逻辑。
+   * **效果**：提高开发效率，降低维护成本。
 
 ***
 

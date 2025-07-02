@@ -17,14 +17,6 @@
 - [7. vitePress如何非自动化部署到Github Pages？](/note/vitePress/page7.md)
 - [8. vitePress部署到Github Pages后发现样式错乱怎么办？](/note/vitePress/page8.md)
 
-### html
-
-- [1.从零用VitePress搭建个人轻型博客的正确姿势(1)](/note/vitePress/page1.md)
-
-### css
-
-- [flex](/Interview/css/pages/page1.md)
-
 ### javascript
 
 - [前端内存泄漏](/Interview/js/pages/page1.md)
@@ -67,22 +59,21 @@
 - [ref 的作用是什么](/Interview/vue/pages/page24.md)
 - [你的接口请求一般放在哪个生命周期中？为什么要这样做？](/Interview/vue/pages/page25.md)
 
-### React
+### 温故
 
-- [1.从零用VitePress搭建个人轻型博客的正确姿势(1)](/note/vitePress/page1.md)
-
-### PC
-
-- [大屏自适应](/Interview/pc/pages/page1.md)
-
-### H5
-
-- [1.从零用VitePress搭建个人轻型博客的正确姿势(1)](/note/vitePress/page1.md)
+- [浏览器输入URL到渲染的过程](/Interview/old/pages/page1.md)
+- [前端性能优化](/Interview/old/pages/page2.md)
+- [前端首屏优化](/Interview/old/pages/page3.md)
+- [前端内存泄漏](/Interview/old/pages/page4.md)
+- [前端缓存](/Interview/old/pages/page5.md)
+- [前端事件轮询](/Interview/old/pages/page6.md)
+- [ES6 新特性](/Interview/old/pages/page7.md)
 
 ### Other
 
 - [Button 按钮](/examples/button.md)
 - [Electron+Vue3 硬件交互篇](/note/electron/page1.md)
+- [flex](/Interview/css/pages/page1.md)
 - [H5](/Interview/h5/page.md)
 - [JavaScript](/Interview/js/page.md)
 - [PC端](/Interview/pc/page.md)
@@ -91,16 +82,18 @@
 - [Untitled](/Interview/html/page.md)
 - [Untitled](/about/page.md)
 - [Untitled](/note/react.md)
-- [Untitled](/site/html-css.md)
 - [Untitled](/site/framework.md)
+- [Untitled](/site/html-css.md)
 - [Untitled](/site/page.md)
 - [vue 高频面试题](/Interview/vue/page.md)
 - [Vue学习笔记-调试测试](/note/vue.md)
 - [列表布局](/note/css/css.md)
 - [前端前沿](/guide/start.md)
 - [前端开发面试题完整答案（含代码示例）](/Interview.md)
+- [大屏自适应](/Interview/pc/pages/page1.md)
 - [工具库 rutilsjs](/frontend/library.md)
 - [我的开源项目](/openSource/open-source.md)
 - [插件库](/frontend/plugin.md)
 - [数学](/learn/math/skill.md)
+- [温故而知新](/Interview/old/page.md)
 - [语文](/learn/chinese/skill.md)

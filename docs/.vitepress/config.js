@@ -4,7 +4,7 @@
 
 // 头部导航
 import topNav from "./topNav";
-import { vitePressNote,InterviewHmtl,InterviewCss,InterviewJs,InterviewVue,InterviewReact,InterviewPc,InterviewH5 } from "./sideBar/vitePressBar";
+import { vitePressNote,InterviewJs,InterviewVue,InterviewOld } from "./sideBar/vitePressBar";
 import llmstxt from "vitepress-plugin-llms";
 import svgLoader from 'vite-svg-loader'
 export default {
@@ -34,13 +34,9 @@ export default {
     // 左侧导航栏
     sidebar: {
       "/learn/math/skill": vitePressNote,
-      "/Interview/html/page": InterviewHmtl,
-      "/Interview/css/page": InterviewCss,
       "/Interview/js/page": InterviewJs,
       "/Interview/vue/page": InterviewVue,
-      "/Interview/react/page": InterviewReact,
-      "/Interview/pc/page": InterviewPc,
-      "/Interview/h5/page": InterviewH5,
+      "/Interview/old/page": InterviewOld,
     },
     // 右侧边栏配置，默认值是"In hac pagina"
     outlineTitle: "本页目录",

@@ -29,13 +29,9 @@ export default [
     text: "温故而知新",
     items: [
       { text: "合集", link: "/Interview/index" },
-      // { text: "HTML", link: "/Interview/html/page" },
-      // { text: "CSS", link: "/Interview/css/page" },
+      { text: "温故", link: "/Interview/old/page" },
       { text: "JavaScript", link: "/Interview/js/page" },
       { text: "Vue", link: "/Interview/vue/page" },
-      // { text: "React", link: "/Interview/react/page" },
-      // { text: "PC端", link: "/Interview/pc/page" },
-      // { text: "H5端", link: "/Interview/h5/page" },
     ],
   },
   // {

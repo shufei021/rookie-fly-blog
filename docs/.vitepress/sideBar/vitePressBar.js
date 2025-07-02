@@ -39,32 +39,6 @@ export const vitePressNote = [
   },
 ];
 
-// 面试题 - HTML
-export const InterviewHmtl = [
-  {
-    text: "html",
-    items: [
-      {
-        text: "1. VitePress的安装和运行",
-        link: "/note/vitePress/page1",
-      }
-    ]
-  }
-];
-
-// 面试题 - CSS
-export const InterviewCss = [
-  {
-    text: "css",
-    items: [
-      {
-        text: "1. flex",
-        link: "/Interview/css/pages/page1",
-      }
-    ]
-  }
-];
-
 // 面试题 - JS
 export const InterviewJs = [
   {
@@ -226,41 +200,38 @@ export const InterviewVue = [
     ]
   }
 ];
-
-// 面试题 - React
-export const InterviewReact= [
+// 面试题 - 温故
+export const InterviewOld = [
   {
-    text: "React",
+    text: "温故",
     items: [
       {
-        text: "1. VitePress的安装和运行",
-        link: "/note/vitePress/page1",
-      }
-    ]
-  }
-];
-
-// 面试题 - PC
-export const InterviewPc= [
-  {
-    text: "PC",
-    items: [
+        text: "浏览器输入URL到渲染过程",
+        link: "/Interview/old/pages/page1",
+      },
       {
-        text: "1. 大屏自适应",
-        link: "/Interview/pc/pages/page1",
-      }
-    ]
-  }
-];
-
-// 面试题 - H5
-export const InterviewH5= [
-  {
-    text: "H5",
-    items: [
+        text: "前端性能优化",
+        link: "/Interview/old/pages/page2",
+      },
       {
-        text: "1. VitePress的安装和运行",
-        link: "/note/vitePress/page1",
+        text: "前端首屏优化",
+        link: "/Interview/old/pages/page3",
+      },
+      {
+        text: "前端内存泄漏",
+        link: "/Interview/old/pages/page4",
+      },
+      {
+        text: "前端缓存",
+        link: "/Interview/old/pages/page5",
+      },
+      {
+        text: "前端事件轮询",
+        link: "/Interview/old/pages/page6",
+      },
+      {
+        text: "ES6新特性",
+        link: "/Interview/old/pages/page7",
       }
     ]
   }

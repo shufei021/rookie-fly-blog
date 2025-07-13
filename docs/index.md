@@ -4,7 +4,7 @@
     # image: 
     #   src: /lm1.jpg
     #   alt: blog
-    name: 极简博客
+    name: Luck Blog
     text: 关注web前端开发为主的博客
     tagline: 个人技术笔记前端相关的技术网站，包括Vue、React等技术资料的生态网站，方便快速访问。
     actions:

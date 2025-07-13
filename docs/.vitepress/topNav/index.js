@@ -1,3 +1,5 @@
+import { learningSidebar } from "../sideBar/learning.js";
+
 // 顶部右侧导航配置项
 export default [
   {
@@ -25,15 +27,32 @@ export default [
   //   text: "和孩子一起学习",
   //   link: "/learn/math/skill",
   // },
+  learningSidebar,
+  // {
+  //   text: "温故而知新",
+  //   items: [
+  //     { text: "合集", link: "/Interview/index" },
+  //     { text: "温故", link: "/Interview/old/page" },
+  //     { text: "JavaScript", link: "/Interview/js/page" },
+  //     { text: "Vue", link: "/Interview/vue/page" },
+  //     { text: "Uniapp", link: "/uniapp/page" },
+  //     { text: "Vite", link: "/vite/page" },
+  //   ],
+  // },
   {
-    text: "温故而知新",
+    text: "小说",
     items: [
-      { text: "合集", link: "/Interview/index" },
-      { text: "温故", link: "/Interview/old/page" },
-      { text: "JavaScript", link: "/Interview/js/page" },
-      { text: "Vue", link: "/Interview/vue/page" },
+      { text: "卷王仙尊", link: "/novel/overachiever/page" },
+      // { text: "代码修仙成尊", link: "/novel/overachiever/page" },
     ],
   },
+  // {
+  //   text: "Q&A",
+  //   items: [
+  //     { text: "前端工程化", link: "/novel/overachiever/page" },
+  //     { text: "常见Q&A", link: "/novel/overachiever/page" },
+  //   ],
+  // },
   // {
   //   text: "前端技术",
   //   items: [

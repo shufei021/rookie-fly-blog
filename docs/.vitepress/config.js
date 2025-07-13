@@ -4,9 +4,11 @@
 
 // 头部导航
 import topNav from "./topNav";
-import { vitePressNote,InterviewJs,InterviewVue,InterviewOld } from "./sideBar/vitePressBar";
+import { vitePressNote,InterviewJs,InterviewVue,InterviewOld, novel } from "./sideBar/vitePressBar";
 import llmstxt from "vitepress-plugin-llms";
 import svgLoader from 'vite-svg-loader'
+import Icons from 'unplugin-icons/vite'
+import learningSidebar from "./sideBar/learning.js";
 export default {
   title: "极简博客",
   description: "关注web前端开发为主的博客网站和前端网址大全",
@@ -21,7 +23,14 @@ export default {
   // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
   lastUpdated: true, // string | boolean
   vite: {
-    plugins: [llmstxt(),svgLoader()],
+    plugins: [
+      llmstxt(),
+      svgLoader(),
+      Icons({ 
+        compiler: 'vue3',
+        autoInstall: true 
+      }),
+    ],
   },
   // 主题配置
   themeConfig: {
@@ -37,6 +46,8 @@ export default {
       "/Interview/js/page": InterviewJs,
       "/Interview/vue/page": InterviewVue,
       "/Interview/old/page": InterviewOld,
+      "/novel/overachiever/page": novel.overachiever,
+      ...learningSidebar
     },
     // 右侧边栏配置，默认值是"In hac pagina"
     outlineTitle: "本页目录",

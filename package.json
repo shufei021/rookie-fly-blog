@@ -18,9 +18,11 @@
     "serve": "vitepress serve docs"
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.356",
     "@mdit-vue/shared": "^1.0.0",
     "prettier": "^3.0.3",
     "sass": "^1.89.0",
+    "unplugin-icons": "^22.1.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-svg-loader": "^5.1.0",
     "vitepress": "1.6.3",

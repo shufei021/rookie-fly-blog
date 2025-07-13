@@ -237,3 +237,130 @@ export const InterviewOld = [
   }
 ];
 
+export const novel  = {
+  overachiever: [
+    {
+      text: "卷一：凡界卷",
+      items: [
+          {
+            text: "第一章：前端工程师被噶了？",
+            link: "/novel/overachiever/pages/page1",
+          },
+          {
+            text: "第二章：草棚中的异乡人",
+            link: "/novel/overachiever/pages/page2",
+          },
+          {
+            text: "第三章：卷出炼体经验",
+            link: "/novel/overachiever/pages/page3",
+          },
+          {
+            text: "第四章：你炼三天？我炼三十天！",
+            link: "/novel/overachiever/pages/page4",
+          },
+          {
+            text: "第五章：全村被我带卷了",
+            link: "/novel/overachiever/pages/page5",
+          },
+          {
+            text: "第六章：炼体卷王初显威",
+            link: "/novel/overachiever/pages/page6",
+          },
+          {
+            text: "第七章：无灵根觉醒！天命被打碎了！",
+            link: "/novel/overachiever/pages/page7",
+          },
+          {
+            text: "第八章：逆修之道！卷命入识！",
+            link: "/novel/overachiever/pages/page8",
+          },
+          {
+            text: "第九章：灵山宗震动！系统流天命叛逆者诞生！",
+            link: "/novel/overachiever/pages/page9",
+          },
+          {
+            text: "第十章：三日死卷！神识技横空出世",
+            link: "/novel/overachiever/pages/page10",
+          },
+          {
+            text: "第十一章：外门初入，卷王乱风起！",
+            link: "/novel/overachiever/pages/page11",
+          },
+          {
+            text: "第十二章：副本之门！卷王对卷王！",
+            link: "/novel/overachiever/pages/page12",
+          },
+          {
+            text: "第十三章：战力榜挑战！天骄对决！",
+            link: "/novel/overachiever/pages/page13",
+          },
+          {
+            text: "第十四章：识海突破！炼体极限冲破枷锁！",
+            link: "/novel/overachiever/pages/page14",
+          },
+          {
+            text: "第十五章：灵根者来袭！系统卷修首次对炼气！",
+            link: "/novel/overachiever/pages/page15",
+          },
+          {
+            text: "第十六章：灵根动摇！宗门危机初现！",
+            link: "/novel/overachiever/pages/page16",
+          },
+          {
+            text: "第十七章：封顶令下！十日内卷战前十！",
+            link: "/novel/overachiever/pages/page17",
+          },
+          {
+            text: "第十八章：幻风三式！系统对抗灵根术法！",
+            link: "/novel/overachiever/pages/page18",
+          },
+          {
+            text: "第十九章：秘境开启，卷进遗迹",
+            link: "/novel/overachiever/pages/page19",
+          },
+          {
+            text: "第二十章：反派登场，惊觉主角不可卷",
+            link: "/novel/overachiever/pages/page20",
+          },
+          {
+            text: "第二十一章：杀出凡界第一杀阵",
+            link: "/novel/overachiever/pages/page21",
+          },
+          {
+            text: "第二十二章：系统升级，卷力+100",
+            link: "/novel/overachiever/pages/page22",
+          },
+          {
+            text: "第二十三章：破境炼气，踏入灵修路",
+            link: "/novel/overachiever/pages/page23",
+          },
+          {
+            text: "第二十四章：冰艳告别，留下一缕青丝",
+            link: "/novel/overachiever/pages/page24",
+          },
+          {
+            text: "第二十五章：我卷出了凡界！",
+            link: "/novel/overachiever/pages/page25",
+          }
+        ]
+      },
+      {
+        text: "第一卷：凡尘加班人，异界修仙王",
+        items: [
+            {
+              text: "第一卷：凡尘加班人，异界修仙王",
+              link: "/novel/overachiever/pages/page1",
+            },
+            {
+              text: "第二章：这世界不对劲",
+              link: "/novel/overachiever/pages/page2",
+            },
+            {
+              text: "第二章：草地上睁眼，这世界不对劲",
+              link: "/novel/overachiever/pages/page2",
+            }
+          ]
+        }
+  ]
+}
+

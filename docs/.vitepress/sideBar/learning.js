@@ -25,7 +25,7 @@ const templateMap = {
     },
     engineering: {
         text:'构建工具及工程化',
-        sub:['Webpack 的构建流程','vite 的构建流程','Webpack vs vite','TypeScript','Uniapp']
+        sub:['Webpack 的构建流程','vite 的构建流程','Webpack vs vite','TypeScript','Uniapp','前端架构']
     },
     other: {
         text:'其它',

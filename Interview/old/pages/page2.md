@@ -5,7 +5,7 @@ url: /Interview/old/pages/page2.md
 
 PDF查看流程
 
-## 一、加载性能优化
+## 一、加载优化
 
 * **懒加载（Lazy Load）**：延迟加载非首屏资源，如图片、组件等。
 * **预加载（Preload / Prefetch）**：提前加载关键资源或后续页面资源。
@@ -16,7 +16,15 @@ PDF查看流程
 * **启用 HTTP/2 / HTTP/3 协议**：提升多资源并发加载效率。
 * **合理使用浏览器缓存（Cache-Control、ETag）**
 
-## 二、渲染性能优化
+## 二、构建优化
+
+* **Tree Shaking**：移除未使用的 JavaScript / CSS 代码。
+* **代码拆分（Code Splitting）**：按需加载模块或路由组件。
+* **按需引入第三方库（如 Lodash、Ant Design）**
+* **避免内存泄漏**：及时清理定时器、事件监听器和闭包引用。
+* **封装通用组件 / 工具函数**：提高复用性，减少冗余代码。
+
+## 三、渲染优化
 
 * **骨架屏（Skeleton Screen）**：提升用户等待时的视觉体验。
 * **服务端渲染（SSR） / 静态生成（SSG）**：加快首屏展示速度。
@@ -25,22 +33,14 @@ PDF查看流程
 * **使用防抖与节流（Debounce / Throttle）**：控制高频事件触发频率。
 * **CSS 动画优化**：使用 `transform` 和 `opacity` 实现 GPU 加速动画。
 
-## 三、代码与构建优化
-
-* **Tree Shaking**：移除未使用的 JavaScript / CSS 代码。
-* **代码拆分（Code Splitting）**：按需加载模块或路由组件。
-* **按需引入第三方库（如 Lodash、Ant Design）**
-* **避免内存泄漏**：及时清理定时器、事件监听器和闭包引用。
-* **封装通用组件 / 工具函数**：提高复用性，减少冗余代码。
-
-## 四、图像与多媒体优化
+## 四、图像优化
 
 * **选择合适格式（WebP / AVIF / SVG）**
 * **图片尺寸适配（响应式图片 srcset）**
 * **图片懒加载 + 占位图**
 * **使用 Web Workers 处理复杂计算任务**
 
-## 五、监控与分析工具
+## 五、监控分析
 
 * **Lighthouse / Chrome DevTools Performance 面板**
 * **Web Vitals 指标监控（FCP、CLS、FID 等）**

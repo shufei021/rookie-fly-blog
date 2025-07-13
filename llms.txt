@@ -92,12 +92,6 @@
 - [Untitled](/novel/overachiever/pages/page19.md)
 - [Untitled](/novel/overachiever/pages/page20.md)
 
-### 第一卷：凡尘加班人，异界修仙王
-
-- [第一章：前端工程师被噶了？](/novel/overachiever/pages/page1.md)
-- [第二章：草棚中的异乡人](/novel/overachiever/pages/page2.md)
-- [第二章：草棚中的异乡人](/novel/overachiever/pages/page2.md)
-
 ### 浏览器与网络
 
 - [浏览器输入 URL 到渲染过程](/learning/browserNetwork/modules/page1.md)
@@ -554,6 +548,7 @@
 - [Webpack 和 Vite](/learning/engineering/modules/page3.md)
 - [TypeScript](/learning/engineering/modules/page4.md)
 - [uniapp](/learning/engineering/modules/page5.md)
+- [前端架构](/learning/engineering/modules/page6.md)
 
 ### 构建工具及工程化
 
@@ -562,6 +557,7 @@
 - [Webpack 和 Vite](/learning/engineering/modules/page3.md)
 - [TypeScript](/learning/engineering/modules/page4.md)
 - [uniapp](/learning/engineering/modules/page5.md)
+- [前端架构](/learning/engineering/modules/page6.md)
 
 ### 构建工具及工程化
 
@@ -570,6 +566,7 @@
 - [Webpack 和 Vite](/learning/engineering/modules/page3.md)
 - [TypeScript](/learning/engineering/modules/page4.md)
 - [uniapp](/learning/engineering/modules/page5.md)
+- [前端架构](/learning/engineering/modules/page6.md)
 
 ### 构建工具及工程化
 
@@ -578,6 +575,7 @@
 - [Webpack 和 Vite](/learning/engineering/modules/page3.md)
 - [TypeScript](/learning/engineering/modules/page4.md)
 - [uniapp](/learning/engineering/modules/page5.md)
+- [前端架构](/learning/engineering/modules/page6.md)
 
 ### 构建工具及工程化
 
@@ -586,6 +584,7 @@
 - [Webpack 和 Vite](/learning/engineering/modules/page3.md)
 - [TypeScript](/learning/engineering/modules/page4.md)
 - [uniapp](/learning/engineering/modules/page5.md)
+- [前端架构](/learning/engineering/modules/page6.md)
 
 ### 构建工具及工程化
 
@@ -594,6 +593,16 @@
 - [Webpack 和 Vite](/learning/engineering/modules/page3.md)
 - [TypeScript](/learning/engineering/modules/page4.md)
 - [uniapp](/learning/engineering/modules/page5.md)
+- [前端架构](/learning/engineering/modules/page6.md)
+
+### 构建工具及工程化
+
+- [Webpack 的构建流程](/learning/engineering/modules/page1.md)
+- [Vite](/learning/engineering/modules/page2.md)
+- [Webpack 和 Vite](/learning/engineering/modules/page3.md)
+- [TypeScript](/learning/engineering/modules/page4.md)
+- [uniapp](/learning/engineering/modules/page5.md)
+- [前端架构](/learning/engineering/modules/page6.md)
 
 ### 其它
 
@@ -626,11 +635,11 @@
 - [Untitled](/learning/core/modules/page10.md)
 - [Untitled](/learning/core/modules/page11.md)
 - [Untitled](/learning/core/modules/page7.md)
-- [Untitled](/learning/core/modules/page9.md)
 - [Untitled](/learning/core/modules/page8.md)
+- [Untitled](/learning/core/modules/page9.md)
 - [Untitled](/learning/engineering/modules/page10.md)
 - [Untitled](/learning/engineering/modules/page11.md)
-- [Untitled](/learning/engineering/modules/page6.md)
+- [Untitled](/learning/engineering/modules/page12.md)
 - [Untitled](/learning/engineering/modules/page7.md)
 - [Untitled](/learning/engineering/modules/page8.md)
 - [Untitled](/learning/engineering/modules/page9.md)

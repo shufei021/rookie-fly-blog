@@ -14,3 +14,5 @@ url: /learning/browserNetwork/page.md
 * OPTIONS 预请求 (CORS机制)
 
 * 前端缓存 (涵盖HTTP缓存、Service Worker、Storage等)
+
+* 状态码详解

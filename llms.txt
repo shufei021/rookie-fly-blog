@@ -99,6 +99,7 @@
 - [🎯跨域及 JSONP](/learning/browserNetwork/modules/page3.md)
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
+- [状态码详解](/learning/browserNetwork/modules/page6.md)
 
 ### 浏览器与网络
 
@@ -107,6 +108,7 @@
 - [🎯跨域及 JSONP](/learning/browserNetwork/modules/page3.md)
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
+- [状态码详解](/learning/browserNetwork/modules/page6.md)
 
 ### 浏览器与网络
 
@@ -115,6 +117,7 @@
 - [🎯跨域及 JSONP](/learning/browserNetwork/modules/page3.md)
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
+- [状态码详解](/learning/browserNetwork/modules/page6.md)
 
 ### 浏览器与网络
 
@@ -123,6 +126,7 @@
 - [🎯跨域及 JSONP](/learning/browserNetwork/modules/page3.md)
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
+- [状态码详解](/learning/browserNetwork/modules/page6.md)
 
 ### 浏览器与网络
 
@@ -131,6 +135,7 @@
 - [🎯跨域及 JSONP](/learning/browserNetwork/modules/page3.md)
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
+- [状态码详解](/learning/browserNetwork/modules/page6.md)
 
 ### 浏览器与网络
 
@@ -139,6 +144,16 @@
 - [🎯跨域及 JSONP](/learning/browserNetwork/modules/page3.md)
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
+- [状态码详解](/learning/browserNetwork/modules/page6.md)
+
+### 浏览器与网络
+
+- [浏览器输入 URL 到渲染过程](/learning/browserNetwork/modules/page1.md)
+- [事件轮询（Event Loop）](/learning/browserNetwork/modules/page2.md)
+- [🎯跨域及 JSONP](/learning/browserNetwork/modules/page3.md)
+- [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
+- [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
+- [状态码详解](/learning/browserNetwork/modules/page6.md)
 
 ### 前端性能优化
 
@@ -628,18 +643,17 @@
 - [Untitled](/about/page.md)
 - [Untitled](/learning/browserNetwork/modules/page10.md)
 - [Untitled](/learning/browserNetwork/modules/page11.md)
-- [Untitled](/learning/browserNetwork/modules/page6.md)
-- [Untitled](/learning/browserNetwork/modules/page7.md)
 - [Untitled](/learning/browserNetwork/modules/page8.md)
 - [Untitled](/learning/browserNetwork/modules/page9.md)
 - [Untitled](/learning/core/modules/page10.md)
+- [Untitled](/learning/browserNetwork/modules/page7.md)
 - [Untitled](/learning/core/modules/page11.md)
 - [Untitled](/learning/core/modules/page7.md)
 - [Untitled](/learning/core/modules/page8.md)
 - [Untitled](/learning/core/modules/page9.md)
 - [Untitled](/learning/engineering/modules/page10.md)
-- [Untitled](/learning/engineering/modules/page11.md)
 - [Untitled](/learning/engineering/modules/page12.md)
+- [Untitled](/learning/engineering/modules/page11.md)
 - [Untitled](/learning/engineering/modules/page7.md)
 - [Untitled](/learning/engineering/modules/page8.md)
 - [Untitled](/learning/engineering/modules/page9.md)

@@ -5,7 +5,7 @@ const linkTemplate1 = (name)=>`/learning/${name}/page`;
 const templateMap = {
     browserNetwork: {
         text:'浏览器与网络',
-        sub:['浏览器输入URL到渲染过程','事件轮询 (Event Loop)','跨域及 JSONP','HTTP1.1 与 HTTP2 区别','OPTIONS 预请求', '状态码详解']
+        sub:['浏览器输入URL到渲染过程','事件轮询 (Event Loop)','跨域及 JSONP','HTTP1.1 与 HTTP2 区别','OPTIONS 预请求', '状态码详解',' WebSocket']
     },
     optimization: {
         text: '前端性能优化',

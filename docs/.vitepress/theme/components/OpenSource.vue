@@ -91,7 +91,6 @@ $colors: (
     flex-wrap: wrap;
     gap: 10px;
     position: relative;
-    z-index: 1000;
     .card-header{
         display: flex;
         justify-content: space-between;

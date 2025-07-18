@@ -29,8 +29,12 @@ const templateMap = {
     },
     other: {
         text:'其它',
-        sub:['大文件上传']
+        sub:['大文件上传','移动端适配','大屏适配']
     },
+    category:{
+        text: '分类',
+        sub:[]
+    }
 }
 // sidebar 配置
 export const learningSidebar = {

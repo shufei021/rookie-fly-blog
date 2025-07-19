@@ -33,7 +33,7 @@ const templateMap = {
     },
     category:{
         text: '分类',
-        sub:[]
+        sub:['Vite相关','Webpack相关','TypeScript相关','Uniapp相关','前端架构相关']
     }
 }
 // sidebar 配置

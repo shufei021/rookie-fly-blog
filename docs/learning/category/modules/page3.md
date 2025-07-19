@@ -1,6 +1,5 @@
 # TypeScript
 关于 **TypeScript** 的问题通常会涉及基础概念、类型系统、与 JavaScript 的区别、实际应用等方面。
-
 ## 🧠 一、基础概念
 
 ### 1. 什么是 TypeScript？它和 JavaScript 有什么区别？
@@ -680,4 +679,5 @@ userManager.performAction(adminUser);   // 输出: Bob is an admin and can modif
   - 如果是管理员，则进一步检查 `canModify` 属性以决定管理员是否有权限修改信息。
 
 这种方式使得代码可以根据对象的实际类型动态地执行不同的逻辑，同时保持了良好的类型安全性和代码可读性。类型守卫在这里起到了关键作用，它帮助我们在运行时准确地区分不同类型，并相应地调整程序的行为。
+
 

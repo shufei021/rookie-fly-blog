@@ -42,10 +42,6 @@ export default {
     nav: topNav,
     // 左侧导航栏
     sidebar: {
-      "/learn/math/skill": vitePressNote,
-      "/Interview/js/page": InterviewJs,
-      "/Interview/vue/page": InterviewVue,
-      "/Interview/old/page": InterviewOld,
       "/novel/overachiever/page": novel.overachiever,
       ...learningSidebar
     },

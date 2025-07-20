@@ -7,6 +7,7 @@ import home from "./components/home.vue";
 import backTop from "./components/backTop.vue";
 import NotFound from "./components/404.vue";
 import OpenSource from "./components/OpenSource.vue";
+import EnglishCorner from "./components/EnglishCorner.vue";
 
 import DefaultTheme from "vitepress/theme";
 import "./styles/custom.scss";
@@ -34,6 +35,7 @@ export default {
     app.component("Home", home);
     app.component("BackTop", backTop);
     app.component("OpenSource", OpenSource);
+    app.component("EnglishCorner", EnglishCorner);
     // router.addRoute({ path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound });
     // 注册所有图标
     if (typeof window !== 'undefined') {

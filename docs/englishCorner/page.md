@@ -1,1 +1,5 @@
 # English corner
+
+----
+
+<EnglishCorner/>

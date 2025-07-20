@@ -4,7 +4,7 @@
 
 // 头部导航
 import topNav from "./topNav";
-import { vitePressNote,InterviewJs,InterviewVue,InterviewOld, novel } from "./sideBar/vitePressBar";
+import { novel } from "./sideBar/vitePressBar";
 import llmstxt from "vitepress-plugin-llms";
 import svgLoader from 'vite-svg-loader'
 import Icons from 'unplugin-icons/vite'

@@ -1,9 +1,0 @@
-import{_ as a,a as i,o as n,b0 as e}from"./chunks/framework.BBy0ZaTh.js";const c=JSON.parse('{"title":"数学","description":"","frontmatter":{},"headers":[],"relativePath":"learn/math/skill.md","filePath":"learn/math/skill.md","lastUpdated":1752457654000}'),t={name:"learn/math/skill.md"};function l(p,s,d,h,r,E){return n(),i("div",null,s[0]||(s[0]=[e(`<h1 id="数学" tabindex="-1">数学 <a class="header-anchor" href="#数学" aria-label="Permalink to &quot;数学&quot;">​</a></h1><div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">gantt</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    title 项目计划</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    dateFormat  YYYY-MM-DD</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    section 阶段一</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    需求分析       :done,    des1, 2023-01-01, 7d</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    设计           :active,  des2, 2023-01-08, 5d</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    section 阶段二</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    开发           :         des3, 2023-01-15, 10d</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    测试           :         des4, 2023-01-25, 5d</span></span></code></pre></div>`,2)]))}const o=a(t,[["render",l]]);export{c as __pageData,o as default};

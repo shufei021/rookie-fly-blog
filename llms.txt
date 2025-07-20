@@ -6,69 +6,6 @@
 
 ## Table of Contents
 
-### 从零开始用VitePress搭建个人博客的教程笔记
-
-- [1.从零用VitePress搭建个人轻型博客的正确姿势(1)](/note/vitePress/page1.md)
-- [2.VitePress默认首页和头部导航配置](/note/vitePress/page2.md)
-- [3.VitePress默认主题相关细节配置](/note/vitePress/page3.md)
-- [4.如何自定义布局页面模板？](/note/vitePress/page4.md)
-- [5.第三方组件库的使用-作组件库文档](/note/vitePress/page5.md)
-- [6.如何用Github Actions自动化部署到Github Pages？](/note/vitePress/page6.md)
-- [7. vitePress如何非自动化部署到Github Pages？](/note/vitePress/page7.md)
-- [8. vitePress部署到Github Pages后发现样式错乱怎么办？](/note/vitePress/page8.md)
-
-### javascript
-
-- [前端内存泄漏](/Interview/js/pages/page1.md)
-- [浏览器输入URL到页面加载的过程](/Interview/js/pages/page2.md)
-- [首屏优化如何去做](/Interview/js/pages/page3.md)
-- [你能说说缓存吗](/Interview/js/pages/page4.md)
-- [HTTP1 和 HTTP2 的区别](/Interview/js/pages/page5.md)
-- [你知道null和undefined有什么区别么](/Interview/js/pages/page6.md)
-- [事件轮询（Event Loop）](/Interview/js/pages/page7.md)
-- [回流和重绘](/Interview/js/pages/page8.md)
-- [js宏任务和微任务](/Interview/js/pages/page9.md)
-- [延迟加载js的方法](/Interview/js/pages/page10.md)
-- [事件轮询（Event Loop）](/Interview/js/pages/page11.md)
-
-### vue
-
-- [vue的生命周期有哪些及每个生命周期做了什么](/Interview/vue/pages/page1.md)
-- [vue响应式原理是什么？vue3的响应式有何不同](/Interview/vue/pages/page2.md)
-- [vue3和vue2的区别](/Interview/vue/pages/page3.md)
-- [谈一谈对 MVVM 的理解？](/Interview/vue/pages/page4.md)
-- [在 Vue2.x 中如何检测数组的变化](/Interview/vue/pages/page5.md)
-- [v-model 双向绑定的原理是什么](/Interview/vue/pages/page6.md)
-- [vue2.x 和 vuex3.x 渲染器的 diff 算法分别说一下](/Interview/vue/pages/page7.md)
-- [vue组件通信方式有哪些及原理](/Interview/vue/pages/page8.md)
-- [Vue的路由实现, hash路由和history路由实现原理说一下](/Interview/vue/pages/page9.md)
-- [v-if 与 v-show 的区别](/Interview/vue/pages/page10.md)
-- [keep-alive的常用属性有哪些及实现原理](/Interview/vue/pages/page11.md)
-- [nextTick 的作用是什么？他的实现原理是什么](/Interview/vue/pages/page12.md)
-- [说一下 Vue SSR 的实现原理](/Interview/vue/pages/page13.md)
-- [Vue 组件的 data 为什么必须是函数](/Interview/vue/pages/page14.md)
-- [Vue 的 computed 的实现原理](/Interview/vue/pages/page15.md)
-- [Vue complier 的实现原理是什么样](/Interview/vue/pages/page16.md)
-- [Vue 与 React 的区别是什么？](/Interview/vue/pages/page17.md)
-- [watch 与 computed 的区别是什么以及他们的使用场景分别是什么](/Interview/vue/pages/page18.md)
-- [vue 修饰符](/Interview/vue/pages/page19.md)
-- [如何实现 vue 项目中的性能优化](/Interview/vue/pages/page20.md)
-- [vue 中的 spa 应用如何优化首屏加载速度](/Interview/vue/pages/page21.md)
-- [Vue 中的 Key 的作用是什么](/Interview/vue/pages/page22.md)
-- [组件中写 name 选项有哪些好处](/Interview/vue/pages/page23.md)
-- [ref 的作用是什么](/Interview/vue/pages/page24.md)
-- [你的接口请求一般放在哪个生命周期中？为什么要这样做？](/Interview/vue/pages/page25.md)
-
-### 温故
-
-- [浏览器输入URL到渲染的过程](/Interview/old/pages/page1.md)
-- [前端性能优化](/Interview/old/pages/page2.md)
-- [前端首屏优化](/Interview/old/pages/page3.md)
-- [前端内存泄漏](/Interview/old/pages/page4.md)
-- [前端缓存](/Interview/old/pages/page5.md)
-- [前端事件轮询](/Interview/old/pages/page6.md)
-- [ES6 新特性](/Interview/old/pages/page7.md)
-
 ### 卷一：凡界卷
 
 - [第一章：前端工程师被噶了？](/novel/overachiever/pages/page1.md)
@@ -100,6 +37,7 @@
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
 - [状态码详解](/learning/browserNetwork/modules/page6.md)
+- [WebSocket](/learning/browserNetwork/modules/page7.md)
 
 ### 浏览器与网络
 
@@ -109,6 +47,7 @@
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
 - [状态码详解](/learning/browserNetwork/modules/page6.md)
+- [WebSocket](/learning/browserNetwork/modules/page7.md)
 
 ### 浏览器与网络
 
@@ -118,6 +57,7 @@
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
 - [状态码详解](/learning/browserNetwork/modules/page6.md)
+- [WebSocket](/learning/browserNetwork/modules/page7.md)
 
 ### 浏览器与网络
 
@@ -127,6 +67,7 @@
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
 - [状态码详解](/learning/browserNetwork/modules/page6.md)
+- [WebSocket](/learning/browserNetwork/modules/page7.md)
 
 ### 浏览器与网络
 
@@ -136,6 +77,7 @@
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
 - [状态码详解](/learning/browserNetwork/modules/page6.md)
+- [WebSocket](/learning/browserNetwork/modules/page7.md)
 
 ### 浏览器与网络
 
@@ -145,6 +87,7 @@
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
 - [状态码详解](/learning/browserNetwork/modules/page6.md)
+- [WebSocket](/learning/browserNetwork/modules/page7.md)
 
 ### 浏览器与网络
 
@@ -154,6 +97,17 @@
 - [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
 - [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
 - [状态码详解](/learning/browserNetwork/modules/page6.md)
+- [WebSocket](/learning/browserNetwork/modules/page7.md)
+
+### 浏览器与网络
+
+- [浏览器输入 URL 到渲染过程](/learning/browserNetwork/modules/page1.md)
+- [事件轮询（Event Loop）](/learning/browserNetwork/modules/page2.md)
+- [🎯跨域及 JSONP](/learning/browserNetwork/modules/page3.md)
+- [HTTP/1.1 和 HTTP/2 的区别](/learning/browserNetwork/modules/page4.md)
+- [✅ 什么是 OPTIONS 预检请求？](/learning/browserNetwork/modules/page5.md)
+- [状态码详解](/learning/browserNetwork/modules/page6.md)
+- [WebSocket](/learning/browserNetwork/modules/page7.md)
 
 ### 前端性能优化
 
@@ -622,38 +576,106 @@
 ### 其它
 
 - [大文件上传怎么做](/learning/other/modules/page1.md)
+- [移动端适配](/learning/other/modules/page2.md)
+- [数据大屏适配](/learning/other/modules/page3.md)
 
 ### 其它
 
 - [大文件上传怎么做](/learning/other/modules/page1.md)
+- [移动端适配](/learning/other/modules/page2.md)
+- [数据大屏适配](/learning/other/modules/page3.md)
+
+### 其它
+
+- [大文件上传怎么做](/learning/other/modules/page1.md)
+- [移动端适配](/learning/other/modules/page2.md)
+- [数据大屏适配](/learning/other/modules/page3.md)
+
+### 其它
+
+- [大文件上传怎么做](/learning/other/modules/page1.md)
+- [移动端适配](/learning/other/modules/page2.md)
+- [数据大屏适配](/learning/other/modules/page3.md)
+
+### 分类
+
+- [Vite 相关](/learning/category/modules/page1.md)
+- [Webpack 相关](/learning/category/modules/page2.md)
+- [TypeScript](/learning/category/modules/page3.md)
+- [uniapp](/learning/category/modules/page4.md)
+- [前端架构](/learning/category/modules/page5.md)
+
+### 分类
+
+- [Vite 相关](/learning/category/modules/page1.md)
+- [Webpack 相关](/learning/category/modules/page2.md)
+- [TypeScript](/learning/category/modules/page3.md)
+- [uniapp](/learning/category/modules/page4.md)
+- [前端架构](/learning/category/modules/page5.md)
+
+### 分类
+
+- [Vite 相关](/learning/category/modules/page1.md)
+- [Webpack 相关](/learning/category/modules/page2.md)
+- [TypeScript](/learning/category/modules/page3.md)
+- [uniapp](/learning/category/modules/page4.md)
+- [前端架构](/learning/category/modules/page5.md)
+
+### 分类
+
+- [Vite 相关](/learning/category/modules/page1.md)
+- [Webpack 相关](/learning/category/modules/page2.md)
+- [TypeScript](/learning/category/modules/page3.md)
+- [uniapp](/learning/category/modules/page4.md)
+- [前端架构](/learning/category/modules/page5.md)
+
+### 分类
+
+- [Vite 相关](/learning/category/modules/page1.md)
+- [Webpack 相关](/learning/category/modules/page2.md)
+- [TypeScript](/learning/category/modules/page3.md)
+- [uniapp](/learning/category/modules/page4.md)
+- [前端架构](/learning/category/modules/page5.md)
+
+### 分类
+
+- [Vite 相关](/learning/category/modules/page1.md)
+- [Webpack 相关](/learning/category/modules/page2.md)
+- [TypeScript](/learning/category/modules/page3.md)
+- [uniapp](/learning/category/modules/page4.md)
+- [前端架构](/learning/category/modules/page5.md)
 
 ### Other
 
-- [Button 按钮](/examples/button.md)
-- [Electron+Vue3 硬件交互篇](/note/electron/page1.md)
+- [English corner](/englishCorner/page.md)
+- [ES6 新特性](/Interview/old/pages/page7.md)
 - [flex](/Interview/css/pages/page1.md)
 - [H5](/Interview/h5/page.md)
+- [HTTP1 和 HTTP2 的区别](/Interview/js/pages/page5.md)
 - [JavaScript](/Interview/js/page.md)
 - [JavaScript 核心](/learning/core/page.md)
+- [js宏任务和微任务](/Interview/js/pages/page9.md)
+- [keep-alive的常用属性有哪些及实现原理](/Interview/vue/pages/page11.md)
+- [nextTick 的作用是什么？他的实现原理是什么](/Interview/vue/pages/page12.md)
 - [PC端](/Interview/pc/page.md)
 - [react 高频面试题](/Interview/react/page.md)
-- [uniapp](/uniapp/page.md)
+- [ref 的作用是什么](/Interview/vue/pages/page24.md)
 - [Untitled](/Interview/css/page.md)
 - [Untitled](/Interview/html/page.md)
 - [Untitled](/about/page.md)
+- [Untitled](/englishCorner/modules/page.md)
 - [Untitled](/learning/browserNetwork/modules/page10.md)
 - [Untitled](/learning/browserNetwork/modules/page11.md)
 - [Untitled](/learning/browserNetwork/modules/page8.md)
 - [Untitled](/learning/browserNetwork/modules/page9.md)
 - [Untitled](/learning/core/modules/page10.md)
-- [Untitled](/learning/browserNetwork/modules/page7.md)
 - [Untitled](/learning/core/modules/page11.md)
 - [Untitled](/learning/core/modules/page7.md)
 - [Untitled](/learning/core/modules/page8.md)
 - [Untitled](/learning/core/modules/page9.md)
 - [Untitled](/learning/engineering/modules/page10.md)
-- [Untitled](/learning/engineering/modules/page12.md)
 - [Untitled](/learning/engineering/modules/page11.md)
+- [Untitled](/learning/engineering/modules/page12.md)
 - [Untitled](/learning/engineering/modules/page7.md)
 - [Untitled](/learning/engineering/modules/page8.md)
 - [Untitled](/learning/engineering/modules/page9.md)
@@ -673,27 +695,61 @@
 - [Untitled](/learning/optimization/modules/page7.md)
 - [Untitled](/learning/optimization/modules/page8.md)
 - [Untitled](/learning/optimization/modules/page9.md)
-- [Untitled](/note/react.md)
+- [Untitled](/mathCorner/modules/page1.md)
 - [Untitled](/site/framework.md)
 - [Untitled](/site/html-css.md)
 - [Untitled](/site/page.md)
-- [Vite + Vue3 项目插件](/vite/page.md)
+- [v-if 与 v-show 的区别](/Interview/vue/pages/page10.md)
+- [v-model 双向绑定的原理是什么](/Interview/vue/pages/page6.md)
+- [Vue complier 的实现原理是什么样](/Interview/vue/pages/page16.md)
+- [Vue 与 React 的区别是什么？](/Interview/vue/pages/page17.md)
+- [Vue 中的 Key 的作用是什么](/Interview/vue/pages/page22.md)
+- [vue 中的 spa 应用如何优化首屏加载速度](/Interview/vue/pages/page21.md)
+- [vue 修饰符](/Interview/vue/pages/page19.md)
 - [Vue 框架](/learning/vue/page.md)
+- [Vue 的 computed 的实现原理](/Interview/vue/pages/page15.md)
+- [Vue 组件的 data 为什么必须是函数](/Interview/vue/pages/page14.md)
 - [vue 高频面试题](/Interview/vue/page.md)
-- [Vue学习笔记-调试测试](/note/vue.md)
+- [vue2.x 和 vuex3.x 渲染器的 diff 算法分别说一下](/Interview/vue/pages/page7.md)
+- [vue3和vue2的区别](/Interview/vue/pages/page3.md)
+- [vue响应式原理是什么？vue3的响应式有何不同](/Interview/vue/pages/page2.md)
+- [vue的生命周期有哪些及每个生命周期做了什么](/Interview/vue/pages/page1.md)
+- [Vue的路由实现, hash路由和history路由实现原理说一下](/Interview/vue/pages/page9.md)
+- [vue组件通信方式有哪些及原理](/Interview/vue/pages/page8.md)
+- [watch 与 computed 的区别是什么以及他们的使用场景分别是什么](/Interview/vue/pages/page18.md)
+- [事件轮询（Event Loop）](/Interview/js/pages/page11.md)
+- [事件轮询（Event Loop）](/Interview/js/pages/page7.md)
+- [你的接口请求一般放在哪个生命周期中？为什么要这样做？](/Interview/vue/pages/page25.md)
+- [你知道null和undefined有什么区别么](/Interview/js/pages/page6.md)
+- [你能说说缓存吗](/Interview/js/pages/page4.md)
 - [其它](/learning/other/page.md)
-- [列表布局](/note/css/css.md)
+- [前端事件轮询](/Interview/old/pages/page6.md)
+- [前端内存泄漏](/Interview/js/pages/page1.md)
+- [前端内存泄漏](/Interview/old/pages/page4.md)
 - [前端前沿](/guide/start.md)
 - [前端开发面试题完整答案（含代码示例）](/Interview.md)
+- [前端性能优化](/Interview/old/pages/page2.md)
 - [前端性能优化](/learning/optimization/page.md)
+- [前端缓存](/Interview/old/pages/page5.md)
+- [前端首屏优化](/Interview/old/pages/page3.md)
 - [卷王修仙：我靠加班修成仙](/novel/overachiever/page.md)
+- [回流和重绘](/Interview/js/pages/page8.md)
+- [在 Vue2.x 中如何检测数组的变化](/Interview/vue/pages/page5.md)
 - [大屏自适应](/Interview/pc/pages/page1.md)
-- [工具库 rutilsjs](/frontend/library.md)
+- [如何实现 vue 项目中的性能优化](/Interview/vue/pages/page20.md)
+- [延迟加载js的方法](/Interview/js/pages/page10.md)
 - [我的开源项目](/openSource/open-source.md)
-- [插件库](/frontend/plugin.md)
 - [数学](/learn/math/skill.md)
+- [数学角](/mathCorner/page.md)
 - [构建工具及工程化](/learning/engineering/page.md)
 - [样式与布局](/learning/layoutStyle/page.md)
 - [浏览器与网络相关](/learning/browserNetwork/page.md)
+- [浏览器输入URL到渲染的过程](/Interview/old/pages/page1.md)
+- [浏览器输入URL到页面加载的过程](/Interview/js/pages/page2.md)
 - [温故而知新](/Interview/old/page.md)
+- [系统性的温故而知新](/learning/category/page.md)
+- [组件中写 name 选项有哪些好处](/Interview/vue/pages/page23.md)
 - [语文](/learn/chinese/skill.md)
+- [说一下 Vue SSR 的实现原理](/Interview/vue/pages/page13.md)
+- [谈一谈对 MVVM 的理解？](/Interview/vue/pages/page4.md)
+- [首屏优化如何去做](/Interview/js/pages/page3.md)

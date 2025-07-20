@@ -3,7 +3,7 @@ url: /learning/engineering/modules/page4.md
 ---
 # TypeScript
 
-在前端面试中，关于 **TypeScript** 的问题通常会涉及基础概念、类型系统、与 JavaScript 的区别、实际应用等方面。
+关于 **TypeScript** 的问题通常会涉及基础概念、类型系统、与 JavaScript 的区别、实际应用等方面。
 
 ## 🧠 一、基础概念
 

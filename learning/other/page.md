@@ -4,3 +4,7 @@ url: /learning/other/page.md
 # 其它
 
 * 大文件上传方案
+
+* 移动端适配
+
+* 大屏适配

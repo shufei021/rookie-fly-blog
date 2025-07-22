@@ -1,4 +1,5 @@
 import { learningSidebar } from "../sideBar/learning.js";
+import { noteSidebar } from "../sideBar/note.js";
 
 // 顶部右侧导航配置项
 export default [
@@ -15,6 +16,11 @@ export default [
     link: "/openSource/open-source",
   },
   learningSidebar,
+  noteSidebar,
+  {
+    text: "问答角",
+    link: "/answer/page.md",
+  },
   {
     text: "小说",
     items: [

@@ -17,7 +17,7 @@ const templateMap = {
     },
     vue: {
         text:'Vue 框架',
-        sub:['Vue 双向绑定原理','Vue 生命周期详解','Vue 自定义指令','Vue 如何优化 SEO','Vue2 vs Vue3','Vue3 组件通信与原理','Vue 路由实现原理','Vue keep-alive 原理','Vue computed 原理','vue3 watch vs watchEffect','Vue SSR 的实现原理','vue2和 vuex3渲染器的 diff算法','Vue nextTick','Vue complier 的实现原理','Vue 中的 Key']
+        sub:['Vue 双向绑定原理','Vue 生命周期详解','Vue 自定义指令','Vue 如何优化 SEO','Vue2 vs Vue3','Vue3 组件通信与原理','Vue 路由实现原理','Vue keep-alive 原理','Vue computed 原理','vue3 watch vs watchEffect','Vue SSR 的实现原理','vue2和 vuex3渲染器的 diff算法','Vue nextTick','Vue complier 的实现原理','Vue 中的 Key','Vue 2 迁移到 Vue3 指南','Vue3 中插槽传参']
     },
     layoutStyle: {
         text: '样式与布局',

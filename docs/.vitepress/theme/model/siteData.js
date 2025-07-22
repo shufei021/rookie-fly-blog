@@ -188,6 +188,34 @@ const commonSite = {
       className: "color-pink1",
       tags:['UnoCSS','css']
     },
+    {
+      name: "Echarts",
+      desc: "一个基于 JavaScript 的开源可视化图表库",
+      link: "https://echarts.apache.org/zh/index.html",
+      className: "color-pink1",
+      tags:['Echarts','可视化图表库']
+    },
+    {
+      name: "Antv",
+      desc: "蚂蚁企业级数据可视化解决方案，让人们在数据世界里获得视觉化思考能力",
+      link: "https://antv.antgroup.com/",
+      className: "color-pink1",
+      tags:['Antv','可视化图表库']
+    },
+    {
+      name: "D3.js",
+      desc: "以无与伦比的灵活性，打造自定义动态可视化效果",
+      link: "https://d3js.org/",
+      className: "color-pink1",
+      tags:['D3','可视化图表库']
+    },
+    {
+      name: "Three.js",
+      desc: "以无与伦比的灵活性，打造自定义动态可视化效果",
+      link: "https://threejs.org/",
+      className: "color-pink1",
+      tags:['Three','可视化图表库','WEBGL']
+    },
   ]
 }
 

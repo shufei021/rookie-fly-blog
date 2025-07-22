@@ -9,6 +9,8 @@ import llmstxt from "vitepress-plugin-llms";
 import svgLoader from 'vite-svg-loader'
 import Icons from 'unplugin-icons/vite'
 import learningSidebar from "./sideBar/learning.js";
+import sideBarData from "./sideBar/note.js";
+
 export default {
   title: "Luck Blog",
   description: "关注web前端开发为主的博客网站和前端网址大全",
@@ -43,7 +45,8 @@ export default {
     // 左侧导航栏
     sidebar: {
       "/novel/overachiever/page": novel.overachiever,
-      ...learningSidebar
+      ...learningSidebar,
+      ...sideBarData
     },
     // 右侧边栏配置，默认值是"In hac pagina"
     outlineTitle: "本页目录",

@@ -548,7 +548,7 @@ Vue 3 在多个方面实现了显著的性能提升，这些改进不仅提高�
 
 + 插槽（Slots）
   + 插槽提供了一种内容分发的API，允许父组件向子组件传递模板片段
-+ attrs和attrs和listeners（在Vue 3中已合并为 $attrs）
++ attrs和listeners（在Vue 3中已合并为 $attrs）
   + `$attrs`包含了所有未被声明为 props 的属性，可以用来透传到子组件 
 + Ref + DefineExpose
   + 父组件可以通过 ref 直接访问子组件实例或DOM元素，并调用子组件的方法

@@ -1,0 +1,1 @@
+import{_ as e,a as t,o as a}from"./chunks/framework.D10JOWeE.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"note/vite/page1.md","filePath":"note/vite/page1.md","lastUpdated":1753172304000}'),o={name:"note/vite/page1.md"};function n(r,s,p,c,i,d){return a(),t("div")}const f=e(o,[["render",n]]);export{m as __pageData,f as default};

@@ -434,8 +434,84 @@ export default defineConfig({
 
 ***
 
-## ✅ 如何使用这套模板？
+## Vite 中的 import.meta 属性方法详解
 
-* 每题**按关键词结构**口述
-* 模拟真实面试时**用简洁语气**回答
-* 可练习自我提问 + 回答 + 延展追问（比如“能举个例子吗？”）
+`import.meta` 是 JavaScript 模块系统中的一个元属性，Vite 在此基础上扩展了一些特有的属性。以下是 Vite 中 `import.meta` 的主要属性和方法：
+
+### 核心属性
+
+1. **`import.meta.env`**
+   * 包含环境变量
+   * Vite 使用 `dotenv` 从项目根目录中的 `.env` 文件加载额外的环境变量
+   * 默认包含：
+     * `import.meta.env.MODE`: 应用运行的模式 (`development`/`production`)
+     * `import.meta.env.BASE_URL`: 部署应用时的基本 URL
+     * `import.meta.env.PROD`: 是否在生产环境运行
+     * `import.meta.env.DEV`: 是否在开发环境运行
+     * `import.meta.env.SSR`: 是否在服务器端渲染
+
+2. **`import.meta.glob`**
+   * 用于批量导入模块
+   * 示例：
+     ```js
+     const modules = import.meta.glob('./dir/*.js')
+     // 返回 { [path]: () => Promise<module> }
+     ```
+   * 变体：
+     * `import.meta.globEager`: 同步立即导入（Vite 2.x）
+     * `import.meta.glob('*', { eager: true })`: Vite 3+ 推荐写法
+
+3. **`import.meta.hot`**
+   * Vite 的 HMR (热模块替换) API
+   * 主要方法：
+     * `import.meta.hot.accept()`: 接受模块更新
+     * `import.meta.hot.accept(cb)`: 带回调的接受
+     * `import.meta.hot.dispose(cb)`: 清理副作用
+     * `import.meta.hot.invalidate()`: 强制重新加载页面
+     * `import.meta.hot.on(event, cb)`: 监听 HMR 事件
+
+### 其他实用属性
+
+4. **`import.meta.url`**
+   * 当前模块的完整 URL (ES 模块标准属性)
+   * 示例：`file:///path/to/your/module.js`
+
+5. **`import.meta.resolve`** (实验性)
+   * 解析模块路径
+   * 示例：
+     ```js
+     const helperPath = await import.meta.resolve('some-module')
+     ```
+
+6. **`import.meta.main`** (Vite 特定)
+   * 表示当前模块是否是应用入口模块
+
+### 使用示例
+
+```javascript
+// 环境变量
+if (import.meta.env.DEV) {
+  console.log('开发模式')
+}
+
+// 动态导入
+const modules = import.meta.glob('./components/*.vue')
+
+// HMR
+if (import.meta.hot) {
+  import.meta.hot.accept('./dep.js', (newModule) => {
+    console.log('模块更新:', newModule)
+  })
+}
+
+// 解析路径
+const path = await import.meta.resolve('lodash')
+```
+
+### 注意事项
+
+1. 这些属性只在 Vite 的模块系统中可用，不是所有 JavaScript 环境都支持
+2. 在生产构建时，Vite 会静态分析这些属性并进行适当的替换
+3. 对于 TypeScript 用户，可以在 `vite/client.d.ts` 中找到这些属性的类型定义
+
+Vite 通过这些 `import.meta` 扩展提供了强大的开发时功能，特别是对于模块热替换和动态导入的支持。

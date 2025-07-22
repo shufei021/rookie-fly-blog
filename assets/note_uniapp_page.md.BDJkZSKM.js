@@ -1,0 +1,1 @@
+import{_ as e,a,o as t}from"./chunks/framework.D10JOWeE.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"note/uniapp/page.md","filePath":"note/uniapp/page.md","lastUpdated":1753172304000}'),p={name:"note/uniapp/page.md"};function n(o,r,s,c,i,d){return t(),a("div")}const f=e(p,[["render",n]]);export{m as __pageData,f as default};

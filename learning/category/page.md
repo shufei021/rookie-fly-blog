@@ -7,7 +7,7 @@ url: /learning/category/page.md
 
 ## 浏览器与网络
 
-### 浏览器输入URL到渲染过程 ✅
+### ✅浏览器输入URL到渲染过程
 
 ::: details 详解
 
@@ -102,7 +102,7 @@ url: /learning/category/page.md
 
 :::
 
-### 事件轮询
+### ✅事件轮询
 
 ::: details 详解
 
@@ -150,13 +150,13 @@ url: /learning/category/page.md
 3. 取出一个宏任务执行，重复上述过程
    :::
 
-### 跨域
+### ✅跨域
 
 ::: details 详解
 
 ##### 什么是跨域？为什么会出现跨域？
 
-* 跨域是指浏览器因为\*\*同源策略（Same-origin policy）\*\*的限制，阻止从一个不同协议（HTTP/HTTPS）、不同域名、不同端口加载资源的行为。
+* 跨域是指浏览器因为 **`同源策略（Same-origin policy）`** 的限制，阻止从一个不同协议（HTTP/HTTPS）、不同域名、不同端口加载资源的行为。
 * 同源策略的三个条件
   * 协议相同
   * 域名相同
@@ -189,7 +189,7 @@ url: /learning/category/page.md
   * 上传文件时使用 FormData + fetch 或 XMLHttpRequest，后端需设置 Access-Control-Allow-Origin 和允许的 Content-Type 类型。\
     :::
 
-### HTTP1.1 与 HTTP2 区别
+### ✅HTTP1.1 与 HTTP2 区别
 
 ::: details 详解
 
@@ -201,7 +201,7 @@ url: /learning/category/page.md
 * HTTP2 通常加密（推荐TLS）
   :::
 
-### OPTIONS 预请求
+### ✅OPTIONS 预请求
 
 ::: details 详解
 
@@ -222,7 +222,7 @@ OPTIONS 请求是浏览器在发送某些跨域请求之前，自动发起的一
 * 如果服务器允许，则浏览器继续发送真正的请求；否则，阻止请求并报错
   :::
 
-### 状态码详解
+### ✅状态码详解
 
 ::: details 详解
 
@@ -253,7 +253,7 @@ OPTIONS 请求是浏览器在发送某些跨域请求之前，自动发起的一
    * 503 Service Unavailable：由于临时的服务器维护或过载，服务器暂时无法处理请求。
      :::
 
-### WebSocket
+### ✅WebSocket
 
 ::: details 详解
 
@@ -277,7 +277,7 @@ WebSocket 的建立过程是基于 HTTP 协议的，称为握手（Handshake）
 
 ## 性能优化 ❌
 
-### 前端性能优化
+### ✅前端性能优化
 
 ::: details 详解
 
@@ -355,7 +355,7 @@ WebSocket 的建立过程是基于 HTTP 协议的，称为握手（Handshake）
    * 基于监控数据不断调整和优化网站性能。
      :::
 
-### 前端首屏优化
+### ✅前端首屏优化
 
 ::: details 详解
 
@@ -413,7 +413,7 @@ WebSocket 的建立过程是基于 HTTP 协议的，称为握手（Handshake）
    * 根据监控数据不断调整和优化网站性能，保持最佳状态。
      :::
 
-### Web缓存
+### ✅Web缓存
 
 ::: details 详解
 
@@ -480,7 +480,7 @@ Cache-Control是HTTP/1.1中定义的最重要的缓存控制头部，它可以�
 * LocalStorage、SessionStorage、IndexedDB、cookie
   :::
 
-### 前端内存泄漏
+### ✅前端内存泄漏
 
 ::: details 详解
 
@@ -497,7 +497,7 @@ Cache-Control是HTTP/1.1中定义的最重要的缓存控制头部，它可以�
 
 ## JavaScript 核心
 
-### ES6 新特性
+### ✅ES6 新特性
 
 ::: details 详解
 
@@ -516,7 +516,7 @@ Cache-Control是HTTP/1.1中定义的最重要的缓存控制头部，它可以�
 * 解构赋值
   :::
 
-### 箭头函数 vs 普通函数
+### ✅箭头函数 vs 普通函数
 
 ::: details 详解
 
@@ -529,7 +529,7 @@ Cache-Control是HTTP/1.1中定义的最重要的缓存控制头部，它可以�
 
 :::
 
-### 原型和原型链
+### ✅原型和原型链
 
 ::: details 详解
 
@@ -558,7 +558,7 @@ console.log(Person.prototype.constructor === Person); // true
 **原型是继承的基础，原型链是属性查找的机制**
 :::
 
-### 函数柯里化
+### ✅函数柯里化
 
 ::: details 详解
 
@@ -600,7 +600,7 @@ console.log(curryAdd(1)(2, 3)); // 6
 
 :::
 
-### CommonJS 与 模块化
+### ✅CommonJS 与 模块化
 
 ::: details 详解
 
@@ -737,7 +737,7 @@ CommonJS（CJS）和 ECMAScript 模块（ESM）是JavaScript中两种不同的�
 
 ## Vue 框架
 
-### Vue 双向绑定原理
+### ✅Vue 双向绑定原理
 
 ::: details 详解
 
@@ -770,7 +770,7 @@ data.name = "Vue3"; // 控制台输出 "数据更新了"
 
 :::
 
-### Vue 生命周期详解
+### ✅Vue 生命周期详解
 
 ::: details 详解
 
@@ -789,7 +789,7 @@ data.name = "Vue3"; // 控制台输出 "数据更新了"
 * `deactivated`：**当组件被缓存后，离开当前视图（被切换出去）时调用**。可以在这里进行一些资源释放操作，比如清除定时器、取消事件监听、停止动画等，防止内存泄漏。
   :::
 
-### Vue 自定义指令
+### ✅Vue 自定义指令
 
 ::: details 详解
 
@@ -810,7 +810,7 @@ app.directive("focus", {
 
 :::
 
-### Vue 如何优化 SEO
+### ✅Vue 如何优化 SEO
 
 ::: details 详解
 在Vue.js项目中优化SEO（搜索引擎优化）主要涉及以下几个方面：
@@ -837,7 +837,7 @@ app.directive("focus", {
 
 :::
 
-### Vue2 vs Vue3
+### ✅Vue2 vs Vue3
 
 ::: details 详解
 
@@ -885,7 +885,7 @@ app.directive("focus", {
 * beforeCreate、created 被语法糖 setup 替代
   :::
 
-### Vue3 组件通信与原理
+### ✅Vue3 组件通信与原理
 
 ::: details 详解
 
@@ -901,7 +901,7 @@ app.directive("focus", {
   * Pinia (推荐)
     :::
 
-### Vue 路由实现原理
+### ✅Vue 路由实现原理
 
 ::: details 详解
 
@@ -1078,7 +1078,7 @@ const KeepAlive = {
 
 :::
 
-### Vue computed 原理
+### ✅Vue computed 原理
 
 ::: details 详解
 Vue 的 `computed` 属性实现的核心在于`依赖追踪`和`响应式系统`。简要来说，其实现原理包括以下几个关键点：
@@ -1094,7 +1094,7 @@ Vue 的 `computed` 属性实现的核心在于`依赖追踪`和`响应式系统`
 综上所述，Vue 的 `computed` 利用了依赖追踪、缓存机制以及响应式更新等特性，使得它能够高效地管理复杂状态逻辑，同时简化了代码的编写和维护工作。
 :::
 
-### vue3 watch vs watchEffect
+### ✅vue3 watch vs watchEffect
 
 ::: details 详解
 
@@ -1133,7 +1133,7 @@ Vue 的 `computed` 属性实现的核心在于`依赖追踪`和`响应式系统`
 
 :::
 
-### Vue SSR 和 SSG 的实现原理
+### ✅Vue SSR 和 SSG 的实现原理
 
 ::: details 详解
 Vue 的 SSR（Server-Side Rendering，服务端渲染）和 SSG（Static Site Generation，静态站点生成）是两种不同的预渲染技术，旨在提高首屏加载速度、SEO效果以及用户体验。下面分别介绍这两种技术的实现原理。
@@ -1195,7 +1195,7 @@ SSG 是预先构建所有页面为静态HTML文件的过程，这些页面可以
 通过上述措施，你可以最大化地发挥SSR在SEO方面的潜力，确保你的网站不仅对用户友好，也能很好地适应搜索引擎的需求。
 :::
 
-### vue2和 vuex3渲染器的 diff算法
+### ✅vue2和 vuex3渲染器的 diff算法
 
 ::: details 详解
 Vue 2 和 Vue 3 在渲染机制和 diff 算法方面有着显著的不同，这些改进旨在提高性能和开发体验。
@@ -1225,7 +1225,7 @@ Vue 3 对渲染器和 diff 算法进行了多项优化，包括但不限于：
 总的来说，Vue 3 相对于 Vue 2，在 diff 算法和渲染逻辑上有了显著的改进，使得应用在保持简洁的同时还能获得更好的性能表现。这些改进帮助开发者构建更高效的应用程序，同时也提升了用户体验。
 :::
 
-### Vue nextTick
+### ✅Vue nextTick
 
 ::: details 详解
 
@@ -1290,7 +1290,7 @@ Vue 3 对编译器进行了多项改进，主要包括：
 总的来说，Vue 编译器的工作就是将开发人员书写的模板或 JSX 转换成高效的 JavaScript 渲染逻辑。Vue 3 相对于 Vue 2，在编译效率、输出质量和性能优化方面都有显著的进步，这使得使用 Vue 构建的应用程序能够获得更好的用户体验。同时，Vue 3 的编译器设计也更加模块化，便于未来功能的扩展和性能的持续优化。
 :::
 
-### Vue 中的 Key
+### ✅Vue 中的 Key
 
 ::: details 详解
 在 Vue 中，`key` 是一个特殊的属性，用于给每个节点提供一个唯一的标识。Vue 使用 `key` 来追踪节点的身份，以便更高效地更新虚拟 DOM。以下是关于 `key` 属性的详细解释：
@@ -1322,7 +1322,7 @@ Vue 3 对编译器进行了多项改进，主要包括：
 总之，正确使用 `key` 对于优化 Vue 应用的性能至关重要。它不仅帮助 Vue 更加智能地进行 DOM 操作，还能避免一些潜在的错误和性能瓶颈。
 :::
 
-### ref 和 reactive 的区别
+### ✅ref 和 reactive 的区别
 
 ::: details 详解
 在 Vue 3 中，`ref` 和 `reactive` 是 Composition API 提供的两个核心响应式函数，它们用于创建不同类型的响应式数据。
@@ -1454,7 +1454,7 @@ Vue 3 对编译器进行了多项改进，主要包括：
 
 ## React 框架
 
-### React 框架原理
+### ✅React 框架原理
 
 ::: details 详解
 在准备前端面试时，了解 React 框架的原理是非常重要的。以下是一些关键概念和原理，可以帮助你更好地理解 React，并在面试中展示你的知识。
@@ -1486,7 +1486,7 @@ Hooks是React 16.8引入的新特性，它允许函数组件拥有类组件的�
 
 ## 样式与布局
 
-### Flex
+### ✅Flex
 
 ::: details 详解
 在前端开发中，`flex`（弹性盒子布局，Flexbox）是一种现代的、高效的 CSS 布局模型，特别适合用于一维布局（即行或列）。它简化了在不同屏幕尺寸和设备上对齐、分布和排列元素的方式，是响应式设计的重要工具。
@@ -1647,7 +1647,7 @@ flex: <flex-grow> <flex-shrink> <flex-basis>;
 | 左右结构（如页眉页脚） | 使用 `justify-content: space-between` |
 :::
 
-### BFC
+### ✅BFC
 
 ::: details 详解
 
@@ -1832,7 +1832,7 @@ flex: <flex-grow> <flex-shrink> <flex-basis>;
 
 ## 构建工具及工程化
 
-### Webpack 的构建流程
+### ✅Webpack 的构建流程
 
 ::: details 详解
 
@@ -1947,7 +1947,7 @@ Webpack 是一个模块打包工具，它的核心功能是将项目中的各种
 | 输出 | 生成 HTML、清理目录 | `HtmlWebpackPlugin`, `CleanWebpackPlugin` |
 :::
 
-### vite 的构建流程
+### ✅vite 的构建流程
 
 ::: details 详解
 Vite 底层原理的理解
@@ -2199,7 +2199,7 @@ Vite SSR（Server-Side Rendering）是一种将页面在服务器上预先渲染
 
 :::
 
-### Webpack vs vite
+### ✅Webpack vs vite
 
 ::: details 详解
 
@@ -2318,7 +2318,7 @@ npm run build
 | 大型企业级应用 | 可以结合使用（Vite + 微前端架构） |
 :::
 
-### [TypeScript](/learning/category/modules/page3)
+### ✅[TypeScript](/learning/category/modules/page3)
 
 ::: details 详解
 
@@ -2379,35 +2379,30 @@ npm run build
 * SEO 如何做
   ::: details 详解
 
-#### 如何优化 SEO
+### 如何优化 SEO
 
-优化SEO（搜索引擎优化）涉及多个方面，旨在提高网站在搜索引擎结果页面（SERPs）中的可见度。以下是一些关键策略：
+> SEO（搜索引擎优化）的主要目的是通过提高网站在搜索引擎结果页面（SERPs）中的可见性和排名，从而吸引更多的有机（非付费）流量到网站
 
-1. **关键词研究**：了解您的目标受众使用的搜索词，并确保这些关键词自然地出现在您的网站内容中。使用工具如Google Keyword Planner、Ahrefs或SEMrush来找到合适的关键词。
+从提高`网站的可见性`和`访问量`的角度来归类，可以将上述SEO策略分为以下几个类别：
 
-2. **高质量内容创建**：提供有价值、原创且与目标关键词相关的内容。优质内容不仅能吸引访问者，还能鼓励其他网站链接至您的页面，从而提升排名。
+**一、提升搜索引擎可见性**
 
-3. **技术优化**：
-   * 确保网站加载速度快，移动端友好。
-   * 使用SSL证书保证网站安全。
-   * 创建并提交网站地图（Sitemap），以便搜索引擎更容易索引您的网站。
-   * 使用结构化数据标记帮助搜索引擎理解页面内容。
+1. 关键词研究：投其所好，目标受众使用的关键词，确保自然地出现在网站内容中
+2. 技术优化：使用语义化标签，加快网站加载速度、保证移动端友好、使用SSL保证网站安全、创建网站地图sitemap、使用结构化数据标记，让搜索引擎更容易和理解你的页面
 
-4. **用户体验（UX）改进**：一个设计良好、易于导航的网站能减少跳出率，增加用户停留时间，这对SEO有利。
+**二、增加用户访问量**
 
-5. **外部链接建设**：获取来自权威网站的高质量反向链接。这可以通过内容营销、公关活动和合作伙伴关系实现。
+1. 高质量内容创建： 提供有价值、原创与目标关键词相关的内容，吸引访问者同时鼓励其他网站链接您的页面
+2. 用户体验（UX）： 设计良好、易于导航，减少跳出率，增加用户停留时间
+3. 外部链接建设：获取来自权威网站的反向链接
+4. 社交媒体整合：增加曝光度，间接增加访问量
+5. 图片和视频优化： 图片添加alt属性。制作视频吸引流量
 
-6. **社交媒体整合**：虽然社交媒体信号不直接作为排名因素，但它们可以增加品牌曝光度，间接促进SEO。
+**三、长期增长访问量**
 
-7. **本地SEO**：如果您有实体店或服务特定地区，确保在Google My Business等平台注册并优化您的列表。
+1. 定期更新内容：保持内容新鲜度，有利于保持搜索引擎的关注
+2. 避免黑帽SEO技巧：避免使用如隐藏文本、关键词堆砌等不当做法，以免遭受搜索引擎的惩罚，影响网站的长期发展和可见性。
 
-8. **视频和图片优化**：为所有图片添加alt属性，并考虑制作视频内容以吸引更多流量。
-
-9. **定期更新内容**：保持博客文章和其他类型的内容新鲜度，有助于维持搜索引擎的关注。
-
-10. **避免黑帽SEO技巧**：不要尝试欺骗搜索引擎，如隐藏文本、关键词堆砌等做法，这些可能导致惩罚甚至封禁。
-
-针对基于JavaScript框架如Vue.js构建的单页应用(SPA)，还需要特别注意服务端渲染(SSR)或预渲染(Prerendering)的应用，以确保搜索引擎能够正确抓取和索引您的网页内容。通过结合以上策略，您可以有效地提升网站的SEO表现。
 :::
 
 * uniapp 插件开发

@@ -6411,14 +6411,14 @@ url: /learning/engineering/modules/page9.md
 ---
 
 ---
-url: /learning/layoutStyle/modules/page10.md
----
-
-
----
-
----
 url: /learning/layoutStyle/modules/page11.md
+---
+
+
+---
+
+---
+url: /learning/layoutStyle/modules/page10.md
 ---
 
 
@@ -6530,14 +6530,189 @@ url: /mathCorner/modules/page1.md
 ---
 
 ---
-url: /novel/overachiever/pages/page19.md
+url: /note/rollup/modules/page1.md
 ---
 
 
 ---
 
 ---
-url: /novel/overachiever/pages/page20.md
+url: /note/rollup/modules/page2.md
+---
+
+
+---
+
+---
+url: /note/rollup/modules/page3.md
+---
+
+
+---
+
+---
+url: /note/rollup/modules/page4.md
+---
+
+
+---
+
+---
+url: /note/typeScript/modules/page1.md
+---
+
+
+---
+
+---
+url: /note/rollup/page.md
+---
+
+
+---
+
+---
+url: /note/typeScript/modules/page2.md
+---
+
+
+---
+
+---
+url: /note/typeScript/modules/page3.md
+---
+
+
+---
+
+---
+url: /note/typeScript/modules/page4.md
+---
+
+
+---
+
+---
+url: /note/typeScript/page.md
+---
+
+
+---
+
+---
+url: /note/uniapp/modules/page1.md
+---
+
+
+---
+
+---
+url: /note/uniapp/modules/page3.md
+---
+
+
+---
+
+---
+url: /note/uniapp/modules/page4.md
+---
+
+
+---
+
+---
+url: /note/uniapp/modules/page2.md
+---
+
+
+---
+
+---
+url: /note/uniapp/page.md
+---
+
+
+---
+
+---
+url: /note/vite/modules/page3.md
+---
+
+
+---
+
+---
+url: /note/vite/modules/page4.md
+---
+
+
+---
+
+---
+url: /note/vite/page1.md
+---
+
+
+---
+
+---
+url: /note/vue3/modules/page2.md
+---
+
+
+---
+
+---
+url: /note/vue3/modules/page3.md
+---
+
+
+---
+
+---
+url: /note/vue3/modules/page4.md
+---
+
+
+---
+
+---
+url: /note/webpack/modules/page1.md
+---
+
+
+---
+
+---
+url: /note/webpack/modules/page2.md
+---
+
+
+---
+
+---
+url: /note/webpack/modules/page3.md
+---
+
+
+---
+
+---
+url: /note/webpack/modules/page4.md
+---
+
+
+---
+
+---
+url: /note/webpack/page.md
+---
+
+
+---
+
+---
+url: /novel/overachiever/pages/page21.md
 ---
 
 
@@ -7401,6 +7576,312 @@ export default defineConfig({
 ---
 
 ---
+url: /note/vite/modules/page1.md
+---
+# Vite + Vue3 项目中支持 JSX 语法
+
+### 1. 安装必要依赖
+
+首先需要安装支持 JSX 的插件：
+
+```bash
+npm install @vitejs/plugin-vue-jsx -D
+# 或者
+yarn add @vitejs/plugin-vue-jsx -D
+```
+
+### 2. 配置 Vite
+
+修改 `vite.config.js` 文件：
+
+```javascript
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+
+export default defineConfig({
+  plugins: [
+    vue(), 
+    vueJsx() // 添加这行
+  ]
+})
+```
+
+### 3. 使用 JSX
+
+现在你可以在 `.vue` 文件或 `.jsx`/`.tsx` 文件中使用 JSX 了：
+
+#### 方式一：在 .vue 文件中使用
+
+```vue
+<script setup>
+const title = 'Hello JSX'
+const count = ref(0)
+
+const renderTitle = () => <h1>{title}</h1>
+</script>
+
+<template>
+  <div>
+    {renderTitle()}
+    <button onClick={() => count.value++}>
+      点击次数: {count.value}
+    </button>
+  </div>
+</template>
+```
+
+#### 方式二：创建单独的 JSX 组件
+
+创建 `MyComponent.jsx` 文件：
+
+```jsx
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    return () => (
+      <div>
+        <h1>我是JSX组件</h1>
+      </div>
+    )
+  }
+})
+```
+
+### 4. 在组件中使用 JSX 组件
+
+```vue
+<script setup>
+import MyComponent from './MyComponent.jsx'
+</script>
+
+<template>
+  <MyComponent />
+</template>
+```
+
+### 5. 常见问题解决
+
+#### 问题1：JSX 中如何使用 v-model？
+
+```jsx
+<input v-model={value} />
+// 等同于
+<input value={value} onInput={e => value = e.target.value} />
+```
+
+#### 问题2：如何绑定事件？
+
+```jsx
+<button onClick={handleClick}>点击</button>
+```
+
+#### 问题3：如何绑定 class 和 style？
+
+```jsx
+<div class={['foo', { active: isActive }]} style={{ color: 'red' }}>
+  样式和类名绑定
+</div>
+```
+
+### 6. TypeScript 支持
+
+如果是 TS 项目，确保 `tsconfig.json` 中有：
+
+```json
+{
+  "compilerOptions": {
+    "jsx": "preserve"
+  }
+}
+```
+
+### 7. 为什么推荐这种方式？
+
+* 官方维护的插件，兼容性好
+* 配置简单，只需安装一个插件
+* 支持 Vue3 的所有特性
+* 与 Vite 的热更新完美配合
+
+### 8. 其他注意事项
+
+1. JSX 中组件名必须大写开头（如 `<MyComponent />`）
+2. 片段需要用 `<></>` 或 `<Fragment></Fragment>` 包裹
+3. 属性使用驼峰命名（如 `onClick` 而不是 `@click`）
+
+---
+
+---
+url: /note/vite/modules/page2.md
+---
+# Vite 中使用 CSS 的各种功能
+
+以下是 Vite 中 CSS 功能的全面总结与配置指南，结合最佳实践和示例代码，帮助开发者高效管理样式：
+
+## 🎨 一、基础 CSS 支持
+
+Vite 原生支持 CSS 文件，无需额外配置：
+
+* 直接导入 `CSS`：在 `JS/TS` 文件中通过 `import './style.css'` 引入，`Vite` 会自动将样式注入 `< style>` 标签并插入 `HTML` 头部。
+
+* CSS 变量（自定义属性）：
+
+  支持通过 `:root` 定义全局变量，增强代码复用性：
+
+  ```css
+  :root { --primary-color: #1890ff; }
+  ```
+
+## 🔒 二、CSS 模块化（避免样式冲突）
+
+通过 .module.css 后缀启用模块化，生成哈希类名：
+
+* 基本使用：
+
+```js
+  import styles from './module.module.css';
+  <div className={styles.container}>内容</div>
+```
+
+* 配置选项（vite.config.js）：
+
+  可自定义类名生成规则和作用域：
+
+  ```js
+  export default defineConfig({
+    css: {
+      modules: {
+        scopeBehaviour: 'local', // 局部作用域
+        generateScopedName: '[name]__[local]___[hash:base64:5]' // 自定义命名格式
+      }
+    }
+  });
+  ```
+
+  通过 globalModulePaths 排除全局样式文件（如 /global.css/）。
+
+## ⚙️ 三、CSS 预处理器支持
+
+Vite 内置 Sass、Less、Stylus 支持，需安装对应依赖（如 npm install sass -D）：
+
+* 全局变量注入（避免重复导入）：
+
+```js
+  // vite.config.js
+  export default defineConfig({
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/styles/variables.scss";` // 自动注入全局变量
+        },
+        less: {
+          modifyVars: { 'primary-color': '#1DA57A' }, // 修改 Less 变量
+          javascriptEnabled: true
+        },
+        styl: {
+          import: ['~@/styles/variables.styl'] // Stylus 全局导入
+        }
+      }
+    }
+  });
+```
+
+## 🛠️ 四、PostCSS 集成
+
+通过 PostCSS 插件增强 CSS 功能：
+
+* 自动添加浏览器前缀（使用 autoprefixer）：
+
+```js
+  // vite.config.js
+  import autoprefixer from 'autoprefixer';
+  export default defineConfig({
+    css: {
+      postcss: {
+        plugins: [autoprefixer({ overrideBrowserslist: ['Chrome > 40'] })]
+      }
+    }
+  });
+```
+
+* 常用插件推荐：
+
+  * postcss-nested：支持嵌套语法（如 Sass 风格）。
+
+  * postcss-pxtorem：将 px 转换为 rem。
+
+  * cssnano：生产环境压缩 CSS。
+
+## ✨ 五、CSS 原子化框架
+
+推荐使用 Windi CSS 或 Tailwind CSS 提升开发效率：
+
+* UnoCSS 接入步骤（Vite 官方推荐）：
+
+  1. 安装依赖：npm install -D unocss @unocss/vite
+  2. 配置插件：
+
+  ```js
+      // vite.config.js
+      import Unocss from 'unocss/vite';
+      export default defineConfig({
+      plugins: [Unocss({ presets: [presetUno(), presetAttributify()] })]
+      });
+  ```
+
+  3. 在组件中动态生成原子类：
+
+  ```vue
+   <template>
+     <div :class="`text-${color}-500 hover:bg-${hoverColor}/50`"></div>
+   </template>
+  ```
+* 优势：
+
+  * 体积减少 60%~80%，提升渲染性能。
+
+  * 支持属性化语法（如 < button bg="blue-400">）。
+
+🚀 六、生产环境优化
+
+* CSS 代码分割：
+
+  * Vite 默认将动态导入组件的 CSS 拆分为独立文件，减少首屏负载：
+  * import('./HeavyComponent.vue'); // 自动提取组件 CSS 为独立文件
+  * 禁用方式：build: { cssCodeSplit: false }。
+* 压缩 CSS：
+
+  使用 build: { minify: 'esbuild' }（默认）或 terser 进一步压缩。
+
+## ⚠️ 常见问题解决
+
+1. 路径别名配置：\
+   // vite.config.js
+   export default defineConfig({
+   resolve: { alias: { '@styles': '/src/styles' } }
+   });
+
+   使用：import '@styles/global.css'。
+2. 第三方样式不生效：\
+   在 css.modules.globalModulePaths 中配置排除路径（如 \[/global.css/]）。
+3. Sass 全局变量未注入：\
+   检查 preprocessorOptions.scss.additionalData 路径是否正确。
+
+## 💎 总结：功能选择指南
+
+|场景 |推荐方案 |优势|
+|------------------|---------------|------------------|
+|小型项目| 原生 CSS + 变量 |零配置、轻量快速|
+|协作项目| CSS Modules + 预处理器 避|免命名冲突、支持编程语法|
+|大型应用| 原子化框架（UnoCSS） + 动态导入 |极致性能、高复用性|
+|生产部署| PostCSS 插件 + 代码分割/压缩 |优化加载速度、减少体积|
+
+更多实践细节参考：https://vitejs.dev/guide/features.html#css 或 \[CSS 模块化配置详解]。
+
+---
+
+---
 url: /learning/category/modules/page1.md
 ---
 # Vite 相关
@@ -7836,11 +8317,281 @@ export default defineConfig({
 
 ***
 
-## ✅ 如何使用这套模板？
+## Vite 中的 import.meta 属性方法详解
 
-* 每题**按关键词结构**口述
-* 模拟真实面试时**用简洁语气**回答
-* 可练习自我提问 + 回答 + 延展追问（比如“能举个例子吗？”）
+`import.meta` 是 JavaScript 模块系统中的一个元属性，Vite 在此基础上扩展了一些特有的属性。以下是 Vite 中 `import.meta` 的主要属性和方法：
+
+### 核心属性
+
+1. **`import.meta.env`**
+   * 包含环境变量
+   * Vite 使用 `dotenv` 从项目根目录中的 `.env` 文件加载额外的环境变量
+   * 默认包含：
+     * `import.meta.env.MODE`: 应用运行的模式 (`development`/`production`)
+     * `import.meta.env.BASE_URL`: 部署应用时的基本 URL
+     * `import.meta.env.PROD`: 是否在生产环境运行
+     * `import.meta.env.DEV`: 是否在开发环境运行
+     * `import.meta.env.SSR`: 是否在服务器端渲染
+
+2. **`import.meta.glob`**
+   * 用于批量导入模块
+   * 示例：
+     ```js
+     const modules = import.meta.glob('./dir/*.js')
+     // 返回 { [path]: () => Promise<module> }
+     ```
+   * 变体：
+     * `import.meta.globEager`: 同步立即导入（Vite 2.x）
+     * `import.meta.glob('*', { eager: true })`: Vite 3+ 推荐写法
+
+3. **`import.meta.hot`**
+   * Vite 的 HMR (热模块替换) API
+   * 主要方法：
+     * `import.meta.hot.accept()`: 接受模块更新
+     * `import.meta.hot.accept(cb)`: 带回调的接受
+     * `import.meta.hot.dispose(cb)`: 清理副作用
+     * `import.meta.hot.invalidate()`: 强制重新加载页面
+     * `import.meta.hot.on(event, cb)`: 监听 HMR 事件
+
+### 其他实用属性
+
+4. **`import.meta.url`**
+   * 当前模块的完整 URL (ES 模块标准属性)
+   * 示例：`file:///path/to/your/module.js`
+
+5. **`import.meta.resolve`** (实验性)
+   * 解析模块路径
+   * 示例：
+     ```js
+     const helperPath = await import.meta.resolve('some-module')
+     ```
+
+6. **`import.meta.main`** (Vite 特定)
+   * 表示当前模块是否是应用入口模块
+
+### 使用示例
+
+```javascript
+// 环境变量
+if (import.meta.env.DEV) {
+  console.log('开发模式')
+}
+
+// 动态导入
+const modules = import.meta.glob('./components/*.vue')
+
+// HMR
+if (import.meta.hot) {
+  import.meta.hot.accept('./dep.js', (newModule) => {
+    console.log('模块更新:', newModule)
+  })
+}
+
+// 解析路径
+const path = await import.meta.resolve('lodash')
+```
+
+### 注意事项
+
+1. 这些属性只在 Vite 的模块系统中可用，不是所有 JavaScript 环境都支持
+2. 在生产构建时，Vite 会静态分析这些属性并进行适当的替换
+3. 对于 TypeScript 用户，可以在 `vite/client.d.ts` 中找到这些属性的类型定义
+
+Vite 通过这些 `import.meta` 扩展提供了强大的开发时功能，特别是对于模块热替换和动态导入的支持。
+
+---
+
+---
+url: /note/vite/page.md
+---
+# Vite 笔记
+
+## Vite 官网
+
+[Vite 官网](https://cn.vite.dev/guide/)
+
+---
+
+---
+url: /learning/vue/modules/page16.md
+---
+# Vue 2 迁移到 Vue3 指南
+
+## 一、重大变化概述
+
+1. **Composition API**：Vue3 引入了全新的 Composition API，作为 Options API 的补充
+2. **性能提升**：更小的包体积、更好的渲染性能、更高效的组件初始化
+3. **TypeScript 支持**：Vue3 使用 TypeScript 重写，提供更好的类型支持
+4. **架构变化**：模块化架构，更好的 tree-shaking 支持
+
+## 二、API 变化
+
+### 1. 全局 API 变化
+
+* `Vue.nextTick` → `import { nextTick } from 'vue'`
+* `Vue.set` 和 `Vue.delete` 不再需要（响应式系统自动处理）
+* `Vue.filter` 已移除，建议使用 methods 或 computed 属性替代
+* `Vue.component` → `app.component`
+* `Vue.directive` → `app.directive`
+* `Vue.mixin` → `app.mixin`
+* `Vue.use` → `app.use`
+
+### 2. 实例 API 变化
+
+* `$on`, `$off`, `$once` 移除，推荐使用第三方事件库
+* `$children` 移除，推荐使用 `ref` 访问子组件
+* `$listeners` 移除，合并到 `$attrs` 中
+* `$scopedSlots` 移除，统一使用 `$slots`
+
+## 三、模板语法变化
+
+### 1. v-model 变化
+
+* Vue2 的 `.sync` 修饰符被移除，统一使用 `v-model`
+* 可以多个 `v-model` 绑定：`v-model:propName`
+* 自定义修饰符处理方式变化
+
+### 2. 事件 API
+
+* `v-on.native` 修饰符移除
+* `emits` 选项成为标准配置
+
+### 3. 其他指令变化
+
+* `v-for` 中的 `ref` 不再自动创建数组
+* `v-if` 和 `v-for` 优先级变化：`v-if` 现在有更高的优先级
+* `key` 在 `<template v-for>` 中的位置变化
+
+## 四、组件相关变化
+
+### 1. 异步组件
+
+* 新的 `defineAsyncComponent` 方法
+* 简化了异步组件定义方式
+
+```javascript
+import { defineAsyncComponent } from 'vue'
+
+const AsyncComp = defineAsyncComponent(() =>
+  import('./components/AsyncComponent.vue')
+)
+```
+
+### 2. 函数式组件
+
+* 函数式组件语法变化
+* 需要通过函数而非对象定义
+* 性能优势减少，建议谨慎使用
+
+### 3. 组件生命周期
+
+* `beforeDestroy` → `beforeUnmount`
+* `destroyed` → `unmounted`
+* 新增 `renderTracked` 和 `renderTriggered` 调试钩子
+
+## 五、响应式系统变化
+
+### 1. Reactivity API
+
+* `Vue.observable` 移除 → 使用 `reactive`
+* 新增 `ref`, `reactive`, `readonly` 等 API
+* 需要显式导入响应式 API
+
+```javascript
+import { ref, reactive } from 'vue'
+```
+
+### 2. 响应式原理变化
+
+* 使用 Proxy 替代 `Object.defineProperty`
+* 可以检测数组索引变化和对象属性添加/删除
+* 不再需要 `Vue.set`/`Vue.delete`
+
+## 六、渲染函数变化
+
+### 1. h 函数变化
+
+* `h` 函数现在全局导入
+* 参数格式变化：更一致的 props 结构
+
+```javascript
+import { h } from 'vue'
+
+h('div', {
+  id: 'app',
+  onClick: () => {}
+}, 'Hello')
+```
+
+### 2. 插槽处理
+
+* 插槽统一为函数形式
+* `this.$slots` 现在是函数，需要调用
+* `this.$scopedSlots` 移除
+
+## 七、TypeScript 支持
+
+### 1. 更好的类型推断
+
+* 组件选项和 Composition API 都有良好类型支持
+* 自定义事件和 props 的类型检查
+
+### 2. 定义组件
+
+* 新的 `defineComponent` 方法提供类型推断
+
+```typescript
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  // 类型推断可用
+})
+```
+
+## 八、迁移策略
+
+1. **逐步迁移**：
+   * 使用 `@vue/compat` 构建兼容版本
+   * 逐步修复兼容性警告
+
+2. **工具支持**：
+   * 使用 Vue CLI 或 Vite 创建新项目
+   * 使用迁移辅助工具识别问题
+
+3. **代码重构**：
+   * 逐步引入 Composition API
+   * 重构过滤器为 computed/methods
+   * 更新事件处理逻辑
+
+4. **测试验证**：
+   * 确保单元测试和 E2E 测试覆盖
+   * 逐步验证组件功能
+
+## 九、其他注意事项
+
+1. **第三方库兼容性**：
+   * 检查依赖库是否有 Vue3 版本
+   * 常见库如 Vuex, Vue Router 需要升级到最新版
+
+2. **构建工具**：
+   * Vue CLI 需要升级到 v4.5.0+
+   * 推荐使用 Vite 获得更好的开发体验
+
+3. **浏览器支持**：
+   * Vue3 不再支持 IE11 (除非使用特殊构建版本)
+   * 确保目标浏览器兼容
+
+4. **DevTools**：
+   * 需要安装新的 Vue DevTools 扩展
+   * 调试体验有所改进
+
+## 十、资源推荐
+
+1. 官方迁移指南：https://v3-migration.vuejs.org/
+2. 迁移构建工具：https://github.com/vuejs/vue-next/tree/master/packages/vue-compat
+3. 迁移检查清单：https://v3-migration.vuejs.org/migration-guide.html#overview
+
+通过系统性地处理这些变化点，可以确保 Vue2 到 Vue3 的迁移过程顺利进行。
 
 ---
 
@@ -8425,6 +9176,390 @@ Vue3.x借鉴了 ivi算法和 inferno算法
 在创建VNode时就确定其类型，以及在mount/patch的过程中采用位运算来判断一个VNode的类型，在这个基础之上再配合核心的Diff算法，使得性能上较Vue2.x有了提升。(实际的实现可以结合Vue3.x源码看。)
 
 该算法中还运用了动态规划的思想求解最长递归子序列。
+
+---
+
+---
+url: /learning/vue/modules/page17.md
+---
+# Vue3 中插槽传参详解
+
+在 Vue3 中，插槽的使用方式相比 Vue2 有了一些变化，特别是在作用域插槽（传参插槽）方面。以下是 Vue3 中插槽传参的全面指南：
+
+## 一、基本插槽传参
+
+### 1. 默认插槽传参
+
+**子组件**:
+
+```vue
+<template>
+  <div>
+    <slot :user="user" :age="age"></slot>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const user = ref('张三')
+const age = ref(25)
+</script>
+```
+
+**父组件使用**:
+
+```vue
+<template>
+  <ChildComponent>
+    <template v-slot="slotProps">
+      用户名：{{ slotProps.user }}，年龄：{{ slotProps.age }}
+    </template>
+  </ChildComponent>
+</template>
+```
+
+### 2. 具名插槽传参
+
+**子组件**:
+
+```vue
+<template>
+  <div>
+    <slot name="header" :title="title"></slot>
+    <slot :content="content"></slot>
+    <slot name="footer" :year="year"></slot>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const title = ref('页面标题')
+const content = ref('主要内容')
+const year = ref(2023)
+</script>
+```
+
+**父组件使用**:
+
+```vue
+<template>
+  <ChildComponent>
+    <template #header="{ title }">
+      <h1>{{ title }}</h1>
+    </template>
+    
+    <template v-slot="{ content }">
+      <p>{{ content }}</p>
+    </template>
+    
+    <template #footer="{ year }">
+      <footer>© {{ year }}</footer>
+    </template>
+  </ChildComponent>
+</template>
+```
+
+## 二、语法糖写法
+
+Vue3 推荐使用 `#` 简写代替 `v-slot:`
+
+```vue
+<template>
+  <ChildComponent>
+    <!-- 默认插槽 -->
+    <template #default="{ content }">
+      {{ content }}
+    </template>
+    
+    <!-- 具名插槽 -->
+    <template #header="{ title }">
+      {{ title }}
+    </template>
+  </ChildComponent>
+</template>
+```
+
+## 三、作用域插槽与 Composition API
+
+在 `<script setup>` 中使用插槽传参：
+
+**子组件**:
+
+```vue
+<template>
+  <div>
+    <slot :data="listData" :loading="isLoading"></slot>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const listData = ref([...])
+const isLoading = ref(false)
+</script>
+```
+
+**父组件使用**:
+
+```vue
+<template>
+  <DataComponent>
+    <template #default="{ data, loading }">
+      <div v-if="loading">加载中...</div>
+      <ul v-else>
+        <li v-for="item in data" :key="item.id">{{ item.name }}</li>
+      </ul>
+    </template>
+  </DataComponent>
+</template>
+```
+
+## 四、动态插槽名传参
+
+```vue
+<template>
+  <ChildComponent>
+    <template #[dynamicSlotName]="{ message }">
+      {{ message }}
+    </template>
+  </ChildComponent>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const dynamicSlotName = ref('header')
+</script>
+```
+
+## 五、无渲染组件模式
+
+利用插槽传参实现无渲染组件：
+
+**子组件 (RenderlessComponent.vue)**:
+
+```vue
+<template>
+  <slot :data="internalData" :update="updateData"></slot>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const internalData = ref(null)
+
+const updateData = (newData) => {
+  internalData.value = newData
+}
+</script>
+```
+
+**父组件使用**:
+
+```vue
+<template>
+  <RenderlessComponent>
+    <template #default="{ data, update }">
+      <div>
+        <pre>{{ data }}</pre>
+        <button @click="update({ timestamp: Date.now() })">
+          更新数据
+        </button>
+      </div>
+    </template>
+  </RenderlessComponent>
+</template>
+```
+
+## 六、TypeScript 支持
+
+为插槽 props 添加类型：
+
+**子组件**:
+
+```vue
+<template>
+  <slot :user="user" :actions="actions"></slot>
+</template>
+
+<script setup lang="ts">
+interface User {
+  name: string
+  age: number
+}
+
+interface Action {
+  type: string
+  handler: () => void
+}
+
+const user: User = {
+  name: '张三',
+  age: 25
+}
+
+const actions: Action[] = [
+  { type: 'edit', handler: () => console.log('编辑') }
+]
+</script>
+```
+
+**父组件使用**:
+
+```vue
+<template>
+  <ChildComponent>
+    <template #default="{ user, actions }">
+      <!-- 这里 user 和 actions 会有类型推断 -->
+    </template>
+  </ChildComponent>
+</template>
+```
+
+## 七、注意事项
+
+1. **v-slot 只能在 `<template>` 或组件上使用**，不能用在普通 HTML 元素上
+2. **默认插槽**需要使用 `#default` 或 `v-slot:default` 来接收作用域参数
+3. **解构插槽 props** 时可以使用默认值：
+   ```vue
+   <template #header="{ title = '默认标题' }">
+     {{ title }}
+   </template>
+   ```
+4. Vue3 中移除了 `$scopedSlots`，统一使用 `$slots`
+
+通过以上方式，你可以在 Vue3 中灵活地使用插槽传参功能，实现组件间的灵活通信和内容分发。
+
+---
+
+---
+url: /note/vue3/modules/page1.md
+---
+# vue3 中的 hooks
+
+Vue 3 引入了组合式 API（Composition API），它允许开发者在一个函数内组织和复用逻辑，这些函数通常被称为 hooks。Hooks 在 Vue 3 中并不是一个官方术语，但这个概念是从 React 社区借鉴过来的，用来描述利用 Composition API 实现的状态逻辑复用模式。
+
+### 组合式 API 的基础
+
+在 Vue 2.x 版本中，我们使用 Options API 来定义组件，比如 `data`、`methods`、`computed` 等选项。而在 Vue 3 中，通过引入 `setup` 函数，可以更加灵活地组织代码逻辑，尤其是当组件变得复杂时，这种方式显得尤为有用。
+
+### 创建一个简单的 Hook
+
+下面是一个简单的例子，演示如何创建和使用自定义 hook：
+
+假设我们需要在多个组件中获取窗口大小，并监听其变化。我们可以创建一个名为 `useWindowSize` 的 hook：
+
+```javascript
+import { ref, onMounted, onUnmounted } from 'vue';
+
+function useWindowSize() {
+  const windowSize = ref({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+
+  const handleResize = () => {
+    windowSize.value = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  };
+
+  onMounted(() => window.addEventListener('resize', handleResize));
+  onUnmounted(() => window.removeEventListener('resize', handleResize));
+
+  return windowSize;
+}
+```
+
+然后，在你的组件中使用这个 hook：
+
+```javascript
+<template>
+  <div>
+    <p>Width: {{ windowSize.width }}</p>
+    <p>Height: {{ windowSize.height }}</p>
+  </div>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+import useWindowSize from './hooks/useWindowSize'; // 假设 hook 文件位于 ./hooks/useWindowSize.js
+
+export default defineComponent({
+  setup() {
+    const windowSize = useWindowSize();
+
+    return { windowSize };
+  }
+});
+</script>
+```
+
+### 总结
+
+* **Composition API** 提供了一种新的方式来组织代码，特别是在处理复杂的场景时。
+* **Hook** 是一种设计模式，用于抽取可复用的逻辑，使代码更加清晰和易于维护。
+* 通过结合 `ref`、`reactive`、生命周期钩子（如 `onMounted`, `onUnmounted`）等 Composition API 的功能，你可以轻松创建自己的 hooks 来封装特定的行为或逻辑。
+
+## Vue 3 中还有哪些内置的 hooks
+
+在 Vue 3 中，Composition API 提供了一系列的内置 hooks（也称为生命周期钩子），这些钩子允许你在组件的不同阶段执行代码。以下是部分常用的内置 hooks：
+
+* `onBeforeMount`: 在挂载开始之前调用（即，在渲染内容到 DOM 之前）。
+* `onMounted`: 实例挂载完成后调用（通常用于执行需要访问 DOM 的操作）。
+* `onBeforeUpdate`: 组件更新之前调用。此时可以获取更新前的状态。
+* `onUpdated`: 组件因为响应式状态变更导致 DOM 更新后调用。
+* `onBeforeUnmount`: 在实例销毁之前调用。此时实例仍然是完全正常的。
+* `onUnmounted`: 在实例销毁后调用。调用此钩子时，组件的所有指令都被解绑，所有事件监听器被移除，所有子实例也都被销毁。
+* `onErrorCaptured`: 当捕获一个来自后代组件的错误时被调用。
+* `onRenderTracked` 和 `onRenderTriggered`: 分别用来调试追踪虚拟 DOM 重新渲染时和触发重新渲染的源头。
+
+### 创建带参数的 Hook 和 如何创建一个带参数的 hook
+
+创建一个接受参数的 hook 很简单，它实际上就是一个返回某些响应式引用或函数的普通函数，你可以根据需求向这个函数传递参数。下面是一个简单的例子，演示如何创建一个带有参数的自定义 hook。
+
+假设我们需要一个 hook 来监听某个特定事件，并且能够指定事件类型和回调函数：
+
+```javascript
+import { ref, onMounted, onUnmounted } from 'vue';
+
+function useEventListener(eventType, callback) {
+  const listener = (event) => callback(event);
+
+  onMounted(() => window.addEventListener(eventType, listener));
+  onUnmounted(() => window.removeEventListener(eventType, listener));
+}
+
+export default useEventListener;
+```
+
+然后你可以在组件中这样使用它：
+
+```javascript
+import { defineComponent } from 'vue';
+import useEventListener from './useEventListener'; // 假设 hook 文件位于 ./useEventListener.js
+
+export default defineComponent({
+  setup() {
+    useEventListener('click', event => console.log(`Clicked at: ${event.clientX}, ${event.clientY}`));
+
+    return {};
+  }
+});
+```
+
+在这个例子中，我们创建了一个名为 `useEventListener` 的 hook，它可以接收两个参数：`eventType` 表示要监听的事件类型，`callback` 是当该事件发生时要执行的回调函数。通过这种方式，我们可以轻松地在不同的组件中复用这段逻辑，并根据需要传入不同的参数。
+
+---
+
+---
+url: /note/vue3/page.md
+---
+# Vue3 相关笔记
 
 ---
 
@@ -14151,7 +15286,7 @@ Vue 3 在多个方面实现了显著的性能提升，这些改进不仅提高�
 
 * 插槽（Slots）
   * 插槽提供了一种内容分发的API，允许父组件向子组件传递模板片段
-* attrs和attrs和listeners（在Vue 3中已合并为 $attrs）
+* attrs和listeners（在Vue 3中已合并为 $attrs）
   * `$attrs`包含了所有未被声明为 props 的属性，可以用来透传到子组件
 * Ref + DefineExpose
   * 父组件可以通过 ref 直接访问子组件实例或DOM元素，并调用子组件的方法
@@ -15004,6 +16139,97 @@ url: /novel/overachiever/pages/page9.md
 —
 
 **——第九章·完**
+
+---
+
+---
+url: /novel/overachiever/pages/page20.md
+---
+# 第二十章：反派登场，惊觉主角不可卷
+
+演武场西侧，看台之上，一身紫金云纹长袍的少年缓步踏出，身后跟随两位执事模样的长老。
+
+“他是……秦家嫡子，秦朗！”
+
+“听说他早在一年前便已炼体九重，并修有家族传承的《雷云劲》，连韩齐都未必是对手。”
+
+“秦家是青玄宗外门大户之一，此人若拜入宗门，前途不可限量。”
+
+人群中窃窃私语，纷纷向那名走来的少年投去敬畏目光。
+
+台下的杨易此刻刚刚结束了与韩齐的一战，精神尚未完全恢复，但神识如剑，依旧死死锁定这位新登场的强敌。
+
+“你便是那个靠‘奇技淫巧’闯入前十的新面孔？”秦朗语气淡漠，却透着一股根深蒂固的优越感，“不错，有点意思。”
+
+杨易皱眉，未言语。
+
+他已经看得出，对方不仅体术强横，且拥有雷属性灵根，天生便在速度与爆发上远胜常人。若硬拼，哪怕是全盛状态的他，也未必能讨得了好处。
+
+但此刻，灵气不足三成，身体疲惫，神识仍在刚才的连环破阵推演中微微刺痛，偏偏这时，来了一位比韩齐更强的对手。
+
+“演武继续，挑战无间。”执事长老的声音如判决。
+
+杨易深吸口气，目光微眯，“好一个‘无间’……”
+
+而台上的秦朗却已出手。
+
+一道雷光如剑，撕裂空气，瞬间掠至杨易面前！
+
+轰——！
+
+杨易脚步错位，踏出古怪步伐，强行扭身避开第一击，但第二道雷光已然接踵而至，似是早已预判好他的闪避路线！
+
+“真当我是系统白送的？”
+
+他低喝一声，神识之海中浮现一幅新的“拟灵阵图”结构，那是他早在刚才推演时便已构建完毕的备用方案——
+
+**“三息动图·风雷借影”！**
+
+只见他周身灵力急速运转，纵身飞掠之间竟拖出三道“影像残痕”，在下一击落下之前，完成了瞬间的三段位移！
+
+全场哗然！
+
+“他居然能在这种状态下继续拟图并实战应用？”
+
+“这不是炼体修士能做出来的事吧！”
+
+“他该不会是隐藏修为的……灵识修士？”
+
+台上的秦朗也露出一丝惊色，但旋即冷笑，“会点小花样，不过是雕虫小技。”
+
+轰！
+
+雷芒再起，这次他直接激发灵识，雷云劲第二式《雷锁苍空》展开，十道雷光自四面八方封锁而来，防止杨易继续借“残影”闪避。
+
+杨易眉头一挑：“真当我没有后招？”
+
+他眼神一厉，右手猛然探出，一道由灵识勾勒而成的“旋盘式破图”瞬间绽放于脚下！
+
+那是他系统中解锁的\*\*“拟阵·雷纹斩”\*\*，原本用于辅助破雷阵之用，如今被他灵活改造，硬生生在半空中形成一个反向雷引场域！
+
+雷光瞬间混乱，朝着阵盘中心汇聚而去！
+
+秦朗面色一变，还未反应过来，杨易已经从雷光混乱中一步踏出，出现在他左侧。
+
+“你知道，什么才是真正的‘卷’吗？”
+
+“不是比谁修炼快，不是比谁灵根好，而是——”
+
+“你以为我只有一招，我已经准备了十招。”
+
+砰！！！
+
+一记重拳击中秦朗左肋，将其打得飞出数丈之外，吐血倒地。
+
+演武场鸦雀无声。
+
+片刻之后，执事长老震惊地宣布：“秦朗……战败，杨易，胜！”
+
+高台上，一名银袍中年男子眼神幽深。
+
+他是青玄宗宗主之弟，掌刑堂长老秦厉，秦朗的亲叔。
+
+“此子，不能留。”他轻声道。
 
 ---
 
@@ -16369,6 +17595,120 @@ url: /novel/overachiever/pages/page13.md
 ---
 
 ---
+url: /novel/overachiever/pages/page19.md
+---
+# 第十九章：极限计算！神识推演决杀韩齐！
+
+风起云涌，灵阵森然。
+
+演武场西侧，第三位擂台挑战者缓缓步入场中。他身披深蓝雷纹战袍，脚步每落，虚空间便隐隐传出电弧激荡之声。那是雷灵根修士独有的灵气扰动，迅猛、暴烈、不羁。
+
+“第三位挑战者，天河宗外门第二，‘雷动九霄’韩齐！”
+
+擂台四周，看台席上爆出一片掌声和惊呼。韩齐出身寒门，外门苦修七载，以快准狠著称，已连续两年位列外门考核前十，被认为是本届收徒中最难缠的一员。
+
+韩齐目光锐利，淡淡扫视擂台，最后落在李牧身上，冷笑道：
+
+“你，就是拟灵图的‘外乡野子’？挺能装的嘛，连破两阵，斩一人。可惜，你的好运到头了。”
+
+李牧此时盘膝于阵图中央，五指指尖淡淡灵光游走，眼神平静无波，仿佛未将韩齐放在眼中。
+
+“我不靠运气。”李牧淡然回应，“我靠计算、推演、努力——还有对修行的执念。”
+
+“哼，嘴硬！”韩齐猛然踏前一步，身形竟直接拉出一道雷电残影！
+
+“雷影步·连闪！”
+“雷牙指·五击断魂！”
+
+轰！轰！轰轰轰！
+
+几乎是在一瞬之间，韩齐连续五次瞬身突击，配合雷系灵技将攻击精准打向李牧拟出的拟灵阵图中心死角，快如雷霆，宛若电蛇缠身！
+
+但诡异的是——每一次攻击临近目标前，皆被一道光纹强行引导偏斜，仿佛被“计算”过一样，全部落空！
+
+韩齐眉头一跳：“什么？”
+
+看台上，一些擅长神识的修士已看出端倪。
+
+“他……他用神识联动阵图，在战斗中实时推演韩齐的进攻轨迹！”
+
+“什么？这小子神识有这么强？”
+
+“简直是疯子！他是用神识当CPU推演战局吗？这得多卷啊！”
+
+“你说这叫卷？”席间突然有人冷哼一声，“他是神魂多线程并行计算！是真正的天才型苦修疯子！”
+
+李牧指尖微动，心神沉入拟灵图深处，光幕中，上百道灵纹流转如水，实时调整阵眼与气流方向，同时根据韩齐出手规律模拟出“百种可能路径”。
+
+“雷灵修士的攻击节奏是变速曲线，第一击最快，后三击延迟收缩，我只需在阵中布下三重缓冲回旋阵，加一记风引——”
+
+轰！
+
+韩齐第六击终于突破李牧一层灵阵，打碎两道灵纹光柱。
+
+但下一瞬，他自己也突然呛了一口气——
+
+他竟然……被李牧借力“引阵”，打入阵心深处！
+
+“困阵起！”
+“水引·风缠！”
+“雷封·回流锁灵阵！”
+
+李牧眸光如电，手指连续掐诀！
+
+轰隆！
+
+阵法中央，骤然浮现一个旋转的倒金字塔阵核，将韩齐封困其中，雷电被牵引压制，动弹不得！
+
+“你……！”韩齐怒吼。
+
+李牧缓缓站起，眼神凌厉：“你太快，但快不过计算。”
+
+他抬手虚握，五指如钩，灵光一闪！
+
+“阵图决杀·模拟雷劫！”
+
+瞬间，上方雷云凝聚，由阵图催动的虚拟雷劫骤然降临，一道雷光击中阵中韩齐！
+
+砰！
+
+韩齐喷血倒飞而出，气息暴跌。
+
+——胜负已分！
+
+……
+
+四周一片死寂。
+
+看台上所有弟子、长老、执事都神色复杂地望着李牧。
+
+“他不是战斗力强，他是……把整个战局用神识‘算’赢了！”
+
+“什么拟灵图啊，这是阵术与神识的极限碾压！”
+
+“韩齐败得不冤。”
+
+……
+
+主台上，风成山眼神微凝，口中喃喃：“此子，不可小觑。”
+
+他身边的白衣少女轻轻颔首，声音第一次认真：“他不是走运，是提前预演了每一场战斗的千种可能。”
+
+“他的神魂……简直不像是凡体。”
+
+……
+
+擂台上，李牧静静收起拟灵图，抬头看向擂台尽头。
+
+他的眼中，依旧清冷如初。
+
+“还有七位。”
+
+“继续卷。”
+
+---
+
+---
 url: /novel/overachiever/pages/page12.md
 ---
 # 第十二章：副本之门！卷王对卷王！
@@ -17718,7 +19058,7 @@ url: /learning/category/page.md
 
 ## 浏览器与网络
 
-### 浏览器输入URL到渲染过程 ✅
+### ✅浏览器输入URL到渲染过程
 
 ::: details 详解
 
@@ -17813,7 +19153,7 @@ url: /learning/category/page.md
 
 :::
 
-### 事件轮询
+### ✅事件轮询
 
 ::: details 详解
 
@@ -17861,13 +19201,13 @@ url: /learning/category/page.md
 3. 取出一个宏任务执行，重复上述过程
    :::
 
-### 跨域
+### ✅跨域
 
 ::: details 详解
 
 ##### 什么是跨域？为什么会出现跨域？
 
-* 跨域是指浏览器因为\*\*同源策略（Same-origin policy）\*\*的限制，阻止从一个不同协议（HTTP/HTTPS）、不同域名、不同端口加载资源的行为。
+* 跨域是指浏览器因为 **`同源策略（Same-origin policy）`** 的限制，阻止从一个不同协议（HTTP/HTTPS）、不同域名、不同端口加载资源的行为。
 * 同源策略的三个条件
   * 协议相同
   * 域名相同
@@ -17900,7 +19240,7 @@ url: /learning/category/page.md
   * 上传文件时使用 FormData + fetch 或 XMLHttpRequest，后端需设置 Access-Control-Allow-Origin 和允许的 Content-Type 类型。\
     :::
 
-### HTTP1.1 与 HTTP2 区别
+### ✅HTTP1.1 与 HTTP2 区别
 
 ::: details 详解
 
@@ -17912,7 +19252,7 @@ url: /learning/category/page.md
 * HTTP2 通常加密（推荐TLS）
   :::
 
-### OPTIONS 预请求
+### ✅OPTIONS 预请求
 
 ::: details 详解
 
@@ -17933,7 +19273,7 @@ OPTIONS 请求是浏览器在发送某些跨域请求之前，自动发起的一
 * 如果服务器允许，则浏览器继续发送真正的请求；否则，阻止请求并报错
   :::
 
-### 状态码详解
+### ✅状态码详解
 
 ::: details 详解
 
@@ -17964,7 +19304,7 @@ OPTIONS 请求是浏览器在发送某些跨域请求之前，自动发起的一
    * 503 Service Unavailable：由于临时的服务器维护或过载，服务器暂时无法处理请求。
      :::
 
-### WebSocket
+### ✅WebSocket
 
 ::: details 详解
 
@@ -17988,7 +19328,7 @@ WebSocket 的建立过程是基于 HTTP 协议的，称为握手（Handshake）
 
 ## 性能优化 ❌
 
-### 前端性能优化
+### ✅前端性能优化
 
 ::: details 详解
 
@@ -18066,7 +19406,7 @@ WebSocket 的建立过程是基于 HTTP 协议的，称为握手（Handshake）
    * 基于监控数据不断调整和优化网站性能。
      :::
 
-### 前端首屏优化
+### ✅前端首屏优化
 
 ::: details 详解
 
@@ -18124,7 +19464,7 @@ WebSocket 的建立过程是基于 HTTP 协议的，称为握手（Handshake）
    * 根据监控数据不断调整和优化网站性能，保持最佳状态。
      :::
 
-### Web缓存
+### ✅Web缓存
 
 ::: details 详解
 
@@ -18191,7 +19531,7 @@ Cache-Control是HTTP/1.1中定义的最重要的缓存控制头部，它可以�
 * LocalStorage、SessionStorage、IndexedDB、cookie
   :::
 
-### 前端内存泄漏
+### ✅前端内存泄漏
 
 ::: details 详解
 
@@ -18208,7 +19548,7 @@ Cache-Control是HTTP/1.1中定义的最重要的缓存控制头部，它可以�
 
 ## JavaScript 核心
 
-### ES6 新特性
+### ✅ES6 新特性
 
 ::: details 详解
 
@@ -18227,7 +19567,7 @@ Cache-Control是HTTP/1.1中定义的最重要的缓存控制头部，它可以�
 * 解构赋值
   :::
 
-### 箭头函数 vs 普通函数
+### ✅箭头函数 vs 普通函数
 
 ::: details 详解
 
@@ -18240,7 +19580,7 @@ Cache-Control是HTTP/1.1中定义的最重要的缓存控制头部，它可以�
 
 :::
 
-### 原型和原型链
+### ✅原型和原型链
 
 ::: details 详解
 
@@ -18269,7 +19609,7 @@ console.log(Person.prototype.constructor === Person); // true
 **原型是继承的基础，原型链是属性查找的机制**
 :::
 
-### 函数柯里化
+### ✅函数柯里化
 
 ::: details 详解
 
@@ -18311,7 +19651,7 @@ console.log(curryAdd(1)(2, 3)); // 6
 
 :::
 
-### CommonJS 与 模块化
+### ✅CommonJS 与 模块化
 
 ::: details 详解
 
@@ -18448,7 +19788,7 @@ CommonJS（CJS）和 ECMAScript 模块（ESM）是JavaScript中两种不同的�
 
 ## Vue 框架
 
-### Vue 双向绑定原理
+### ✅Vue 双向绑定原理
 
 ::: details 详解
 
@@ -18481,7 +19821,7 @@ data.name = "Vue3"; // 控制台输出 "数据更新了"
 
 :::
 
-### Vue 生命周期详解
+### ✅Vue 生命周期详解
 
 ::: details 详解
 
@@ -18500,7 +19840,7 @@ data.name = "Vue3"; // 控制台输出 "数据更新了"
 * `deactivated`：**当组件被缓存后，离开当前视图（被切换出去）时调用**。可以在这里进行一些资源释放操作，比如清除定时器、取消事件监听、停止动画等，防止内存泄漏。
   :::
 
-### Vue 自定义指令
+### ✅Vue 自定义指令
 
 ::: details 详解
 
@@ -18521,7 +19861,7 @@ app.directive("focus", {
 
 :::
 
-### Vue 如何优化 SEO
+### ✅Vue 如何优化 SEO
 
 ::: details 详解
 在Vue.js项目中优化SEO（搜索引擎优化）主要涉及以下几个方面：
@@ -18548,7 +19888,7 @@ app.directive("focus", {
 
 :::
 
-### Vue2 vs Vue3
+### ✅Vue2 vs Vue3
 
 ::: details 详解
 
@@ -18596,7 +19936,7 @@ app.directive("focus", {
 * beforeCreate、created 被语法糖 setup 替代
   :::
 
-### Vue3 组件通信与原理
+### ✅Vue3 组件通信与原理
 
 ::: details 详解
 
@@ -18612,7 +19952,7 @@ app.directive("focus", {
   * Pinia (推荐)
     :::
 
-### Vue 路由实现原理
+### ✅Vue 路由实现原理
 
 ::: details 详解
 
@@ -18789,7 +20129,7 @@ const KeepAlive = {
 
 :::
 
-### Vue computed 原理
+### ✅Vue computed 原理
 
 ::: details 详解
 Vue 的 `computed` 属性实现的核心在于`依赖追踪`和`响应式系统`。简要来说，其实现原理包括以下几个关键点：
@@ -18805,7 +20145,7 @@ Vue 的 `computed` 属性实现的核心在于`依赖追踪`和`响应式系统`
 综上所述，Vue 的 `computed` 利用了依赖追踪、缓存机制以及响应式更新等特性，使得它能够高效地管理复杂状态逻辑，同时简化了代码的编写和维护工作。
 :::
 
-### vue3 watch vs watchEffect
+### ✅vue3 watch vs watchEffect
 
 ::: details 详解
 
@@ -18844,7 +20184,7 @@ Vue 的 `computed` 属性实现的核心在于`依赖追踪`和`响应式系统`
 
 :::
 
-### Vue SSR 和 SSG 的实现原理
+### ✅Vue SSR 和 SSG 的实现原理
 
 ::: details 详解
 Vue 的 SSR（Server-Side Rendering，服务端渲染）和 SSG（Static Site Generation，静态站点生成）是两种不同的预渲染技术，旨在提高首屏加载速度、SEO效果以及用户体验。下面分别介绍这两种技术的实现原理。
@@ -18906,7 +20246,7 @@ SSG 是预先构建所有页面为静态HTML文件的过程，这些页面可以
 通过上述措施，你可以最大化地发挥SSR在SEO方面的潜力，确保你的网站不仅对用户友好，也能很好地适应搜索引擎的需求。
 :::
 
-### vue2和 vuex3渲染器的 diff算法
+### ✅vue2和 vuex3渲染器的 diff算法
 
 ::: details 详解
 Vue 2 和 Vue 3 在渲染机制和 diff 算法方面有着显著的不同，这些改进旨在提高性能和开发体验。
@@ -18936,7 +20276,7 @@ Vue 3 对渲染器和 diff 算法进行了多项优化，包括但不限于：
 总的来说，Vue 3 相对于 Vue 2，在 diff 算法和渲染逻辑上有了显著的改进，使得应用在保持简洁的同时还能获得更好的性能表现。这些改进帮助开发者构建更高效的应用程序，同时也提升了用户体验。
 :::
 
-### Vue nextTick
+### ✅Vue nextTick
 
 ::: details 详解
 
@@ -19001,7 +20341,7 @@ Vue 3 对编译器进行了多项改进，主要包括：
 总的来说，Vue 编译器的工作就是将开发人员书写的模板或 JSX 转换成高效的 JavaScript 渲染逻辑。Vue 3 相对于 Vue 2，在编译效率、输出质量和性能优化方面都有显著的进步，这使得使用 Vue 构建的应用程序能够获得更好的用户体验。同时，Vue 3 的编译器设计也更加模块化，便于未来功能的扩展和性能的持续优化。
 :::
 
-### Vue 中的 Key
+### ✅Vue 中的 Key
 
 ::: details 详解
 在 Vue 中，`key` 是一个特殊的属性，用于给每个节点提供一个唯一的标识。Vue 使用 `key` 来追踪节点的身份，以便更高效地更新虚拟 DOM。以下是关于 `key` 属性的详细解释：
@@ -19033,7 +20373,7 @@ Vue 3 对编译器进行了多项改进，主要包括：
 总之，正确使用 `key` 对于优化 Vue 应用的性能至关重要。它不仅帮助 Vue 更加智能地进行 DOM 操作，还能避免一些潜在的错误和性能瓶颈。
 :::
 
-### ref 和 reactive 的区别
+### ✅ref 和 reactive 的区别
 
 ::: details 详解
 在 Vue 3 中，`ref` 和 `reactive` 是 Composition API 提供的两个核心响应式函数，它们用于创建不同类型的响应式数据。
@@ -19165,7 +20505,7 @@ Vue 3 对编译器进行了多项改进，主要包括：
 
 ## React 框架
 
-### React 框架原理
+### ✅React 框架原理
 
 ::: details 详解
 在准备前端面试时，了解 React 框架的原理是非常重要的。以下是一些关键概念和原理，可以帮助你更好地理解 React，并在面试中展示你的知识。
@@ -19197,7 +20537,7 @@ Hooks是React 16.8引入的新特性，它允许函数组件拥有类组件的�
 
 ## 样式与布局
 
-### Flex
+### ✅Flex
 
 ::: details 详解
 在前端开发中，`flex`（弹性盒子布局，Flexbox）是一种现代的、高效的 CSS 布局模型，特别适合用于一维布局（即行或列）。它简化了在不同屏幕尺寸和设备上对齐、分布和排列元素的方式，是响应式设计的重要工具。
@@ -19358,7 +20698,7 @@ flex: <flex-grow> <flex-shrink> <flex-basis>;
 | 左右结构（如页眉页脚） | 使用 `justify-content: space-between` |
 :::
 
-### BFC
+### ✅BFC
 
 ::: details 详解
 
@@ -19543,7 +20883,7 @@ flex: <flex-grow> <flex-shrink> <flex-basis>;
 
 ## 构建工具及工程化
 
-### Webpack 的构建流程
+### ✅Webpack 的构建流程
 
 ::: details 详解
 
@@ -19658,7 +20998,7 @@ Webpack 是一个模块打包工具，它的核心功能是将项目中的各种
 | 输出 | 生成 HTML、清理目录 | `HtmlWebpackPlugin`, `CleanWebpackPlugin` |
 :::
 
-### vite 的构建流程
+### ✅vite 的构建流程
 
 ::: details 详解
 Vite 底层原理的理解
@@ -19910,7 +21250,7 @@ Vite SSR（Server-Side Rendering）是一种将页面在服务器上预先渲染
 
 :::
 
-### Webpack vs vite
+### ✅Webpack vs vite
 
 ::: details 详解
 
@@ -20029,7 +21369,7 @@ npm run build
 | 大型企业级应用 | 可以结合使用（Vite + 微前端架构） |
 :::
 
-### [TypeScript](/learning/category/modules/page3)
+### ✅[TypeScript](/learning/category/modules/page3)
 
 ::: details 详解
 
@@ -20090,35 +21430,30 @@ npm run build
 * SEO 如何做
   ::: details 详解
 
-#### 如何优化 SEO
+### 如何优化 SEO
 
-优化SEO（搜索引擎优化）涉及多个方面，旨在提高网站在搜索引擎结果页面（SERPs）中的可见度。以下是一些关键策略：
+> SEO（搜索引擎优化）的主要目的是通过提高网站在搜索引擎结果页面（SERPs）中的可见性和排名，从而吸引更多的有机（非付费）流量到网站
 
-1. **关键词研究**：了解您的目标受众使用的搜索词，并确保这些关键词自然地出现在您的网站内容中。使用工具如Google Keyword Planner、Ahrefs或SEMrush来找到合适的关键词。
+从提高`网站的可见性`和`访问量`的角度来归类，可以将上述SEO策略分为以下几个类别：
 
-2. **高质量内容创建**：提供有价值、原创且与目标关键词相关的内容。优质内容不仅能吸引访问者，还能鼓励其他网站链接至您的页面，从而提升排名。
+**一、提升搜索引擎可见性**
 
-3. **技术优化**：
-   * 确保网站加载速度快，移动端友好。
-   * 使用SSL证书保证网站安全。
-   * 创建并提交网站地图（Sitemap），以便搜索引擎更容易索引您的网站。
-   * 使用结构化数据标记帮助搜索引擎理解页面内容。
+1. 关键词研究：投其所好，目标受众使用的关键词，确保自然地出现在网站内容中
+2. 技术优化：使用语义化标签，加快网站加载速度、保证移动端友好、使用SSL保证网站安全、创建网站地图sitemap、使用结构化数据标记，让搜索引擎更容易和理解你的页面
 
-4. **用户体验（UX）改进**：一个设计良好、易于导航的网站能减少跳出率，增加用户停留时间，这对SEO有利。
+**二、增加用户访问量**
 
-5. **外部链接建设**：获取来自权威网站的高质量反向链接。这可以通过内容营销、公关活动和合作伙伴关系实现。
+1. 高质量内容创建： 提供有价值、原创与目标关键词相关的内容，吸引访问者同时鼓励其他网站链接您的页面
+2. 用户体验（UX）： 设计良好、易于导航，减少跳出率，增加用户停留时间
+3. 外部链接建设：获取来自权威网站的反向链接
+4. 社交媒体整合：增加曝光度，间接增加访问量
+5. 图片和视频优化： 图片添加alt属性。制作视频吸引流量
 
-6. **社交媒体整合**：虽然社交媒体信号不直接作为排名因素，但它们可以增加品牌曝光度，间接促进SEO。
+**三、长期增长访问量**
 
-7. **本地SEO**：如果您有实体店或服务特定地区，确保在Google My Business等平台注册并优化您的列表。
+1. 定期更新内容：保持内容新鲜度，有利于保持搜索引擎的关注
+2. 避免黑帽SEO技巧：避免使用如隐藏文本、关键词堆砌等不当做法，以免遭受搜索引擎的惩罚，影响网站的长期发展和可见性。
 
-8. **视频和图片优化**：为所有图片添加alt属性，并考虑制作视频内容以吸引更多流量。
-
-9. **定期更新内容**：保持博客文章和其他类型的内容新鲜度，有助于维持搜索引擎的关注。
-
-10. **避免黑帽SEO技巧**：不要尝试欺骗搜索引擎，如隐藏文本、关键词堆砌等做法，这些可能导致惩罚甚至封禁。
-
-针对基于JavaScript框架如Vue.js构建的单页应用(SPA)，还需要特别注意服务端渲染(SSR)或预渲染(Prerendering)的应用，以确保搜索引擎能够正确抓取和索引您的网页内容。通过结合以上策略，您可以有效地提升网站的SEO表现。
 :::
 
 * uniapp 插件开发
@@ -20171,6 +21506,22 @@ url: /Interview/vue/pages/page4.md
 # 谈一谈对 MVVM 的理解？
 
 MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。
+
+---
+
+---
+url: /answer/page.md
+---
+# 问答区
+
+## 微信下载基础库版本 2.31.0 失败 该怎么办
+
+::: details 解决方法
+
+* 点击微信开发者工具左上角，微信扫码登录
+* 详情->基本信息->appId 填入（从微信公众平台登录找到复制）
+* 详情->本地设置->调式基础库更改为 3.8.9 点击推送
+  :::
 
 ---
 

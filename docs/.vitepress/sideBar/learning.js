@@ -9,7 +9,7 @@ const templateMap = {
     },
     optimization: {
         text: '前端性能优化',
-        sub:['前端性能优化','前端首屏优化','前端缓存','前端内存泄漏']
+        sub:['前端性能优化','前端首屏优化','前端缓存','前端内存泄漏','requestAnimationFrame']
     },
     core: {
         text:'JavaScript 核心',
@@ -29,7 +29,7 @@ const templateMap = {
     },
     other: {
         text:'其它',
-        sub:['大文件上传','移动端适配','大屏适配']
+        sub:['大文件上传','移动端适配','大屏适配','移动端适配问题如何解决']
     },
     category:{
         text: '分类',

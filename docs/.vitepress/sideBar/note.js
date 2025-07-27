@@ -9,7 +9,7 @@ const templateMap = {
     },
     typeScript: {
         text:'TypeScript',
-        sub:['浏览器']
+        sub:['在项目中用 TS 封装 axios']
     },
     vite: {
         text:'Vite',
@@ -21,7 +21,7 @@ const templateMap = {
     },
     webpack: {
         text:'Webpack',
-        sub:['浏览器']
+        sub:['Webpack插件开发指南']
     },
     uniapp: {
         text:'Uniapp',

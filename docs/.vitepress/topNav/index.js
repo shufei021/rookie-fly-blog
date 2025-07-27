@@ -22,6 +22,10 @@ export default [
     link: "/answer/page.md",
   },
   {
+    text: "每日一练",
+    link: "/clock/page.md",
+  },
+  {
     text: "小说",
     items: [
       { text: "卷王仙尊", link: "/novel/overachiever/page" },
